@@ -63,9 +63,14 @@ export default function PageHero({
   return (
     <section className="relative bg-gray-900 text-white overflow-hidden">
       {bgImage && (
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-80"
-          style={{ backgroundImage: `url('${bgImage}')` }}
+        <img
+          src={bgImage}
+          alt=""
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-700/10 to-transparent" />

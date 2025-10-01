@@ -80,8 +80,9 @@ export default function Layout({ children, currentPageName }) {
   const [showBackToTop, setShowBackToTop] = React.useState(false);
   const [showASAPBanner, setShowASAPBanner] = React.useState(true);
   const [showTopNav, setShowTopNav] = React.useState(true);
-  const [isMobile, setIsMobile] = React.useState(false);
-  const [isTabletOrMobile, setIsTabletOrMobile] = React.useState(false);
+  const initialWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+  const [isMobile, setIsMobile] = React.useState(initialWidth < 768);
+  const [isTabletOrMobile, setIsTabletOrMobile] = React.useState(initialWidth <= 1024);
   const [isHoveringRedNav, setIsHoveringRedNav] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [degreeDropdownOpen, setDegreeDropdownOpen] = React.useState(false);
@@ -92,17 +93,32 @@ export default function Layout({ children, currentPageName }) {
   const prevASAPVisibleRef = React.useRef(true);
 
   React.useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      setIsTabletOrMobile(window.innerWidth <= 1024);
+    // Lightweight debounce using a single timer; avoids rapid state flips and extra renders
+    let resizeTimer = null;
+    let scrollTimer = null;
+
+    const handleResizeNow = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTabletOrMobile(width <= 1024);
     };
 
-    const handleScroll = () => {
+    const handleResize = () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleResizeNow, 120);
+    };
+
+    const handleScrollNow = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 10);
       setShowBackToTop(scrollY > 300);
-      // Hide top nav when scrolling down, show when at top or scrolling up
+      // Hide top nav when near top
       setShowTopNav(scrollY < 50);
+    };
+
+    const handleScroll = () => {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(handleScrollNow, 120);
     };
 
     // Add global protection against external script interference
@@ -206,7 +222,9 @@ export default function Layout({ children, currentPageName }) {
       document.head.appendChild(style);
     };
 
-    handleResize();
+    // Perform one synchronous measurement to avoid initial flicker
+    handleResizeNow();
+    handleScrollNow();
     addGlobalProtection();
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
@@ -214,8 +232,16 @@ export default function Layout({ children, currentPageName }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      if (resizeTimer) clearTimeout(resizeTimer);
+      if (scrollTimer) clearTimeout(scrollTimer);
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
+      }
+      if (degreeHoverTimeoutRef.current) {
+        clearTimeout(degreeHoverTimeoutRef.current);
+      }
+      if (tuitionHoverTimeoutRef.current) {
+        clearTimeout(tuitionHoverTimeoutRef.current);
       }
       // Clean up protection styles
       const protection = document.getElementById("navigation-protection");
