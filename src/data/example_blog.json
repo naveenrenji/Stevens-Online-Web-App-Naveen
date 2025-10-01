@@ -1,0 +1,321 @@
+{
+  "posts": [
+    {
+      "id": "mscs-remote-jobs",
+      "title": "Does an Online MSCS Degree Prepare Graduates for Remote Computer Science Jobs?",
+      "subtitle": "A Master of Science in Computer Science (MSCS) — which you can earn online at the Stevens Institute of Technology — prepares you for more engaging, better-paying, and more in-demand remote jobs.",
+      "excerpt": "Work from home exploded during the COVID-19 pandemic; the remote workforce jumped from 7% before the pandemic to 55% in October 2020. Today, a significant portion—over one-third—of employed adults who can work remotely are doing so.",
+      "featured_image_url": "/assets/blog/stv-mscs-blog-prepare-for-remote-computer-science-jobs-with-an-mscs.png",
+      "category": "Mastering Computer Science",
+      "author": "Stevens Online",
+      "author_bio": "Stevens Institute of Technology's online education team provides insights into computer science careers and remote work opportunities.",
+      "author_image": "/assets/blog/authors/stevens-online.jpg",
+      "created_date": "2025-04-29T10:00:00Z",
+      "updated_date": "2025-04-29T10:00:00Z",
+      "read_time": 8,
+      "tags": ["Computer Science", "Remote Work", "MSCS", "Career Development", "Online Learning"],
+      "social_sharing": true,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Work from home exploded during the COVID-19 pandemic; the remote workforce jumped from 7% before the pandemic to 55% in October 2020. Today, a significant portion—over one-third—of employed adults who can work remotely are doing so. Given their preference, more would: Over 90 percent of employees worldwide prefer remote work.",
+          "links": [
+            {
+              "text": "jumped from 7% before the pandemic to 55% in October 2020",
+              "url": "https://www.pewresearch.org/short-reads/2023/03/30/about-a-third-of-us-workers-who-can-work-from-home-do-so-all-the-time/"
+            },
+            {
+              "text": "prefer remote work",
+              "url": "https://www.statista.com/statistics/1401265/preferred-work-structure-remote-workers-globally/"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Remote work is most common in professional, scientific, and technical services; the information industry; and finance and insurance. Any job that consists mainly of independent work at a computer is a candidate for remote work. That's why tech-focused professions — like computer science — are among the most conducive to working from home.",
+          "links": [
+            {
+              "text": "Remote work is most common",
+              "url": "https://www.bls.gov/opub/btn/volume-13/remote-work-productivity.htm"
+            },
+            {
+              "text": "tech-focused professions",
+              "url": "https://www.weforum.org/stories/2024/01/remote-global-digital-jobs-whitepaper/"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Computer science offers fertile ground for those interested in remote opportunities. Computer and information research scientists rank among the fastest-growing occupations in the US, according to the Bureau of Labor Statistics. Demand for these professionals should grow by 26% between 2023 and 2033, creating about 3,400 openings for computer and information research scientists each year. Additional opportunities await computer scientists as database administrators and architects, network architects, programmers, security analysts, software developers and systems analysts. Most of these jobs can be done remotely.",
+          "links": [
+            {
+              "text": "fastest-growing occupations",
+              "url": "https://www.bls.gov/ooh/fastest-growing.htm"
+            },
+            {
+              "text": "grow by 26% between 2023 and 2033",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-and-information-research-scientists.htm"
+            },
+            {
+              "text": "database administrators and architects",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/database-administrators.htm"
+            },
+            {
+              "text": "network architects",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-network-architects.htm"
+            },
+            {
+              "text": "programmers",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-programmers.htm"
+            },
+            {
+              "text": "security analysts",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm"
+            },
+            {
+              "text": "software developers",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm"
+            },
+            {
+              "text": "systems analysts",
+              "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-systems-analysts.htm"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A Master of Science in Computer Science (MSCS) — which you can earn online at the Stevens Institute of Technology — prepares you for more engaging, better-paying, and more in-demand remote jobs. This article explains why and also discusses how you can benefit from a StevensOnline MSCS.",
+          "links": [
+            {
+              "text": "StevensOnline MSCS",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "A Closer Look: Why Work from Home as a Computer Scientist?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Several factors drive workers' preference for remote work, which provides benefits that improve job performance and job satisfaction. They include:"
+        },
+        {
+          "type": "list",
+          "style": "unordered",
+          "items": [
+            {
+              "text": "**Flexibility:** Remote workers typically have more leeway to set their schedules and choose how they allocate their time, allowing them to plan around appointments and complete their tasks when optimal. They also have the flexibility to decide where they work, broadening access to more job opportunities and freeing them to work from anywhere with stable internet access.",
+              "bold": ["Flexibility:"]
+            },
+            {
+              "text": "**Productivity:** According to the Bureau of Labor Statistics, the rise in remote work has increased productivity. Working from home leads to fewer distractions and improved concentration, ideal for computer scientists who often need to focus on complex tasks. The ability to tailor their workspace and schedules to their preferences contributes to increased productivity.",
+              "bold": ["Productivity:"],
+              "links": [
+                {
+                  "text": "rise in remote work has increased productivity",
+                  "url": "https://www.bls.gov/opub/btn/volume-13/remote-work-productivity.htm"
+                }
+              ]
+            },
+            {
+              "text": "**Financial:** Working remotely saves employees approximately $6,000 annually. Eliminating the need to drive to the office daily saves on gas, tolls, auto maintenance, clothing and eating out.",
+              "bold": ["Financial:"],
+              "links": [
+                {
+                  "text": "Working remotely saves employees approximately $6,000",
+                  "url": "https://www.usatoday.com/story/money/2023/10/16/americans-save-money-by-working-from-home/71140252007/"
+                }
+              ]
+            },
+            {
+              "text": "**Job satisfaction:** Remote employees report higher levels of job satisfaction than non-remote employees. Why? Top factors include improved work-life balance, reduced mental health issues, more time to exercise and higher morale.",
+              "bold": ["Job satisfaction:"],
+              "links": [
+                {
+                  "text": "higher levels of job satisfaction",
+                  "url": "https://www.surveymonkey.com/curiosity/work-from-home-survey-results/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "What Kind of Computer Science Jobs Can Be Done at Home?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Due to the nature of the work and demand for computer science professionals, many jobs within the field accommodate remote work. These roles can be fulfilled remotely:"
+        },
+        {
+          "type": "list",
+          "style": "unordered",
+          "items": [
+            {
+              "text": "**Artificial intelligence/machine learning engineers** design systems that enable machines to learn and make predictions from vast amounts of data. They collaborate with other tech professionals to integrate their models into applications and systems.",
+              "bold": ["Artificial intelligence/machine learning engineers"]
+            },
+            {
+              "text": "**Blockchain developers** create and sustain protocols, smart contracts, and decentralized applications (DApps). They also conduct extensive testing and troubleshooting to enhance security and performance, prevent vulnerabilities and optimize the system.",
+              "bold": ["Blockchain developers"]
+            },
+            {
+              "text": "**Cloud solutions architects** design and manage cloud infrastructure, ensuring that applications and systems are scalable, reliable, and secure. They work with stakeholders to develop cloud strategies, select appropriate cloud services and oversee the integration of cloud-based solutions into the organization's IT environment.",
+              "bold": ["Cloud solutions architects"]
+            },
+            {
+              "text": "**DevOps engineers** bridge the gap between development and operations, focusing on boosting collaboration and efficiency through process automation and CI/CD pipeline management. They handle the deployment, administration and monitoring of applications to ensure smooth software integration and delivery.",
+              "bold": ["DevOps engineers"]
+            },
+            {
+              "text": "**Full-stack developers** build and maintain web applications' front-end and back-end, ensuring seamless user experience and functionality. They use various technologies, including databases, servers and design frameworks to create comprehensive web solutions.",
+              "bold": ["Full-stack developers"]
+            },
+            {
+              "text": "**Software engineers** craft and maintain software systems by applying engineering principles and coding skills. They are involved in all phases of the software lifecycle, including user needs analysis, application testing and performance optimization.",
+              "bold": ["Software engineers"]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Remote work in the tech industry continues to increase because it helps attract skilled workers, increases productivity, and improves job satisfaction. You can boost your profile and your options for remote work with an MSCS.",
+          "links": [
+            {
+              "text": "Remote work in the tech industry continues to increase",
+              "url": "https://www.forbes.com/sites/lucianapaulise/2024/03/28/the-future-of-remote-tech-talent-top-30-companies-hiring-in-2024/"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Online Master's Prepares You for In-Demand Computer Science Jobs"
+        },
+        {
+          "type": "paragraph",
+          "text": "Earning a master's degree helps you stand out among the competition, increases your earning potential and lowers your unemployment rate. Employers often list a graduate degree among the preferred qualifications for higher-level or specialized positions in the tech sector.",
+          "links": [
+            {
+              "text": "increases your earning potential and lowers your unemployment rate",
+              "url": "https://www.bls.gov/emp/tables/unemployment-earnings-education.htm"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A master's in computer science, like the online MSCS from Stevens University, helps students build the skills needed to thrive and adapt in the evolving tech industry. The StevensOnline MSCS helps students develop in-demand computer science skills and knowledge of the latest industry tools. The curriculum, which benefits from the school's proximity to New York City corporations and tech start-ups, focuses on fostering technical proficiency in the leading industry tool through courses that include:",
+          "links": [
+            {
+              "text": "online MSCS from Stevens University",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            },
+            {
+              "text": "curriculum",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "unordered",
+          "items": [
+            {
+              "text": "**Algorithms,** which focuses on advanced data structures and algorithm design and analysis, covers topics such as balanced search trees, hashing, asymptotic complexity, graph and sort algorithms, and other classic design techniques using modern imperative programming languages.",
+              "bold": ["Algorithms,"]
+            },
+            {
+              "text": "**Applied Machine Learning,** which covers machine learning theory, algorithms, and applications, with hands-on opportunities for students to apply and simulate algorithms to solve real-world problems.",
+              "bold": ["Applied Machine Learning,"]
+            },
+            {
+              "text": "**Computer Organization and Planning,** which explores computer organization and assembly language programming, covering topics such as stored program computer structure, linking and loading, high-level language translation, processor design and control mechanisms.",
+              "bold": ["Computer Organization and Planning,"]
+            },
+            {
+              "text": "**Data Structures,** which covers essential data structures and sorting algorithms using Java while introducing principles like encapsulation, interfaces, testing and asymptotic complexity analysis.",
+              "bold": ["Data Structures,"]
+            },
+            {
+              "text": "**Mobile Systems and Applications,** which reviews the fundamentals of mobile and cloud computing, focusing on topics such as wireless communication, distributed systems, security and privacy, while offering hands-on experience in programming mobile applications on popular platforms like Android and iPhone.",
+              "bold": ["Mobile Systems and Applications,"]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How Online Learning Prepares You to Thrive in Remote Positions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Studying online requires self-discipline, time management and the ability to work independently. Students in online programs complete coursework independently, manage their schedules and stay motivated throughout their programs. These skills translate directly to working in remote environments, where employees perform job functions without direct supervision."
+        },
+        {
+          "type": "paragraph",
+          "text": "Online learning also requires students to interact with faculty and peers through messaging platforms, live video conferencing, virtual office hours and similar formats. The experience students gain from these interactions also helps prepare them for remote work, where effective communication with team members in different locations is essential to maintaining operations."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How Stevens Institute of Technology Prepares You for Top Computer Science Jobs"
+        },
+        {
+          "type": "paragraph",
+          "text": "The computing and data explosion across industries should sustain high demand for computer science skills and growth in remote computer science jobs. Completing an online MSCS from Stevens helps you qualify for these roles by imparting technical expertise and industry knowledge.",
+          "links": [
+            {
+              "text": "StevensOnline MSCS",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The computer science program, ranked New Jersey's best online computer information technology program, features renowned faculty members, including National Science Foundation CAREER winners and researchers who consult with top companies. With 99% of Class of 2023 program alumni employed within three months of graduation, the StevensOnline MSCS can propel your career to the next level.",
+          "links": [
+            {
+              "text": "ranked New Jersey's best online computer information technology program",
+              "url": "https://www.usnews.com/education/online-education/computer-information-technology/rankings"
+            },
+            {
+              "text": "StevensOnline MSCS",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Next Steps: Applying to the Online MSCS at Stevens"
+        },
+        {
+          "type": "paragraph",
+          "text": "A remote job can improve your work-life balance, increase your productivity, save you money and make you happier at work. StevensOnline MSCS can help you qualify for desirable remote computer science positions. Connect with an enrollment advisor to learn more about the admission requirements or program details, or start your application if you're ready to take the next step.",
+          "links": [
+            {
+              "text": "make you happier at work",
+              "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2022/m04/cisco-study-employees-say-hybrid-work-makes-them-happier-and-more-productive-but-more-needs-to-be-done-to-make-it-more-inclusive.html"
+            },
+            {
+              "text": "StevensOnline MSCS",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            },
+            {
+              "text": "Connect with an enrollment advisor",
+              "url": "https://online.stevens.edu/online-masters-computer-science-mscs/"
+            },
+            {
+              "text": "start your application",
+              "url": "https://gradadmissions.stevens.edu/apply/?pk=GRNP"
+            }
+          ]
+        }
+      ],
+      "related_posts": ["mscs-focus-areas", "computer-science-careers"]
+    }
+  ]
+}
