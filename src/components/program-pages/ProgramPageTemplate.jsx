@@ -964,14 +964,31 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
         )}
 
         {accreditation && (
-          <Section id="accreditation" refProp={el => sectionRefs.current['accreditation'] = el}>
-            <div className="max-w-4xl mx-auto text-center border-t border-stevens-gray-200 pt-stevens-xl">
-              <h3 className="font-stevens-display text-stevens-2xl font-stevens-bold mb-stevens-md text-stevens-gray-900">
-                Accreditation Statement
-              </h3>
-              <p className="text-stevens-gray-600">
-                {typeof accreditation === 'string' ? accreditation : accreditation.description || accreditation.text}
-              </p>
+          <Section id="accreditation" container={false} el="div" refProp={el => sectionRefs.current['accreditation'] = el}>
+            <div className="relative bg-stevens-gray-900 text-stevens-white py-stevens-section overflow-hidden">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img 
+                  src="/assets/images/accreditation.avif" 
+                  alt="" 
+                  className="w-full h-full object-cover opacity-30"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-stevens-gray-900/90 to-stevens-gray-900/70"></div>
+              </div>
+              
+              {/* Content */}
+              <div className="relative max-w-7xl mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl text-center">
+                <h2 className="font-stevens-display uppercase text-stevens-3xl stevens-md:text-stevens-4xl font-stevens-bold mb-stevens-lg text-stevens-white">
+                  Accreditation Statement
+                </h2>
+                <div 
+                  className="text-stevens-lg text-stevens-white/90 leading-relaxed"
+                  dangerouslySetInnerHTML={{ 
+                    __html: typeof accreditation === 'string' ? accreditation : accreditation.description || accreditation.text 
+                  }}
+                />
+              </div>
             </div>
           </Section>
         )}

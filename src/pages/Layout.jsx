@@ -237,12 +237,6 @@ export default function Layout({ children, currentPageName }) {
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
       }
-      if (degreeHoverTimeoutRef.current) {
-        clearTimeout(degreeHoverTimeoutRef.current);
-      }
-      if (tuitionHoverTimeoutRef.current) {
-        clearTimeout(tuitionHoverTimeoutRef.current);
-      }
       // Clean up protection styles
       const protection = document.getElementById("navigation-protection");
       if (protection) {

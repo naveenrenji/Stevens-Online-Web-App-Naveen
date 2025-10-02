@@ -23,6 +23,7 @@ import {
   Maximize,
   SkipBack,
   SkipForward,
+  User,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -434,27 +435,25 @@ export default function Home() {
       </section>
 
       {/* Testimonial Section */}
-      <AnimatedSection className="bg-stevens-primary py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <img
+      <AnimatedSection className="bg-stevens-primary py-stevens-section">
+        <div className="max-w-stevens-content-max mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl">
+          <div className="mx-auto text-center">
+          <img
               src="assets/avatars/home-avatar/ArshadS_H_S_L.webp"
               alt="Alumni portrait"
               className="mb-4 mx-auto w-24 h-24 rounded-full object-cover border-4 border-stevens-white shadow-stevens-lg"
             />
-            <blockquote className="text-2xl font-stevens-display text-stevens-white leading-snug mb-4">
+            <blockquote className="text-stevens-2xl leading-snug italic text-stevens-white mb-stevens-md">
               "Stevens Online is dedicated to delivering world-class technology
               education to working professionals worldwide, empowering them to
               advance their careers and drive innovation in tomorrow's digital
               economy through flexible, accessible, and industry-relevant online
               programs."
             </blockquote>
-            <cite className="not-italic text-stevens-white font-stevens-semibold">
-              Arshad Saiyed
-            </cite>
+            <cite className="not-italic font-stevens-semibold text-stevens-white">— Arshad Saiyed</cite>
             <br />
-            <cite className="not-italic text-stevens-white font-stevens-semibold">
-            Chief Online Learning Officer and Dean of the College of Professional Education
+            <cite className="not-italic font-stevens-semibold text-stevens-white">
+              Chief Online Learning Officer and Dean of the College of Professional Education
             </cite>
           </div>
         </div>
