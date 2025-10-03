@@ -93,7 +93,7 @@ export default function Events() {
           title: 'Application Overview: Online Master\'s in Engineering Management',
           status: 'Ongoing',
           length: '24 minutes',
-          url: 'https://event.on24.com/wcc/r/4666982/E2AD4B0C42B0A05A6CB87A9F0D5C04B9'
+          url: 'https://event.on24.com/wcc/r/5056716/2FEBB6A6A455A2CCC508FB1183A71810'
         }
       ]
     },
@@ -158,7 +158,14 @@ export default function Events() {
       length: '10 minutes',
       url: 'https://event.on24.com/wcc/r/4455092/4C10B1C30D8D20926A28C1A21C667A29',
       image: '/assets/images/3-event.webp'
+    },
+    {
+      title: 'Application Walkthrough: Engineering Management',
+      length: '24 minutes',
+      url: 'https://event.on24.com/wcc/r/5056716/2FEBB6A6A455A2CCC508FB1183A71810',
+      image: '/assets/images/4-event.webp'
     }
+
   ];
 
   return (
@@ -225,7 +232,7 @@ export default function Events() {
                   {group.items.map((item) => (
                     <Card key={item.title} className="h-full border-stevens-gray-100 ">
                       <CardContent className="p-stevens-lg flex flex-col h-full pt-stevens-lg">
-                        <h5 className="font-stevens-semibold text-stevens-gray-900 uppercase font-bold mb-stevens-xs">{item.title}</h5>
+                        <h5 className="font-stevens-semibold text-stevens-gray-900 uppercase font-bold mb-stevens-xs hover:text-stevens-primary transition-colors duration-stevens-normal">{item.title}</h5>
                         <div className="text-stevens-sm text-stevens-gray-700 mb-stevens-md">{item.status}</div>
                         <div className="flex items-center gap-stevens-xs text-stevens-sm text-stevens-gray-700 mb-stevens-lg">
                           <Clock className="w-4 h-4"/> {item.length}
@@ -256,13 +263,13 @@ export default function Events() {
                   {/* Image */}
                   <div className="stevens-md:w-2/5 overflow-hidden flex-shrink-0">
                     <img src={e.image} alt={e.title} className="w-full h-full object-cover min-h-full" />
-                  </div>
-                  
+          </div>
+          
                   {/* Content */}
                   <CardContent className="stevens-md:w-3/5 p-stevens-lg flex flex-col justify-between flex-1">
-                    <div>
+                  <div>
                       <p className="text-stevens-xs text-stevens-primary font-stevens-bold uppercase tracking-wider my-stevens-xs">On-Demand Event</p>
-                      <h3 className="font-stevens-display text-stevens-lg font-stevens-bold text-stevens-gray-900 mb-stevens-sm leading-tight group-hover:text-stevens-primary transition-colors duration-stevens-normal">{e.title}</h3>
+                      <h3 className="font-stevens-display uppercase font-bold text-stevens-lg font-stevens-bold text-stevens-gray-900 mb-stevens-sm leading-tight group-hover:text-stevens-primary transition-colors duration-stevens-normal">{e.title}</h3>
                       <div className="flex items-center gap-stevens-xs text-stevens-sm text-stevens-gray-600 mb-stevens-md">
                         <Clock className="w-4 h-4"/> {e.length}
                       </div>
@@ -270,9 +277,9 @@ export default function Events() {
                     <a href={e.url} target="_blank" rel="noopener noreferrer" className="block mt-stevens-md">
                       <Button className="bg-stevens-primary text-stevens-white hover:bg-stevens-maroon-dark transition-all duration-stevens-normal font-stevens-semibold px-stevens-lg py-stevens-md">
                         Watch Now
-                      </Button>
-                    </a>
-                  </CardContent>
+                    </Button>
+                  </a>
+                </CardContent>
                 </div>
               </Card>
             ))}

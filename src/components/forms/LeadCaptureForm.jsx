@@ -49,7 +49,7 @@ export default function LeadCaptureForm({
   const FormCard = (
     <Card className="w-full max-w-2xl mx-auto shadow-stevens-xl rounded-stevens-lg overflow-hidden">
       <CardHeader className="flex flex-col space-y-stevens-xs p-stevens-lg stevens-md:p-stevens-xl bg-gradient-to-r from-gray-600 to-red-800 text-stevens-white">
-        <CardTitle className="text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold">{title}</CardTitle>
+        <CardTitle className="text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold mt-stevens-xs">{title}</CardTitle>
         {subtitle && <p className="text-stevens-base stevens-md:text-stevens-lg text-stevens-white/90">{subtitle}</p>}
       </CardHeader>
       <CardContent className="bg-stevens-white p-0">

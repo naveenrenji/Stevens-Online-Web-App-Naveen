@@ -24,6 +24,7 @@ import {
   SkipBack,
   SkipForward,
   User,
+  Clock,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -138,6 +139,28 @@ export default function Home() {
   const [events, setEvents] = useState([]);
   const [showBrowseModal, setShowBrowseModal] = useState(false); // State for modal visibility
   const [showAssessment, setShowAssessment] = useState(true); // State for showing assessment or lead form
+
+  // Application Support Events (reuse same content as Events page)
+  const supportEvents = [
+    {
+      title: 'Application Overview: Online MBA',
+      length: '15 minutes',
+      url: 'https://event.on24.com/wcc/r/4670707/F1184BBC4542A137E5E8852AA0FF2DBE',
+      image: '/assets/images/2-event.jpg'
+    },
+    {
+      title: 'Application Walkthrough: Computer Science',
+      length: '10 minutes',
+      url: 'https://event.on24.com/wcc/r/4455092/4C10B1C30D8D20926A28C1A21C667A29',
+      image: '/assets/images/3-event.webp'
+    },
+    {
+      title: 'Application Walkthrough: Engineering Management',
+      length: '24 minutes',
+      url: 'https://event.on24.com/wcc/r/5056716/2FEBB6A6A455A2CCC508FB1183A71810',
+      image: '/assets/images/4-event.webp'
+    }
+  ];
 
   useEffect(() => {
     async function loadData() {
@@ -538,45 +561,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Upcoming Events */}
+      {/* Upcoming Events - replaced with Application Support Events cards/content */}
       {events.length > 0 && (
         <section className="py-20 border-t">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="text-center mb-12">
               <h2 className="font-display text-3xl font-bold text-gray-900 mb-4">
-                Upcoming Information Sessions
+                Application Support Events
               </h2>
               <p className="text-stevens-xl text-stevens-gray-900">
                 Join us for a live webinar to learn more.
               </p>
             </AnimatedSection>
-            <AnimatedSection className="grid md:grid-cols-3 gap-8 mb-8">
-              {events.map((event) => (
-                <Card
-                  key={event.id}
-                  className="bg-white hover:shadow-xl transition-shadow"
-                >
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-2">
-                      {event.title}
-                    </h3>
-                    <p className="text-stevens-gray-900 text-stevens-base mb-4 line-clamp-2">
-                      {event.description}
-                    </p>
-                    <a
-                      href={event.registration_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        size="sm"
-                        className="w-full btn-secondary hover:bg-red-800 hover:text-white transition-all duration-300"
-                      >
-                        <PlayCircle className="w-4 h-4 mr-2" />
-                        Register
-                      </Button>
-                    </a>
-                  </CardContent>
+            <AnimatedSection className="grid md:grid-cols-2 gap-8 mb-8">
+              {supportEvents.map((e) => (
+                <Card key={e.title} className="border-0 shadow-stevens-lg hover:shadow-stevens-2xl transition-all duration-stevens-normal bg-stevens-white group overflow-hidden h-full">
+                  <div className="stevens-md:flex stevens-md:flex-row flex flex-col h-full">
+                    {/* Image */}
+                    <div className="stevens-md:w-2/5 overflow-hidden flex-shrink-0">
+                      <img src={e.image} alt={e.title} className="w-full h-full object-cover min-h-full" />
+                    </div>
+                    {/* Content */}
+                    <CardContent className="stevens-md:w-3/5 p-stevens-lg flex flex-col justify-between flex-1">
+                      <div>
+                        <p className="text-stevens-xs text-stevens-primary font-stevens-bold uppercase tracking-wider my-stevens-xs">On-Demand Event</p>
+                        <h3 className="font-stevens-display uppercase font-bold text-stevens-lg font-stevens-bold text-stevens-gray-900 mb-stevens-sm leading-tight group-hover:text-stevens-primary transition-colors duration-stevens-normal">{e.title}</h3>
+                        <div className="flex items-center gap-stevens-xs text-stevens-sm text-stevens-gray-600 mb-stevens-md">
+                          <Clock className="w-4 h-4"/> {e.length}
+                        </div>
+                      </div>
+                      <a href={e.url} target="_blank" rel="noopener noreferrer" className="block mt-stevens-md">
+                        <Button className="bg-stevens-primary text-stevens-white hover:bg-stevens-maroon-dark transition-all duration-stevens-normal font-stevens-semibold px-stevens-lg py-stevens-md">
+                          Watch Now
+                        </Button>
+                      </a>
+                    </CardContent>
+                  </div>
                 </Card>
               ))}
             </AnimatedSection>

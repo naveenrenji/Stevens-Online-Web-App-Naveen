@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Check, Star, Award, Globe, GraduationCap, ArrowRight, User, ExternalLink, PlayCircle, FileText, DollarSign, Briefcase, BrainCircuit, LineChart, TrendingUp, Target, Users } from 'lucide-react';
+import { Check, Star, Award, Globe, GraduationCap, ArrowRight, User, ExternalLink, PlayCircle, FileText, DollarSign, Briefcase, BrainCircuit, LineChart, TrendingUp, Target, Users, Clock } from 'lucide-react';
 import VideoPlayer from '../shared/VideoPlayer';
 import PageHero from '../shared/PageHero';
 import LeadCaptureForm from '../forms/LeadCaptureForm';
@@ -922,24 +922,25 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
         )}
 
         {events && (
-          <Section id="events" title={events.title || "On-Demand Events"} refProp={el => sectionRefs.current.events = el}>
-            {events.description && <p className="text-center text-stevens-xl text-stevens-gray-600 max-w-3xl mx-auto mb-stevens-md">{events.description}</p>}
+          <Section id="events" title={events.title || "On-Demand Events"} bgClassName="bg-stevens-gray-50" refProp={el => sectionRefs.current.events = el}>
+            {events.description && <p className="text-center text-stevens-lg text-stevens-gray-700 max-w-3xl mx-auto mb-stevens-2xl leading-relaxed">{events.description}</p>}
             {events.items && events.items.length > 0 ? (
-              <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stevens-gap">
+              <div className="grid stevens-md:grid-cols-2 stevens-lg:grid-cols-3 gap-stevens-lg">
                 {events.items.map((item, i) => (
-                  <Card key={i} className="hover:shadow-stevens-lg transition-shadow rounded-stevens-md">
-                    <CardContent className="p-stevens-md flex items-center justify-between pt-stevens-md">
-                      <div>
-                        <h4 className="font-stevens-bold text-stevens-gray-900 group-hover:text-stevens-primary transition-colors duration-stevens-normal">
-                          {item.title}
-                        </h4>
-                        <p className="text-stevens-sm text-stevens-gray-600">{item.date}</p>
+                  <Card key={i} className="h-full border-stevens-gray-100">
+                    <CardContent className="p-stevens-lg flex flex-col h-full pt-stevens-lg">
+                      <h5 className="font-stevens-semibold text-stevens-gray-900 uppercase font-bold mb-stevens-xs hover:text-stevens-primary transition-colors duration-stevens-normal">
+                        {item.title}
+                      </h5>
+                      <div className="text-stevens-sm text-stevens-gray-700 mb-stevens-md">
+                        {item.status || item.date}
                       </div>
-                      <div>
+                      <div className="flex items-center gap-stevens-xs text-stevens-sm text-stevens-gray-700 mb-stevens-lg">
+                        <Clock className="w-4 h-4"/> {item.length}
+                      </div>
+                      <div className="mt-auto">
                         <a href={item.url} target="_blank" rel="noopener noreferrer">
-                          <Button variant="outline" size="sm" className="btn-stevens-secondary">
-                            <PlayCircle className="w-4 h-4 mr-stevens-sm" /> Watch Now
-                          </Button>
+                          <Button className="btn-stevens-outline text-stevens-white">Watch Now</Button>
                         </a>
                       </div>
                     </CardContent>

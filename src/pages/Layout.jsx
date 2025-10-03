@@ -160,9 +160,9 @@ export default function Layout({ children, currentPageName }) {
           z-index: inherit !important;
         }
         
-        /* Pentagon badge protection - ULTRA AGGRESSIVE */
-        div[class*="z-[9999]"] {
-          z-index: 9999 !important;
+        /* Pentagon badge protection - Highest z-index to stay above mobile menu */
+        div[class*="z-[9999]"]:not(.mobile-menu-offset):not(.mobile-menu-overlay):not([role="dialog"]):not([data-radix-dialog-overlay]) {
+          z-index: 10000 !important;
           position: fixed !important;
           pointer-events: none !important; /* Container transparent to clicks */
           top: 3.5rem !important; /* Force desktop positioning */
@@ -171,14 +171,14 @@ export default function Layout({ children, currentPageName }) {
         
         /* Mobile pentagon badge protection */
         @media (max-width: 1024px) {
-          div[class*="z-[9999]"] {
+          div[class*="z-[9999]"]:not(.mobile-menu-offset):not(.mobile-menu-overlay):not([role="dialog"]):not([data-radix-dialog-overlay]) {
             top: 1rem !important; /* Force mobile positioning */
           }
         }
         
         /* Pentagon badge link - make it clickable */
-        div[class*="z-[9999]"] a,
-        div[class*="z-[9999]"] a * {
+        div[class*="z-[9999]"]:not(.mobile-menu-offset):not(.mobile-menu-overlay):not([role="dialog"]):not([data-radix-dialog-overlay]) a,
+        div[class*="z-[9999]"]:not(.mobile-menu-offset):not(.mobile-menu-overlay):not([role="dialog"]):not([data-radix-dialog-overlay]) a * {
           pointer-events: auto !important;
           z-index: inherit !important;
         }
@@ -186,6 +186,37 @@ export default function Layout({ children, currentPageName }) {
         /* Ensure buttons and links remain clickable */
         button, a, [role="button"] {
           pointer-events: auto !important;
+        }
+        
+        /* Fix horizontal overflow issues on mobile that affect button positioning */
+        @media (max-width: 768px) {
+          body, html {
+            overflow-x: hidden !important;
+          }
+          
+          /* Keep red nav visible on mobile while overflow-x is hidden */
+          header.group.sticky {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0;
+            right: 0;
+            z-index: 9998 !important;
+          }
+
+          /* Compensate layout for fixed header height (approx 64px) */
+          body {
+            padding-top: 64px !important;
+          }
+          
+          
+          
+          /* Protect chatbot and back-to-top buttons from container overflow */
+          button[class*="bottom-6"][class*="right-6"],
+          button[class*="bottom-20"][class*="right-6"],
+          .chat-button-container {
+            position: fixed !important;
+            right: 1.5rem !important;
+          }
         }
         
         /* Dropdown menu protection - ensure they appear above all navigation elements */
@@ -237,6 +268,12 @@ export default function Layout({ children, currentPageName }) {
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
       }
+      if (degreeHoverTimeoutRef.current) {
+        clearTimeout(degreeHoverTimeoutRef.current);
+      }
+      if (tuitionHoverTimeoutRef.current) {
+        clearTimeout(tuitionHoverTimeoutRef.current);
+      }
       // Clean up protection styles
       const protection = document.getElementById("navigation-protection");
       if (protection) {
@@ -259,6 +296,11 @@ export default function Layout({ children, currentPageName }) {
     // Reset dropdown states
     setDegreeDropdownOpen(false);
     setTuitionDropdownOpen(false);
+    // Close mobile menu and restore ASAP banner when navigating to a new page
+    setMobileMenuOpen(false);
+    if (prevASAPVisibleRef.current) {
+      setShowASAPBanner(true);
+    }
   }, [location.pathname]);
 
   const isActive = (page) => currentPageName === page;
@@ -799,23 +841,95 @@ export default function Layout({ children, currentPageName }) {
                 }
                 setMobileMenuOpen(open);
               }}>
-                <SheetTrigger asChild>
+                  <SheetTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="text-stevens-white hover:text-stevens-white/80 hover:bg-stevens-white/10"
                   >
-                    <Menu className="h-6 w-6" />
+                      <Menu className="h-6 w-6" />
                     <span className="sr-only">Toggle menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent 
-                  side="right" 
-                  className="mobile-menu-offset w-full stevens-sm:w-80 bg-stevens-white p-0 border-l border-stevens-gray-200"
-                >
-                  {/* Mobile menu content will go here */}
-                </SheetContent>
-              </Sheet>
+                    </Button>
+                  </SheetTrigger>
+              <SheetContent 
+                side="right" 
+                className="mobile-menu-offset w-full stevens-sm:w-80 bg-stevens-white p-0 border-l border-stevens-gray-200 overflow-y-auto"
+              >
+                    <div className="flex flex-col h-full">
+                  {/* Mobile Menu Header */}
+                  <div className="flex h-16 items-center justify-between p-stevens-md border-b border-stevens-gray-200 bg-stevens-primary">
+                    
+                      </div>
+
+                  {/* Mobile Menu Links */}
+                  <nav className="flex-1 overflow-y-auto">
+                    <div className="py-stevens-md">
+                          {mobileNavLinks.map((link) => {
+                            if (link.isDropdown) {
+                              return (
+                            <div key={link.name} className="border-b border-stevens-gray-200">
+                              <button
+                                className="w-full px-stevens-md py-stevens-md text-left font-stevens-semibold text-stevens-gray-900 hover:bg-stevens-gray-50 transition-colors duration-stevens-normal flex items-center justify-between"
+                                onClick={(e) => {
+                                  const content = e.currentTarget.nextElementSibling;
+                                  const icon = e.currentTarget.querySelector('svg');
+                                  if (content.classList.contains('hidden')) {
+                                    content.classList.remove('hidden');
+                                    icon.classList.add('rotate-180');
+                                  } else {
+                                    content.classList.add('hidden');
+                                    icon.classList.remove('rotate-180');
+                                  }
+                                }}
+                              >
+                                {link.name}
+                                <ChevronDown className="w-4 h-4 transition-transform duration-stevens-normal" />
+                              </button>
+                              <div className="hidden bg-stevens-gray-50">
+                                {link.items.map((item) => (
+                                    <Link
+                                      key={item.name}
+                                      to={createPageUrl(item.page)}
+                                    className="block px-stevens-lg py-stevens-sm text-stevens-gray-700 hover:text-stevens-primary hover:bg-stevens-white transition-colors duration-stevens-normal"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                        {item.name}
+                                      </Link>
+                                ))}
+                              </div>
+                                  </div>
+                          );
+                            }
+                            return (
+                              <Link
+                                key={link.name}
+                                to={createPageUrl(link.page)}
+                            className="block px-stevens-md py-stevens-md font-stevens-semibold text-stevens-gray-900 hover:bg-stevens-gray-50 border-b border-stevens-gray-200 transition-colors duration-stevens-normal"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                                {link.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </nav>
+
+                  {/* Mobile Menu CTA */}
+                  <div className="p-stevens-md border-t border-stevens-gray-200 bg-stevens-gray-50 space-y-stevens-sm">
+                    <a
+                      href="https://calendly.com/n3-stevens/30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Button className="w-full bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md">
+                        Schedule a Call
+                      </Button>
+                              </a>
+                          </div>
+                    </div>
+                  </SheetContent>
+                </Sheet>
             </div>
 
             {/* CTA Section - Desktop Only */}

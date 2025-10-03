@@ -360,11 +360,15 @@ const programData = {
     ]
   },
   events: {
-    description: "Attendees will receive an application fee waiver.",
+    title: "On-Demand Content",
+    description: "At Stevens, we host a variety of events for prospective and current students covering topics such as application strategy, program information, the student experience and our online platform. Our on-demand content is instantly available, so you can watch at your convenience.",
     fallbackText: "Check back soon for more upcoming events.",
     items: [
-      { title: "Student Voices: Real Stories From Stevens Graduate Programs", date: "Ongoing", url: "#", buttonText: "Watch Now" },
-      { title: "Start With Two Courses. Step Into Engineering Leadership", date: "Ongoing", url: "#", buttonText: "Watch Now" }
+      { title: "Student Voices: Real Stories From Stevens Graduate Programs", status: "Ongoing", length: "45 minutes", url: "https://event.on24.com/wcc/r/4970051/3D4408B63146F35B069766B71328D7CE" },
+      { title: "Start With Two Courses. Step Into Engineering Leadership", status: "Ongoing", length: "30 minutes", url: "https://event.on24.com/wcc/r/4970047/F7AEF7F7E214EFD9A417BC81BE6BA906" },
+      { title: "Financial Aid Overview: Stevens Institute of Technology", status: "Ongoing", length: "10 minutes", url: "https://event.on24.com/wcc/r/4666980/B9E38A55EDE8C93A4D0D5D8E6AFE7A0B" },
+      { title: "Exploring the Online Master's in Engineering Management at Stevens", status: "Ongoing", length: "19 minutes", url: "https://event.on24.com/wcc/r/4666985/156784FFB13710F1FFCF29E5C6DBAD13" },
+      { title: "Application Overview: Online Master's in Engineering Management", status: "Ongoing", length: "24 minutes", url: "https://event.on24.com/wcc/r/4666982/E2AD4B0C42B0A05A6CB87A9F0D5C04B9" }
     ]
   },
   faqs: [

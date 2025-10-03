@@ -582,17 +582,17 @@ This course will focus on best practices and emerging trends in sustainable busi
     description: `<p>Tuition based on fall 2025 rates. Tuition and fees are subject to change annually.</p>`
   },
   events: {
-    title: "On-Demand Events",
-    description: "Attendees will receive an application fee waiver.",
+    title: "On-Demand Content",
+    description: "At Stevens, we host a variety of events for prospective and current students covering topics such as application strategy, program information, the student experience and our online platform. Our on-demand content is instantly available, so you can watch at your convenience.",
     fallbackText: "Check back soon for more upcoming events.",
     items: [
-    { title: "Student Voices: Real Stories From Stevens Graduate Programs", date: "Ongoing", url: "#" },
-    { title: "Depth and Breadth: Exploring MBA Concentrations at Stevens", date: "Ongoing", url: "#" },
-    { title: "Upskilling Your MBA: Bringing Technology and Business Together", date: "Ongoing", url: "#" },
-    { title: "A Technology-Focused MBA With Stevens Online", date: "Ongoing", url: "#" },
-    { title: "On Demand Application Overview: Online MBA", date: "Ongoing", url: "#" },
-    { title: "Exploring the Online MBA at Stevens Institute of Technology: On-Demand Overview", date: "Ongoing", url: "#" },
-      { title: "Financial Aid Overview: Stevens Institute of Technology", date: "Ongoing", url: "#" }
+      { title: "Student Voices: Real Stories From Stevens Graduate Programs", status: "Ongoing", length: "45 minutes", url: "https://event.on24.com/wcc/r/4970051/3D4408B63146F35B069766B71328D7CE" },
+      { title: "Depth and Breadth: Exploring MBA Concentrations at Stevens", status: "Ongoing", length: "11 minutes", url: "https://event.on24.com/wcc/r/4455081/6D66BAC20AB94F72BC2FF1FC16FEAC61" },
+      { title: "Upskilling Your MBA: Bringing Technology and Business Together", status: "Ongoing", length: "10 minutes", url: "https://event.on24.com/wcc/r/4455079/8C0EE062BA17E02AF2AB57B91C84E0CC" },
+      { title: "A Technology-Focused MBA With Stevens Online", status: "Ongoing", length: "23 minutes", url: "https://event.on24.com/wcc/r/4455078/97E8B2D80D04EBD1D7D800A71C0DC97E" },
+      { title: "On Demand Application Overview: Online MBA", status: "Ongoing", length: "15 minutes", url: "https://event.on24.com/wcc/r/4670707/F1184BBC4542A137E5E8852AA0FF2DBE" },
+      { title: "Exploring the Online MBA at Stevens Institute of Technology: On-Demand Overview", status: "Ongoing", length: "11 minutes", url: "https://event.on24.com/wcc/r/4455082/77C6B6236A8D0B3F52F27B7AA1B5B6FE" },
+      { title: "Financial Aid Overview: Stevens Institute of Technology", status: "Ongoing", length: "10 minutes", url: "https://event.on24.com/wcc/r/4666980/B9E38A55EDE8C93A4D0D5D8E6AFE7A0B" }
     ]
   },
   faculty: {

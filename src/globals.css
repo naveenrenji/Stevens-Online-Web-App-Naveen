@@ -624,6 +624,12 @@
     top: 4rem !important; /* match red nav height (h-16) */
     height: calc(100vh - 4rem) !important; /* keep within viewport */
   }
+  
+  /* Also offset the sheet overlay to start below the nav bar */
+  .mobile-menu-overlay {
+    top: 4rem !important;
+    height: calc(100vh - 4rem) !important;
+  }
 }
 
 /* Enhanced Course Item Styles (Official Website) */
