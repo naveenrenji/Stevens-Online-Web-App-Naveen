@@ -1,4 +1,3 @@
-import puppeteer from 'puppeteer';
 import { preview } from 'vite';
 import fs from 'fs/promises';
 import path from 'path';
@@ -9,6 +8,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
+
+// Detect if we're in production (Vercel/CI) or local development
+const isProduction = process.env.VERCEL || process.env.CI;
+
+// Dynamically import the appropriate puppeteer package
+let puppeteer, chromium;
+if (isProduction) {
+  const puppeteerCore = await import('puppeteer-core');
+  const chromiumPackage = await import('@sparticuz/chromium');
+  puppeteer = puppeteerCore.default;
+  chromium = chromiumPackage.default;
+  
+  // Optimize Chromium for Vercel serverless environment
+  chromium.setGraphicsMode = false;
+  chromium.setHeadlessMode = true;
+} else {
+  const puppeteerPackage = await import('puppeteer');
+  puppeteer = puppeteerPackage.default;
+}
 
 // Generate list of all routes to pre-render
 function generateRoutes() {
@@ -80,11 +98,22 @@ async function prerender() {
   const baseUrl = `http://localhost:${server.config.preview.port}`;
   console.log(`Server running at ${baseUrl}`);
 
-  // Launch Puppeteer
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
+  // Launch Puppeteer with environment-specific configuration
+  console.log(`Environment: ${isProduction ? 'Production (Vercel/CI)' : 'Local Development'}`);
+  
+  const launchOptions = isProduction
+    ? {
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      }
+    : {
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      };
+  
+  const browser = await puppeteer.launch(launchOptions);
 
   try {
     let rendered = 0;
