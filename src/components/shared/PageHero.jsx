@@ -17,7 +17,8 @@ export default function PageHero({
   bgImage,
   primaryCta, // { label, to? | href? }
   secondaryCta, // { label, to? | href? | useModal? }
-  useApplicationModal = false // New prop for MSCS/MEM pages
+  useApplicationModal = false, // New prop for MSCS/MEM pages
+  rightContent // Content to display on the right side
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const lines = Array.isArray(titleLines) && titleLines.length > 0
@@ -87,7 +88,7 @@ export default function PageHero({
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-stevens-gap-lg lg:gap-[120px] items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-stevens-gap-lg lg:gap-[120px] items-start lg:items-center">
           <div>
             {lines.length > 0 ? (
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
@@ -131,8 +132,10 @@ export default function PageHero({
             )}
           </div>
 
-          {/* Right column intentionally left for future media/illustration if needed */}
-          <div className="hidden lg:block" />
+          {/* Right column for additional content */}
+          <div className="block lg:block mt-8 lg:mt-0">
+            {rightContent}
+          </div>
         </div>
       </div>
 

@@ -24,7 +24,9 @@ export default function ProfessionalEducation() {
   const [browseModalOpen, setBrowseModalOpen] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   const focusAreas = [

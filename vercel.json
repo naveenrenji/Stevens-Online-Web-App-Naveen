@@ -1,0 +1,163 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/events",
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/admissions",
+      "destination": "/admissions/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/topics/engineering-essentials",
+      "destination": "/topics/engineering-essentials/",
+      "permanent": true
+    },
+    {
+      "source": "/topics/mastering-computer-science",
+      "destination": "/topics/mastering-computer-science/",
+      "permanent": true
+    },
+    {
+      "source": "/topics/online-mba-success",
+      "destination": "/topics/online-mba-success/",
+      "permanent": true
+    },
+    {
+      "source": "/topics/uncategorized",
+      "destination": "/topics/uncategorized/",
+      "permanent": true
+    },
+    {
+      "source": "/Tuition",
+      "destination": "/tuition-and-financial-aid/",
+      "permanent": true
+    },
+    {
+      "source": "/tuition",
+      "destination": "/tuition-and-financial-aid/",
+      "permanent": true
+    },
+    {
+      "source": "/RequestInfo",
+      "destination": "/requestinfo/",
+      "permanent": true
+    },
+    {
+      "source": "/requestinfo",
+      "destination": "/requestinfo/",
+      "permanent": true
+    },
+    {
+      "source": "/OnlineExperience",
+      "destination": "/online-learning-experience/",
+      "permanent": true
+    },
+    {
+      "source": "/OnlineLearning",
+      "destination": "/online-learning-experience/",
+      "permanent": true
+    },
+    {
+      "source": "/MBA",
+      "destination": "/online-mba/",
+      "permanent": true
+    },
+    {
+      "source": "/MSCS",
+      "destination": "/online-masters-computer-science-mscs/",
+      "permanent": true
+    },
+    {
+      "source": "/MSDS",
+      "destination": "/online-masters-data-science-msds/",
+      "permanent": true
+    },
+    {
+      "source": "/MEM",
+      "destination": "/online-masters-engineering-management/",
+      "permanent": true
+    },
+    {
+      "source": "/ComparePrograms",
+      "destination": "/compare-our-programs/",
+      "permanent": true
+    },
+    {
+      "source": "/Events",
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/Admissions",
+      "destination": "/admissions/",
+      "permanent": true
+    },
+    {
+      "source": "/asap",
+      "destination": "/ASAP/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
+

@@ -251,7 +251,7 @@ export default function Admissions() {
                     <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">To officially gain admission to the full program, students must submit official transcripts from all institutions where they have earned college credit before completing the courses</span></li>
                   </ul>
                   <Link to={createPageUrl("ASAP")}>
-                    <Button className="btn-stevens-primary w-full">Enroll Now<ArrowRight className="w-4 h-4 ml-2" /></Button>
+                    <Button className="btn-stevens-primary w-full">Apply Now<ArrowRight className="w-4 h-4 ml-2" /></Button>
                   </Link>
                 </CardContent>
               </Card>

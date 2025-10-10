@@ -17,7 +17,11 @@ const SinglePost = ({ post }) => (
     <div className="max-w-7xl mx-auto px-stevens-md">
       <BlogDetail 
         post={post} 
-        onBack={() => window.history.back()}
+        onBack={() => {
+          if (typeof window !== 'undefined') {
+            window.history.back();
+          }
+        }}
         relatedPosts={[]}
       />
     </div>
@@ -74,7 +78,9 @@ const TopicList = ({ posts }) => {
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     setCurrentPage(page);
   };
 
@@ -143,25 +149,36 @@ const TopicList = ({ posts }) => {
 };
 
 export default function MasteringComputerScience() {
-  const [posts, setPosts] = useState([]);
-  const [singlePost, setSinglePost] = useState(null);
   const location = useLocation();
   const { slug } = useParams();
 
-  useEffect(() => {
+  // Initialize state with data immediately (for SSR)
+  const getInitialState = () => {
     if (slug) {
-      // Find the specific post by slug (ID)
       const foundPost = completeBlogData.posts.find(post => post.id === slug);
-      if (foundPost) {
-        setSinglePost(foundPost);
-      }
+      return {
+        posts: [],
+        singlePost: foundPost || null
+      };
     } else {
-      // Filter posts for Mastering Computer Science category
       const csPosts = completeBlogData.posts.filter(post => 
         post.category === 'Mastering Computer Science'
       );
-      setPosts(csPosts);
+      return {
+        posts: csPosts,
+        singlePost: null
+      };
     }
+  };
+  
+  const [posts, setPosts] = useState(() => getInitialState().posts);
+  const [singlePost, setSinglePost] = useState(() => getInitialState().singlePost);
+
+  // Update state when slug changes (for client-side navigation)
+  useEffect(() => {
+    const newState = getInitialState();
+    setPosts(newState.posts);
+    setSinglePost(newState.singlePost);
   }, [slug]);
 
   if (singlePost) {

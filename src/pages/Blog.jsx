@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
+import { createPageUrl, buildCanonicalUrl, setJsonLd } from '@/utils';
 import BlogList from '@/components/blog/BlogList';
 import BlogDetail from '@/components/blog/BlogDetail';
 import BlogErrorBoundary from '@/components/blog/BlogErrorBoundary';
@@ -71,7 +71,9 @@ const BlogPageContent = ({ posts }) => {
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     setCurrentPage(page);
   };
 
@@ -140,68 +142,83 @@ const BlogPageContent = ({ posts }) => {
 };
 
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
-  const [singlePost, setSinglePost] = useState(null);
-  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
   const { slug } = useParams();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const category = params.get('category');
-
+  
+  // Compute initial state synchronously for SSR
+  const params = new URLSearchParams(location.search);
+  const category = params.get('category');
+  
+  // Initialize state with data immediately (for SSR)
+  const getInitialState = () => {
     if (slug) {
-      setLoading(true);
-      // Find the specific post by slug (ID)
       const foundPost = completeBlogData.posts.find(post => post.id === slug);
-      if (foundPost) {
-        setSinglePost(foundPost);
-      }
-      setLoading(false);
+      return {
+        posts: [],
+        singlePost: foundPost || null
+      };
     } else {
-      setLoading(true);
-      // Use the complete blog data
-      // Clear any previously selected post so the list view renders
-      setSinglePost(null);
-      
-      // Filter posts by category if category parameter is provided
-      if (category) {
-        const filteredPosts = completeBlogData.posts.filter(post => post.category === category);
-        setPosts(filteredPosts);
-      } else {
-        setPosts(completeBlogData.posts);
-      }
-      setLoading(false);
+      const filteredPosts = category 
+        ? completeBlogData.posts.filter(post => post.category === category)
+        : completeBlogData.posts;
+      return {
+        posts: filteredPosts,
+        singlePost: null
+      };
     }
-  }, [location.search, slug]);
+  };
+  
+  const [posts, setPosts] = useState(() => getInitialState().posts);
+  const [singlePost, setSinglePost] = useState(() => getInitialState().singlePost);
+
+  // Update state when slug or category changes (for client-side navigation)
+  useEffect(() => {
+    const newState = getInitialState();
+    setPosts(newState.posts);
+    setSinglePost(newState.singlePost);
+  }, [slug, category]);
+
+  // Handle JSON-LD injection (client-side only)
+  useEffect(() => {
+    if (singlePost) {
+      const canonical = buildCanonicalUrl(`/blog/${singlePost.id}/`);
+      const jsonld = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": singlePost.title,
+        "description": singlePost.excerpt || '',
+        "image": singlePost.featured_image_url ? buildCanonicalUrl(singlePost.featured_image_url) : undefined,
+        "datePublished": singlePost.created_date,
+        "dateModified": singlePost.updated_date || singlePost.created_date,
+        "author": singlePost.author ? { "@type": "Person", "name": singlePost.author } : undefined,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Stevens Institute of Technology",
+          "logo": { "@type": "ImageObject", "url": buildCanonicalUrl('/assets/logos/stevens-crest.png') }
+        },
+        "mainEntityOfPage": canonical,
+        "url": canonical
+      };
+      setJsonLd('jsonld-blog-post', jsonld);
+    } else if (posts.length > 0) {
+      const jsonldIndex = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Stevens Online Blog",
+        "url": buildCanonicalUrl('/blog/'),
+        "isPartOf": {
+          "@type": "Organization",
+          "name": "Stevens Institute of Technology"
+        }
+      };
+      setJsonLd('jsonld-blog-index', jsonldIndex);
+    }
+  }, [singlePost, posts]);
 
   const handleBack = () => {
     navigate('/blog/');
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-stevens-white">
-        <div className="max-w-7xl mx-auto px-stevens-md py-stevens-3xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-stevens-lg">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="skeleton-stevens-card">
-                <div className="skeleton-stevens h-48 rounded-t-stevens-md mb-stevens-md"></div>
-                <div className="p-stevens-lg">
-                  <div className="skeleton-stevens-title mb-stevens-md"></div>
-                  <div className="skeleton-stevens-text mb-stevens-sm"></div>
-                  <div className="skeleton-stevens-text mb-stevens-sm"></div>
-                  <div className="skeleton-stevens-text w-3/4 mb-stevens-md"></div>
-                  <div className="skeleton-stevens-button"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <BlogErrorBoundary>

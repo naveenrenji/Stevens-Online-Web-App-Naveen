@@ -46,7 +46,7 @@ const programPageMap = {
   certs: 'Certificates'
 };
 
-export default function ProgramReadinessAssessment({ onComplete }) {
+function ProgramReadinessAssessment({ onComplete }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
@@ -155,7 +155,7 @@ export default function ProgramReadinessAssessment({ onComplete }) {
 
   const currentQuestion = questions[currentStep];
   const progress = (currentStep + 1) / questions.length * 100;
-
+//  return(<h1>Program Readiness Assessment</h1>);
   return (
     <Card className="w-full max-w-lg mx-auto shadow-stevens-lg card-hover rounded-stevens-md">
       <CardHeader className="bg-gradient-to-r from-gray-600 to-red-800 text-white rounded-stevens-md">
@@ -172,14 +172,7 @@ export default function ProgramReadinessAssessment({ onComplete }) {
       
       <CardContent className="bg-stevens-white p-stevens-lg mt-stevens-lg mb-stevens-lg">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={currentStep}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}>
-
-            <h3 className="text-stevens-xl font-semibold mb-stevens-lg text-stevens-gray-900 font-stevens-display">
+        <h3 className="text-stevens-xl font-semibold mb-stevens-lg text-stevens-gray-900 font-stevens-display">
               {currentQuestion.question}
             </h3>
             
@@ -208,9 +201,11 @@ export default function ProgramReadinessAssessment({ onComplete }) {
                 Previous Question
               </Button>
             }
-          </motion.div>
         </AnimatePresence>
       </CardContent>
     </Card>);
 
 }
+
+// Wrap with React.memo to prevent unnecessary re-renders
+export default React.memo(ProgramReadinessAssessment);

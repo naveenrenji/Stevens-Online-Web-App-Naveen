@@ -316,16 +316,7 @@ const VideoPlayer = ({
         </div>
       )}
       
-      {/* Video Title Overlay (optional) */}
-      {title && title !== "" && (
-        <div className="absolute top-4 left-4">
-          <div className="bg-stevens-primary/90 backdrop-blur-sm rounded-stevens-md px-stevens-md py-stevens-sm">
-            <h3 className="font-stevens-bold text-stevens-white text-stevens-sm">
-              {title}
-            </h3>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

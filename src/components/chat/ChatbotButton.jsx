@@ -17,6 +17,9 @@ export default function ChatbotButton() {
   }, []);
 
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    
     // Add aggressive protection against external script interference
     const addChatProtection = () => {
       const style = document.createElement('style');

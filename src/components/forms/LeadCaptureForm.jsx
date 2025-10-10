@@ -47,10 +47,10 @@ export default function LeadCaptureForm({
   }, [sourcePage, programOfInterest]);
 
   const FormCard = (
-    <Card className="w-full max-w-2xl mx-auto shadow-stevens-xl rounded-stevens-lg overflow-hidden">
-      <CardHeader className="flex flex-col space-y-stevens-xs p-stevens-lg stevens-md:p-stevens-xl bg-gradient-to-r from-gray-600 to-red-800 text-stevens-white">
-        <CardTitle className="text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold mt-stevens-xs">{title}</CardTitle>
-        {subtitle && <p className="text-stevens-base stevens-md:text-stevens-lg text-stevens-white/90">{subtitle}</p>}
+    <Card className="w-full max-w-xs sm:max-w-sm mx-auto shadow-stevens-xl rounded-stevens-lg overflow-hidden">
+      <CardHeader className="flex flex-col space-y-stevens-xs p-stevens-md bg-gradient-to-r from-gray-600 to-red-800 text-stevens-white">
+        <CardTitle className="text-stevens-xl stevens-md:text-stevens-2xl font-stevens-bold mt-stevens-xs">{title}</CardTitle>
+        {subtitle && <p className="text-stevens-sm stevens-md:text-stevens-base text-stevens-white/90">{subtitle}</p>}
       </CardHeader>
       <CardContent className="bg-stevens-white p-0">
         <div className="relative">
@@ -88,7 +88,7 @@ export default function LeadCaptureForm({
             #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 form {
               width: 100% !important;
               max-width: 100% !important;
-              padding: 2rem !important;
+              padding: 3rem !important;
               background: #ffffff !important;
               border-radius: 0 !important;
             }
@@ -104,8 +104,8 @@ export default function LeadCaptureForm({
             #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 label {
               color: #1f2937 !important;
               font-weight: 400 !important;
-              font-size: 15px !important;
-              margin-bottom: 0.5rem !important;
+              font-size: 14px !important;
+              margin-bottom: 0.375rem !important;
               display: block !important;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
             }
@@ -152,16 +152,17 @@ export default function LeadCaptureForm({
               background: #a32638 !important;
               color: #ffffff !important;
               border: none !important;
-              padding: 0.875rem 2rem !important;
+              padding: 0.75rem 1.5rem !important;
               border-radius: 6px !important;
-              font-size: 16px !important;
+              font-size: 14px !important;
               font-weight: 600 !important;
               cursor: pointer !important;
               transition: all 0.2s ease-in-out !important;
               text-transform: uppercase !important;
               letter-spacing: 0.025em !important;
               width: 100% !important;
-              margin-top: 1rem !important;
+              margin-top: 0.75rem !important;
+              
             }
             
             /* Submit button hover */
@@ -220,7 +221,7 @@ export default function LeadCaptureForm({
             #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .form-group,
             #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .field-group,
             #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 > div {
-              margin-bottom: 1rem !important;
+              margin-bottom: 0.75rem !important;
             }
             
             /* Remove excessive top margins/padding */
@@ -256,7 +257,7 @@ export default function LeadCaptureForm({
             }
             
             /* Mobile responsive */
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
               #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 {
                 font-size: 14px !important;
               }
@@ -270,14 +271,60 @@ export default function LeadCaptureForm({
               #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="tel"],
               #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 select,
               #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 textarea {
-                font-size: 16px !important;
-                padding: 0.75rem !important;
+                font-size: 15px !important;
+                padding: 0.625rem !important;
               }
               
               #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button[type="submit"],
               #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="submit"] {
-                padding: 0.875rem 1.5rem !important;
-                font-size: 15px !important;
+                padding: 0.75rem 1.5rem !important;
+                font-size: 14px !important;
+              }
+            }
+            
+            @media (max-width: 768px) {
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 {
+                font-size: 13px !important;
+              }
+              
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 form {
+                padding: 1.25rem !important;
+              }
+              
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="text"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="email"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="tel"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 select,
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 textarea {
+                font-size: 16px !important;
+                padding: 0.625rem !important;
+              }
+              
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button[type="submit"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="submit"] {
+                padding: 0.75rem 1.25rem !important;
+                font-size: 14px !important;
+              }
+            }
+            
+            @media (max-width: 480px) {
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 form {
+                padding: 1rem !important;
+              }
+              
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="text"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="email"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="tel"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 select,
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 textarea {
+                font-size: 16px !important;
+                padding: 0.5rem !important;
+              }
+              
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button[type="submit"],
+              #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 input[type="submit"] {
+                padding: 0.75rem 1rem !important;
+                font-size: 13px !important;
               }
             }
             

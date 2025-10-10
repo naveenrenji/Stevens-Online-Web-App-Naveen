@@ -5,7 +5,7 @@ import { createPageUrl } from '@/utils';
 
 /**
  * ApplicationModal - Shows two application options for MEM and MSCS pages
- * Option 1: Traditional Application (redirect to Stevens website)
+ * Option 1: Standard Application (redirect to Stevens website)
  * Option 2: ASAP Application (redirect to ASAP page)
  */
 export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
@@ -69,7 +69,7 @@ export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
 
         {/* Content */}
         <div className="grid stevens-md:grid-cols-2 gap-stevens-md p-stevens-md">
-          {/* Traditional Application */}
+          {/* Standard Application */}
           <div className="bg-stevens-white border-2 border-stevens-gray-200 rounded-stevens-md p-stevens-md hover:border-stevens-primary hover:shadow-stevens-lg transition-all duration-stevens-normal group">
             <div className="flex items-start gap-stevens-sm mb-stevens-sm">
               <div className="bg-stevens-gray-100 p-stevens-sm rounded-stevens-md group-hover:bg-stevens-primary/10 transition-colors duration-stevens-normal">
@@ -77,7 +77,7 @@ export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
               </div>
               <div className="flex-1">
                 <h3 className="font-stevens-display text-stevens-lg font-stevens-bold text-stevens-gray-900 mb-stevens-xs">
-                  Traditional Application
+                  Standard Application
                 </h3>
                 <p className="text-stevens-xs text-stevens-gray-600">
                   Standard graduate application process
@@ -86,7 +86,7 @@ export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
             </div>
 
             <p className="text-stevens-sm text-stevens-gray-700 mb-stevens-md leading-relaxed">
-              Complete the full graduate application with all traditional requirements including transcripts, recommendations, and personal statements.
+              Complete the full graduate application with all Standard requirements including transcripts, recommendations, and personal statements.
             </p>
 
             <a 
@@ -95,7 +95,7 @@ export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
               rel="noopener noreferrer"
               className="btn-stevens-outline w-full text-center inline-block group-hover:bg-stevens-primary group-hover:text-stevens-white group-hover:border-stevens-primary transition-all duration-stevens-normal"
             >
-              Apply Traditionally
+              Standard Application
             </a>
           </div>
 

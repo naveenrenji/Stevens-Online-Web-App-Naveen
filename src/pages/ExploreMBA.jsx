@@ -1,4 +1,5 @@
 import React from 'react';
+import { Award, Globe, Star } from 'lucide-react';
 import ExploreProgramPageTemplate from '../components/program-pages/ExploreProgramPageTemplate';
 
 const ExploreMBA = () => {
@@ -6,9 +7,14 @@ const ExploreMBA = () => {
     // Hero Section
     heroTitle: "TECHNOLOGY ISN'T JUST IN OUR DNA. IT DEFINES OUR MBA.",
     programName: "Online MBA Program",
-    
-    // Lead Capture
-    scholarshipText: "Prospective students who apply by August 5, 2025, may qualify for up to $25K in scholarship funds.",
+    heroSubtitle: "Master business strategy with cutting-edge technology and data analytics. AACSB-accredited program designed for working professionals.",
+    bgImage: "/assets/images/1-omba-hero-scaled.webp",
+    programCode: "mba",
+    badges: [
+      { text: "AACSB Accredited", icon: Award },
+      { text: "100% Online", icon: Globe },
+      { text: "No GMAT Required", icon: Star }
+    ],
     
     // Statistics
     statistics: [
@@ -39,9 +45,19 @@ const ExploreMBA = () => {
       }
     ],
     
+    // Why Choose Stevens Section
+    whyChooseStevensTitle: "WHY CHOOSE STEVENS",
+    whyChooseStevensSubtitle: "CAREER-ALIGNED CURRICULUM",
+    whyChooseStevensContent: `
+      <p>Investing in your future with a graduate degree from Stevens is a smart choice. You will gain access to the same quality programs and distinguished faculty as on-campus graduate students while having the flexibility to study from anywhere in the world. From our nationally recognized stature, to studying with experienced faculty, to connecting with over 50,000 global alumni, we offer unique advantages to support your graduate study.</p>
+      
+      <p>Our faculty produce groundbreaking research that enables better planning and policy, improves healthcare and treatment, builds our understanding of critical questions, shares useful insight, and makes life safer, more secure and more comfortable. The researchers, practitioners and entrepreneurs that comprise the Stevens Institute of Technology faculty bring innovation and insight to students across disciplines and around the world.</p>
+    `,
+    
     // Program Benefits
     programBenefitsTitle: "Program Benefits",
-    programBenefitsDescription: "In a global market increasingly reliant on technology, data and analytics, you need more than the traditional management toolkit. Learn to leverage business data to drive better decisions through the Master of Business Administration online program at Stevens Institute of Technology, which pairs the quality of our on-campus program with the flexibility of part-time study and remote coursework. The Stevens Online MBA is an AACSB-accredited program that combines business knowledge with the technology and analytics necessary to excel in today's data-centric world. Our part-time online program offers tailored leadership development, individualized career services and two on-site immersions in the New York City region.",
+    programBenefitsDescription: "In a global market increasingly reliant on technology, data and analytics, you need more than the traditional management toolkit. Learn to leverage business data to drive better decisions through the Master of Business Administration online program at Stevens Institute of Technology, which pairs the quality of our on-campus program with the flexibility of part-time study and remote coursework.<br/><br/>The Stevens Online MBA is an AACSB-accredited program that combines business knowledge with the technology and analytics necessary to excel in today's data-centric world. Our part-time online program offers tailored leadership development, individualized career services and two on-site immersions in the New York City region.",
+    programBenefitsImage: "/assets/images/2-explore-mba.jpg",
     programBenefitsHighlights: [
       {
         title: "Connections to Top Hiring Companies",

@@ -65,7 +65,13 @@ const programData = {
   ],
   career: {
     description: `
-      <p class="mb-4">An MSCS qualifies students for advanced, well-compensated positions as computer science managers and individual contributors specializing in areas like software engineering, machine learning and database management. The U.S. Bureau of Labor Statistics (BLS) forecasts much faster than average growth for such computer science roles as software developers (17% growth) and computer research scientists (26% growth) by 2033.</p>
+      <p class="mb-4">An MSCS qualifies students for advanced, well-compensated positions as computer science managers and individual contributors specializing in areas like software engineering, machine learning and database management. The U.S. Bureau of Labor Statistics (BLS) forecasts much faster than average growth for such computer science roles as:</p>
+      <ul class="mb-4 list-disc list-inside">
+        <li>Software developers (17% growth in employment by 2033)</li>
+        <li>Computer research scientists (26% growth in employment by 2033)¹</li>
+      </ul>
+      <p class="mb-4">The exceptional skill set MSCS graduates possess helps them secure premier tech jobs as computer scientists at companies such as Google and Meta, which can pay around $300,000.²</p>
+      <p class="mb-4">Many remote work opportunities are available in computer science, but emerging tech hubs and traditional business hubs are also significant employers in the field. For instance, more than 119,000 software developers are employed in the New York City metropolitan area, where Stevens is located. Top tech hubs like San Francisco, San Jose and Seattle are home to leading employers — and offer average developer salaries as high as $211,450.³</p>
       <p>Our diverse curriculum and specialized offerings equip students with the sought-after skills needed to thrive in their chosen fields. This degree prepares graduates with skills in computer science, Python, Amazon Web Services, automation and software engineering and opens doors to other organizations outside of tech, such as Bank of America and JPMorgan Chase, both of which have employed Stevens MSCS alumni.</p>
     `,
     jobTitles: [
@@ -76,7 +82,7 @@ const programData = {
       { title: "Information Security Analyst", salary: "$124,910" },
       { title: "Computer Systems Analyst", salary: "$103,800" }
     ],
-    source: "U.S. Bureau of Labor Statistics, 2025.",
+    source: "¹ U.S. Bureau of Labor Statistics, 2025. ² Glassdoor, April 2024. ³ U.S. Bureau of Labor Statistics, 2025.",
     topCompanies: ["Amazon", "Meta", "IBM", "Bank of America", "Google", "JPMorgan Chase"]
   },
   whatYoullLearn: {
@@ -547,8 +553,8 @@ The objective of this course is to give students a basic grounding in designing 
   },
   admissions: {
     options: [
-      { title: "Standard Application", featured: false, description: `<p>Complete the traditional application and submit the following for review:</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree</li><li>Two letters of recommendation</li><li>Statement of purpose</li><li>Academic transcripts</li><li>Résumé</li></ul>`, buttonText: "Apply Now", url: "https://gradadmissions.stevens.edu/apply/?pk=GRNP" },
-      { title: "ASAP Application", featured: true, description: `<p>Enroll in two eight-week asynchronous courses and gain full admission to the program by earning a grade of “B” or better in each.</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree required</li><li>No letters of recommendation required</li></ul>`, buttonText: "Enroll Now", url: createPageUrl('ASAP') }
+      { title: "Standard Application", featured: false, description: `<p>Complete the Standard application and submit the following for review:</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree</li><li>Two letters of recommendation</li><li>Statement of purpose</li><li>Academic transcripts</li><li>Résumé</li></ul>`, buttonText: "Apply Now", url: "https://gradadmissions.stevens.edu/apply/?pk=GRNP" },
+      { title: "ASAP Application", featured: true, description: `<p>Enroll in two eight-week asynchronous courses and gain full admission to the program by earning a grade of “B” or better in each.</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree required</li><li>No letters of recommendation required</li></ul>`, buttonText: "Apply Now", url: createPageUrl('ASAP') }
     ],
     consultation: { title: "Wondering Which Application Is Right for You?", buttonText: "Get In Touch", url: createPageUrl('RequestInfo') }
   },

@@ -13,10 +13,11 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
 // Section Component for consistent styling
-const Section = ({ id, title, children, container = true, el = 'section', refProp, bgClassName = 'bg-stevens-white' }) => {
+// Added paddingClassName to allow per-section padding control (e.g., remove bottom padding)
+const Section = ({ id, title, children, container = true, el = 'section', refProp, bgClassName = 'bg-stevens-white', paddingClassName = 'py-stevens-section-sm lg:py-stevens-section' }) => {
   const Element = el;
   return (
-    <Element id={id} ref={refProp} className={`${bgClassName} py-stevens-section-sm lg:py-stevens-section scroll-mt-20`}>
+    <Element id={id} ref={refProp} className={`${bgClassName} ${paddingClassName} scroll-mt-20`}>
       <div className={container ? "max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg" : ""}>
         {title && <h2 className="font-stevens-headers text-stevens-3xl md:text-stevens-4xl font-bold text-stevens-gray-900 mb-stevens-lg text-center">{title}</h2>}
         {children}
@@ -224,7 +225,7 @@ const WhatYoullLearnCarousel = ({ modules }) => {
 };
 
 export default function ProgramPageTemplate({ programData, useApplicationModal = false }) {
-  const { code, hero, quickFacts, overview, rankings, career, curriculum, whyStevens, studentSpotlight, faculty, admissions, keyDates, tuition, events, faqs, accreditation, whatYoullLearn, commonJobTitles, topCompanies } = programData;
+  const { code, hero, quickFacts, overview, videoSection, rankings, career, curriculum, whyStevens, studentSpotlight, faculty, admissions, keyDates, tuition, events, faqs, accreditation, whatYoullLearn, commonJobTitles, topCompanies } = programData;
   const sectionRefs = useRef({});
   const [activeSection, setActiveSection] = useState('overview');
   
@@ -280,6 +281,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
   const navItems = useMemo(() => {
     const items = [
       { id: 'overview', label: 'Overview' },
+      { id: 'video', label: 'Video' },
       { id: 'rankings', label: 'Rankings' },
       { id: 'career', label: 'Career Outlook' },
       { id: 'what-youll-learn', label: 'What You\'ll Learn' },
@@ -298,6 +300,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
     return items.filter(item => {
       switch(item.id) {
         case 'overview': return overview && (overview.description || (overview.keySkills && overview.keySkills.length > 0) || (overview.concentrations && overview.concentrations.length > 0));
+        case 'video': return videoSection && videoSection.videoSrc;
         case 'rankings': return rankings && rankings.length > 0;
         case 'career': return career && (career.description || career.jobTitlesTable || career.topCompanies);
         case 'what-youll-learn': return whatYoullLearn && (whatYoullLearn.description || (whatYoullLearn.modules && whatYoullLearn.modules.length > 0));
@@ -437,6 +440,25 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
             </div>
           </div>
         </Section>
+
+        {videoSection && (
+          <Section id="video" title={videoSection.title} bgClassName="bg-stevens-gray-100" refProp={el => sectionRefs.current.video = el}>
+            <div className="max-w-7xl mx-auto">
+              <div className="bg-stevens-white rounded-stevens-md overflow-hidden shadow-stevens-lg border border-stevens-gray-100">
+                {/* Video Player Component */}
+                <VideoPlayer
+                  src={videoSection.videoSrc}
+                  poster={videoSection.posterSrc}
+                  title={videoSection.title}
+                  showControls={videoSection.showControls}
+                  muted={videoSection.muted}
+                />
+
+                
+              </div>
+            </div>
+          </Section>
+        )}
         
         {rankings && rankings.length > 0 && (
           <Section id="rankings" title="By the Numbers" bgClassName="bg-stevens-gray-100" container={false} el="div" refProp={el => sectionRefs.current.rankings = el}>
@@ -603,7 +625,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
         )}
 
         {whyStevens && (
-          <Section id="why-stevens" bgClassName="bg-stevens-white" className="!py-stevens-section-sm lg:py-stevens-section" refProp={el => sectionRefs.current['why-stevens'] = el}>
+          <Section id="why-stevens" bgClassName="bg-stevens-white" paddingClassName="py-stevens-section-sm lg:py-stevens-section" refProp={el => sectionRefs.current['why-stevens'] = el}>
             {whyStevens.variant === 'splitWithVideo' ? (
               <div className="max-w-stevens-content-max mx-auto">
                 <div className="grid lg:grid-cols-2 gap-stevens-2xl items-center">
@@ -963,10 +985,10 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
             </Accordion>
           </Section>
         )}
-
+        
         {accreditation && (
-          <Section id="accreditation" container={false} el="div" refProp={el => sectionRefs.current['accreditation'] = el}>
-            <div className="relative bg-stevens-gray-900 text-stevens-white py-stevens-section overflow-hidden">
+          <Section id="accreditation" container={false} el="div" paddingClassName="pt-stevens-section-sm lg:pt-stevens-section" refProp={el => sectionRefs.current['accreditation'] = el}>
+            <div className="relative bg-stevens-gray-900 text-stevens-white overflow-hidden">
               {/* Background Image */}
               <div className="absolute inset-0">
                 <img 
@@ -979,7 +1001,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
               </div>
               
               {/* Content */}
-              <div className="relative max-w-7xl mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl text-center">
+              <div className="relative max-w-7xl mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl text-center pt-stevens-section-sm lg:pt-stevens-section pb-[60px] ">
                 <h2 className="font-stevens-display uppercase text-stevens-3xl stevens-md:text-stevens-4xl font-stevens-bold mb-stevens-lg text-stevens-white">
                   Accreditation Statement
                 </h2>
@@ -993,8 +1015,9 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
             </div>
           </Section>
         )}
-        
-        <Section id="request-info" container={false} el="div" >
+        {/* Request Information */}
+        {/* disabled extra request information for now */}
+        {/* <Section id="request-info" container={false} el="div" >
           <div className="bg-stevens-primary py-20">
             <div className="max-w-7xl mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl grid stevens-md:grid-cols-2 gap-stevens-xl items-center">
                 <div className="text-stevens-white">
@@ -1009,7 +1032,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
                 <LeadCaptureForm programOfInterest={code} sourcePage={`${code}_program_page`} />
             </div>
           </div>
-        </Section>
+        </Section> */}
       </main>
     </div>
   );

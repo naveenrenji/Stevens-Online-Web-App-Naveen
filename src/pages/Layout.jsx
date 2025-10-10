@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { createPageUrl } from "@/utils";
+import { createPageUrl, buildCanonicalUrl } from "@/utils";
 import {
   ChevronDown,
   Menu,
@@ -40,20 +40,23 @@ import "@/globals.css";
 const degreeProgramItems = [
   { name: "Online MBA", page: "online-mba/" },
   { name: "M.S. in Computer Science", page: "online-masters-computer-science-mscs/" },
+  // { name: "M.S. in Data Science", page: "online-masters-data-science-msds/" }, // Temporarily disabled
   { name: "M.S. in Engineering Management", page: "online-masters-engineering-management/" },
 ];
 
 const mainNavLinks = [
   // The "Degree Programs" and "Tuition & Admissions" are handled separately with custom dropdowns.
-{ name: "Certificates & Short Courses", page: "Certificates" },
-  { name: "The Online Experience", page: "online-learning-experience/" },
-  { name: "Blog", page: "Blog" },
+  // { name: "Certificates & Short Courses", page: "Certificates" },
+  { name: "Academics", page: "https://www.stevens.edu/", external: true },
+  { name: "Online Experience", page: "online-learning-experience/" },
+  { name: "Blog", page: "Blog/" },
 ];
 
 const tuitionAdmissionsItems = [
-  { name: "Admissions", page: "Admissions" },
+  { name: "Admissions", page: "Admissions/" },
   { name: "Tuition", page: "Tuition" },
-  { name: "Events", page: "Events" },
+  { name: "Financial Aid", page: "Tuition" },
+  { name: "Events", page: "Events/" },
  
 ];
 
@@ -93,6 +96,9 @@ export default function Layout({ children, currentPageName }) {
   const prevASAPVisibleRef = React.useRef(true);
 
   React.useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return;
+    
     // Lightweight debounce using a single timer; avoids rapid state flips and extra renders
     let resizeTimer = null;
     let scrollTimer = null;
@@ -301,6 +307,21 @@ export default function Layout({ children, currentPageName }) {
     if (prevASAPVisibleRef.current) {
       setShowASAPBanner(true);
     }
+  }, [location.pathname]);
+
+  // Update canonical tag on route change
+  React.useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    
+    const canonicalHref = buildCanonicalUrl(location.pathname);
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalHref);
   }, [location.pathname]);
 
   const isActive = (page) => currentPageName === page;
@@ -639,6 +660,7 @@ export default function Layout({ children, currentPageName }) {
                     className={`group relative font-stevens-nav font-normal uppercase tracking-wider flex items-center cursor-pointer transition-colors duration-stevens-normal ${
                       isActive("MBA") ||
                       isActive("MSCS") ||
+                      // isActive("MSDS") || // Temporarily disabled
                       isActive("MEM") ||
                       isActive("ComparePrograms")
                         ? "text-stevens-white/80"
@@ -802,29 +824,41 @@ export default function Layout({ children, currentPageName }) {
                   </DropdownMenuContent>
                 </DropdownMenu>
                 {mainNavLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={createPageUrl(link.page)}
-                    className={`relative font-stevens-nav font-normal uppercase tracking-wider transition-colors duration-stevens-normal ${
-                      isActive(link.page)
-                        ? "text-stevens-white/80"
-                        : "text-stevens-white hover:text-stevens-white/80"
-                    }`}
-                    onMouseEnter={() => {
-                      if (hoverTimeoutRef.current) {
-                        clearTimeout(hoverTimeoutRef.current);
-                      }
-                      setIsHoveringRedNav(true);
-                    }}
-                    onMouseLeave={() => {
-                      hoverTimeoutRef.current = setTimeout(() => {
-                        setIsHoveringRedNav(false);
-                      }, 100);
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                  link.external ? (
+                    <a
+                      key={link.name}
+                      href={link.page}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative font-stevens-nav font-normal uppercase tracking-wider transition-colors duration-stevens-normal text-stevens-white hover:text-stevens-white/80"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      to={createPageUrl(link.page)}
+                        className={`relative font-stevens-nav font-normal uppercase tracking-wider transition-colors duration-stevens-normal ${
+                          isActive(link.page)
+                            ? "text-stevens-white/80"
+                            : "text-stevens-white hover:text-stevens-white/80"
+                        }`}
+                        onMouseEnter={() => {
+                          if (hoverTimeoutRef.current) {
+                            clearTimeout(hoverTimeoutRef.current);
+                          }
+                          setIsHoveringRedNav(true);
+                        }}
+                        onMouseLeave={() => {
+                          hoverTimeoutRef.current = setTimeout(() => {
+                            setIsHoveringRedNav(false);
+                          }, 100);
+                        }}
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  ))}
               </nav>
             </div>
 
@@ -900,16 +934,27 @@ export default function Layout({ children, currentPageName }) {
                                   </div>
                           );
                             }
-                            return (
+                            return link.external ? (
+                              <a
+                                key={link.name}
+                                href={link.page}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block px-stevens-md py-stevens-md font-stevens-semibold text-stevens-gray-900 hover:bg-stevens-gray-50 border-b border-stevens-gray-200 transition-colors duration-stevens-normal"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {link.name}
+                              </a>
+                            ) : (
                               <Link
                                 key={link.name}
                                 to={createPageUrl(link.page)}
-                            className="block px-stevens-md py-stevens-md font-stevens-semibold text-stevens-gray-900 hover:bg-stevens-gray-50 border-b border-stevens-gray-200 transition-colors duration-stevens-normal"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
+                                className="block px-stevens-md py-stevens-md font-stevens-semibold text-stevens-gray-900 hover:bg-stevens-gray-50 border-b border-stevens-gray-200 transition-colors duration-stevens-normal"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
                                 {link.name}
-                          </Link>
-                        );
+                              </Link>
+                            );
                       })}
                     </div>
                   </nav>
@@ -976,7 +1021,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="text-stevens-sm font-medium">
                 <strong>ASAP Application:</strong> Start with two courses & earn full admission based on your performance. No full degree commitment required! 
                 <Link
-                  to={createPageUrl("ASAP")}
+                  to={createPageUrl("ASAP/")}
                   className="ml-2 underline hover:no-underline font-semibold transition-opacity duration-stevens-fast hover:opacity-80"
                 >
                   Learn More →
@@ -990,7 +1035,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="text-stevens-sm font-medium">
                 <strong>ASAP Application:</strong> Start with 2 courses & earn admission. 
                 <Link
-                  to={createPageUrl("ASAP")}
+                  to={createPageUrl("ASAP/")}
                   className="ml-2 underline hover:no-underline font-semibold transition-opacity duration-stevens-fast hover:opacity-80"
                 >
                   Learn More →
@@ -1004,7 +1049,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="text-stevens-xs font-medium">
                 <strong>ASAP:</strong> 
                 <Link
-                  to={createPageUrl("ASAP")}
+                  to={createPageUrl("ASAP/")}
                   className="ml-1 underline hover:no-underline font-semibold transition-opacity duration-stevens-fast hover:opacity-80"
                 >
                   Learn More →
@@ -1058,12 +1103,12 @@ export default function Layout({ children, currentPageName }) {
                 >
                   Degree Programs
                 </Link>
-                <Link
+                {/* <Link
                   to={createPageUrl("Certificates")}
                   className="block text-gray-300 hover:text-white hover:underline hover:font-bold transition-all duration-300"
                 >
                   Certificates & Short Courses
-                </Link>
+                </Link> */}
                 <Link
                   to="/online-learning-experience/"
                   className="block text-gray-300 hover:text-white hover:underline hover:font-bold transition-all duration-300"
@@ -1071,10 +1116,10 @@ export default function Layout({ children, currentPageName }) {
                   The Online Experience
                 </Link>
                 <Link
-                  to={createPageUrl("TuitionOutcomes")}
+                  to={createPageUrl("Tuition")}
                   className="block text-gray-300 hover:text-white hover:underline hover:font-bold transition-all duration-300"
                 >
-                  Tuition & Outcomes
+                  Tuition & Financial Aid
                 </Link>
                 <Link
                   to={createPageUrl("RequestInfo")}
@@ -1148,7 +1193,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="mt-6 space-y-2 text-sm">
                 <div className="flex items-center justify-center md:justify-start space-x-2">
                   <Phone className="w-4 h-4" />
-                  <span>+1 (201) 216-5000</span>
+                  <span>201.216.5000</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start space-x-2">
                   <Mail className="w-4 h-4" />
@@ -1163,7 +1208,7 @@ export default function Layout({ children, currentPageName }) {
            </div>
            <div className="border-t border-gray-400 mt-12 pt-8 text-center text-sm text-gray-300">
             <p>
-              &copy; 2024 Stevens Institute of Technology. All rights reserved.
+              &copy; 2025 Stevens Institute of Technology. All rights reserved.
             </p>
            </div>
         </div>
@@ -1172,7 +1217,11 @@ export default function Layout({ children, currentPageName }) {
       {showBackToTop && (
       <button
           className="fixed bottom-6 right-6 bg-stevens-maroon hover:bg-stevens-maroon-dark text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-[9998]"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => {
+            if (typeof window !== 'undefined') {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
         >
           <ArrowUp className="w-5 h-5" />
         </button>

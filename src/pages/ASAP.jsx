@@ -5,6 +5,9 @@ import { Check } from 'lucide-react';
 
 export default function ASAPPage() {
   useEffect(() => {
+    // Only run on client side
+    if (typeof document === 'undefined') return;
+    
     if (document.getElementById('slate-form-script')) return;
     
     // Create isolated container for external script
@@ -34,6 +37,9 @@ export default function ASAPPage() {
 
   // Continuous protection against external script interference
   useEffect(() => {
+    // Only run on client side
+    if (typeof document === 'undefined') return;
+    
     const addPentagonProtection = () => {
       const style = document.createElement('style');
       style.id = 'asap-pentagon-protection';

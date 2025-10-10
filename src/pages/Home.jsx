@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Program } from "@/api/entities";
 import { Event } from "@/api/entities";
 import { Button } from "@/components/ui/button";
@@ -45,41 +45,43 @@ const StatItem = ({ value, label, icon: Icon }) => (
 const textRankings = [
   {
     value: "#1",
-    description: "Online MBA from a New Jersey school in 2024",
+    description: "Online MBA from a New Jersey school in 2025",
     source: "U.S. News & World Report",
   },
   {
-    value: "#11",
-    description:
-      "Best Online Master's in Computer Information Technology Programs",
-    source: "U.S. News & World Report (2024)",
+    value: "7x",
+      description:
+        "Winner of the 21st Century Award for Best Practices in Distance Learning",
+      source: "USDLA",
   },
+  
   {
     value: "#15",
-  description: "Best Value Colleges",
-    source: "Payscale (2024)*",
+  description: "Ranks No. 15 among “Best Value Colleges”",
+    source: "*Based on the cost of a four-year bachelor’s degree program",
 },
 {
-  value: "7x",
-    description:
-      "Winner of the 21st Century Award for Best Practices in Distance Learning",
-    source: "USDLA",
+  value: "#19",
+  description:
+    "Best Online Master's in Computer Information Technology Programs",
+  source: "U.S. News & World Report (2025)",
 },
+
 ];
 
 const badgeRankings = [
 {
   image: "/assets/rankings/ranking-badge-1.png",
     description:
-      "#1 in New Jersey in Best Online Master's in Computer Information Technology Programs",
+      "No. 1 in New Jersey in Best Online Master's in Computer Information Technology Programs",
 },
 {
   image: "/assets/rankings/ranking-badge-2.png", 
-    description: "#1 in New Jersey in Best Online MBA Programs",
+    description: "No. 1 in New Jersey in Best Online MBA Programs",
 },
 {
   image: "/assets/rankings/ranking-badge-3.png",
-    description: "#26 Nationally in Best Online Engineering Programs",
+    description: "No. 36 Nationally in Best Online Engineering Programs",
   },
 ];
 
@@ -174,12 +176,12 @@ export default function Home() {
     loadData();
   }, []);
 
-  const handleAssessmentComplete = (results) => {
+  const handleAssessmentComplete = useCallback((results) => {
     // Handle assessment completion - could trigger additional actions
     console.log("Assessment completed:", results);
     // Optionally, you might want to show the LeadCaptureForm or redirect after assessment
     // setShowAssessment(false); // Example: Switch to lead form after assessment
-  };
+  }, []);
 
   return (
     <div className="font-sans bg-white">
@@ -203,7 +205,7 @@ export default function Home() {
                 ambition.
               </p>
               <div className="flex flex-col sm:flex-row gap-stevens-md animate-in slide-in-from-left duration-700 delay-400">
-                <Link to={createPageUrl("RequestInfo")}>
+                <Link to={createPageUrl("RequestInfo/")}>
                   <button className="btn-stevens-primary ">
                     Request Information
                   </button>
@@ -219,7 +221,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="block lg:block mt-8 lg:mt-0 animate-in slide-in-from-right duration-700 delay-300">
+            <div className="block lg:block mt-8 lg:mt-0 animate-in slide-in-from-right duration-700">
               {showAssessment ? (
               <div>
                   <ProgramReadinessAssessment
@@ -228,7 +230,7 @@ export default function Home() {
                   <div className="text-center mt-4">
                     <Button
                     variant="link"
-                    className="text-gray-300 hover:text-white text-sm hover:no-underline transition-colors duration-300"
+                    className="text-gray-300 hover:text-white text-lg hover:no-underline transition-colors duration-300"
                       onClick={() => setShowAssessment(false)}
                     >
                       Skip Assessment - Request Info Instead
@@ -241,7 +243,7 @@ export default function Home() {
                   <div className="text-center mt-4">
                     <Button
                     variant="link"
-                    className="text-gray-300 hover:text-white text-sm hover:no-underline transition-colors duration-300"
+                    className="text-gray-300 hover:text-white text-lg hover:no-underline transition-colors duration-300"
                       onClick={() => setShowAssessment(true)}
                     >
                       Take Program Assessment Instead
@@ -303,15 +305,13 @@ export default function Home() {
                 <BadgeRankingItem key={index} {...ranking} />
                 ))}
                 <p className="text-center font-stevens-semibold text-stevens-gray-900 mt-stevens-sm">
-                  Source: U.S. News & World Report 2024
+                  Source: U.S. News & World Report 2025
                 </p>
               </div>
             </AnimatedSection>
           </div>
 
-          <AnimatedSection className="text-center text-stevens-sm text-stevens-gray-900 mt-stevens-xl">
-            *Based on the cost of a four-year bachelor's degree program.
-          </AnimatedSection>
+          
         </div>
       </section>
 
@@ -344,8 +344,8 @@ export default function Home() {
                     innovative education, expert faculty, and flexible learning
                     designed for working professionals.
                   </p>
-
-                  <div className="flex flex-col stevens-sm:flex-row gap-stevens-md">
+                  {/* Removed browse catalog and explore courses buttons */}
+                  {/* <div className="flex flex-col stevens-sm:flex-row gap-stevens-md">
                     <Link
                       to={createPageUrl("ProfessionalEducation")}
                       className="flex-1"
@@ -361,7 +361,7 @@ export default function Home() {
                     >
                       Browse Catalog
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </AnimatedSection>
