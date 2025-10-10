@@ -1,5 +1,13 @@
 /node_modules
-/dist
-/dist
 build.log
-/dist
+
+# Exclude large asset FOLDERS from dist/ but allow CSS/JS bundles
+dist/assets/videos/
+dist/assets/images/
+dist/assets/blogs/
+dist/assets/avatars/
+dist/assets/rankings/
+dist/assets/logos/
+
+# Allow dist/assets/*.js and dist/assets/*.css (build bundles)
+# Allow all HTML files and other necessary files
