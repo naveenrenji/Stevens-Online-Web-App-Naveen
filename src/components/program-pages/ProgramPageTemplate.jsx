@@ -993,7 +993,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
               <div className="absolute inset-0">
                 <img 
                   src="/assets/images/accreditation.avif" 
-                  alt="" 
+                  alt="AACSB Accreditation Badge for Stevens Institute of Technology" 
                   className="w-full h-full object-cover opacity-30"
                   aria-hidden="true"
                 />

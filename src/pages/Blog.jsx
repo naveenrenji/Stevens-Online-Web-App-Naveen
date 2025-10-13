@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { createPageUrl, buildCanonicalUrl, setJsonLd } from '@/utils';
+import { createPageUrl, buildCanonicalUrl, setJsonLd, setPageTitle, setMetaDescription, setOpenGraphTags } from '@/utils';
 import BlogList from '@/components/blog/BlogList';
 import BlogDetail from '@/components/blog/BlogDetail';
 import BlogErrorBoundary from '@/components/blog/BlogErrorBoundary';
@@ -182,15 +182,35 @@ export default function Blog() {
     setSinglePost(newState.singlePost);
   }, [slug, category]);
 
-  // Handle JSON-LD injection (client-side only)
+ // Handle SEO metadata injection (client-side only)
   useEffect(() => {
     if (singlePost) {
       const canonical = buildCanonicalUrl(`/blog/${singlePost.id}/`);
+      
+      // Set page title
+      setPageTitle(`${singlePost.title} | Stevens Online`);
+      
+      // Set meta description
+      const description = singlePost.excerpt || singlePost.subtitle || `Read about ${singlePost.title} on Stevens Online blog.`;
+      setMetaDescription(description);
+      
+      // Set Open Graph tags
+      setOpenGraphTags({
+        title: singlePost.title,
+        description: description,
+        image: singlePost.featured_image_url ? buildCanonicalUrl(singlePost.featured_image_url) : buildCanonicalUrl('/assets/logos/stevens-crest.png'),
+        url: canonical,
+        type: 'article'
+      });
+      
+      // Set JSON-LD structured data
+
+
       const jsonld = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": singlePost.title,
-        "description": singlePost.excerpt || '',
+        "description": description,
         "image": singlePost.featured_image_url ? buildCanonicalUrl(singlePost.featured_image_url) : undefined,
         "datePublished": singlePost.created_date,
         "dateModified": singlePost.updated_date || singlePost.created_date,
@@ -205,6 +225,18 @@ export default function Blog() {
       };
       setJsonLd('jsonld-blog-post', jsonld);
     } else if (posts.length > 0) {
+
+      // Blog index page
+      setPageTitle('Stevens Online Blog | Graduate Education Insights');
+      setMetaDescription('Stay informed with insights, tips, and news about online education, career advancement, and technology trends from Stevens Institute of Technology.');
+      
+      setOpenGraphTags({
+        title: 'Stevens Online Blog',
+        description: 'Stay informed with insights, tips, and news about online education, career advancement, and technology trends.',
+        url: buildCanonicalUrl('/blog/'),
+        type: 'website'
+      });
+
       const jsonldIndex = {
         "@context": "https://schema.org",
         "@type": "WebPage",
