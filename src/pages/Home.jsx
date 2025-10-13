@@ -450,7 +450,14 @@ export default function Home() {
                   ONLINE MBA
                 </h2>
                 <p className="text-stevens-white mb-stevens-lg leading-relaxed">
-                  The Stevens Online MBA is an AACSB-accredited program offered part time through online courses. The Online MBA combines business knowledge with the technology and analytics necessary to excel in today's data-centric world. Students will build upon their managerial toolkits with analytical, data literacy, marketing and operations management skills that drive data-based decisions.
+                  The Stevens {" "}
+                  <Link 
+                    to={createPageUrl("online-mba/")} 
+                    className="underline hover:text-stevens-gray-200 transition-colors duration-stevens-normal"
+                  >
+                     Online MBA
+                  </Link>{" "}
+                   is an AACSB-accredited program offered part time through online courses. The Online MBA combines business knowledge with the technology and analytics necessary to excel in today's data-centric world. Students will build upon their managerial toolkits with analytical, data literacy, marketing and operations management skills that drive data-based decisions.
                 </p>
                 <Link to={createPageUrl("online-mba/")}>
                   <button className="bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 px-stevens-lg py-stevens-md rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal shadow-stevens-md hover:shadow-stevens-lg">
