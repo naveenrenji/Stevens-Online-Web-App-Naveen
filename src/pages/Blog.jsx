@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { createPageUrl, buildCanonicalUrl, setJsonLd } from '@/utils';
+import { createPageUrl, buildCanonicalUrl, setJsonLd, setPageTitle, setMetaDescription, setOpenGraphTags } from '@/utils';
 import BlogList from '@/components/blog/BlogList';
 import BlogDetail from '@/components/blog/BlogDetail';
 import BlogErrorBoundary from '@/components/blog/BlogErrorBoundary';
@@ -71,17 +71,20 @@ const BlogPageContent = ({ posts }) => {
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
     setCurrentPage(page);
+    // Use setTimeout to ensure content updates before scrolling
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   return (
     <div>
       {/* Hero Section */}
       <section className="bg-stevens-white py-stevens-3xl">
-        <div className="max-w-7xl mx-auto px-stevens-md">
+      <div className="max-w-7xl mx-auto px-stevens-md mt-stevens-lg">
           <div className="text-center">
             <h1 className="font-stevens-display text-stevens-hero text-stevens-primary mb-stevens-lg">
               Stevens Online Blog: Insights, Inspiration and Information
@@ -179,15 +182,35 @@ export default function Blog() {
     setSinglePost(newState.singlePost);
   }, [slug, category]);
 
-  // Handle JSON-LD injection (client-side only)
+ // Handle SEO metadata injection (client-side only)
   useEffect(() => {
     if (singlePost) {
       const canonical = buildCanonicalUrl(`/blog/${singlePost.id}/`);
+      
+      // Set page title
+      setPageTitle(`${singlePost.title} | Stevens Online`);
+      
+      // Set meta description
+      const description = singlePost.excerpt || singlePost.subtitle || `Read about ${singlePost.title} on Stevens Online blog.`;
+      setMetaDescription(description);
+      
+      // Set Open Graph tags
+      setOpenGraphTags({
+        title: singlePost.title,
+        description: description,
+        image: singlePost.featured_image_url ? buildCanonicalUrl(singlePost.featured_image_url) : buildCanonicalUrl('/assets/logos/stevens-crest.png'),
+        url: canonical,
+        type: 'article'
+      });
+      
+      // Set JSON-LD structured data
+
+
       const jsonld = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": singlePost.title,
-        "description": singlePost.excerpt || '',
+        "description": description,
         "image": singlePost.featured_image_url ? buildCanonicalUrl(singlePost.featured_image_url) : undefined,
         "datePublished": singlePost.created_date,
         "dateModified": singlePost.updated_date || singlePost.created_date,
@@ -202,6 +225,18 @@ export default function Blog() {
       };
       setJsonLd('jsonld-blog-post', jsonld);
     } else if (posts.length > 0) {
+
+      // Blog index page
+      setPageTitle('Stevens Online Blog | Graduate Education Insights');
+      setMetaDescription('Stay informed with insights, tips, and news about online education, career advancement, and technology trends from Stevens Institute of Technology.');
+      
+      setOpenGraphTags({
+        title: 'Stevens Online Blog',
+        description: 'Stay informed with insights, tips, and news about online education, career advancement, and technology trends.',
+        url: buildCanonicalUrl('/blog/'),
+        type: 'website'
+      });
+
       const jsonldIndex = {
         "@context": "https://schema.org",
         "@type": "WebPage",

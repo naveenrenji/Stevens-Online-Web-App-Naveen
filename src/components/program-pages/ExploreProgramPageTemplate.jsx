@@ -582,9 +582,7 @@ const ExploreProgramPageTemplate = ({
               {contactDescription}
             </p>
             <a 
-              href="https://calendly.com/n3-stevens/30min" 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/requestinfo/"
               className="btn-stevens-outline bg-stevens-white text-stevens-primary hover:bg-stevens-gray-50 hover:text-stevens-maroon-dark px-stevens-lg rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal inline-block"
             >
               {contactButtonText}

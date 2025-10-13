@@ -344,6 +344,52 @@ export default function LeadCaptureForm({
             #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .header-text {
               display: none !important;
             }
+            
+            /* Button container - ensures buttons have proper spacing */
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .button-container,
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .form-actions,
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 div[class*="button"],
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 div:has(> button[type="submit"]) {
+              display: flex !important;
+              gap: 1rem !important;
+              flex-wrap: wrap !important;
+            }
+
+            /* Back button styling to match submit button */
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button[type="button"],
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .back-button,
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button:not([type="submit"]) {
+              background: #6b7280 !important;
+              color: #ffffff !important;
+              border: none !important;
+              padding: 0.75rem 1.5rem !important;
+              border-radius: 6px !important;
+              font-size: 14px !important;
+              font-weight: 600 !important;
+              cursor: pointer !important;
+              transition: all 0.2s ease-in-out !important;
+              text-transform: uppercase !important;
+              letter-spacing: 0.025em !important;
+              margin-top: 0.75rem !important;
+              margin-right: 1rem !important;
+            }
+
+            /* Back button hover */
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button[type="button"]:hover,
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 .back-button:hover {
+              background: #4b5563 !important;
+              transform: translateY(-1px) !important;
+              box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3) !important;
+            }
+
+            /* Ensure buttons are inline but with spacing */
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button {
+              margin-left: 0 !important;
+            }
+
+            #form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532 button + button {
+              margin-left: 1rem !important;
+            }
           `}</style>
           
           <div className="bg-stevens-white text-stevens-gray-900">

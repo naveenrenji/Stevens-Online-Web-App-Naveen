@@ -88,7 +88,10 @@ export default function ComparePrograms() {
 
   return (
     <div>
-      <PageHero title="Compare Our Programs" subtitle="Find your path" />
+      <PageHero title="Compare Our Programs" subtitle="Find your path" 
+      
+      bgImage="/assets/images/compare-hero.jpg"
+      />
 
       {/* Select Programs to Compare */}
       <section className="py-16 bg-stevens-white">

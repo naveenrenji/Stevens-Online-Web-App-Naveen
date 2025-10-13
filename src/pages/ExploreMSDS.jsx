@@ -6,14 +6,14 @@ const ExploreMSDS = () => {
   const msdsData = {
     // Hero Section
     heroTitle: "Data Scientist is Ranked the No. 1 Role Increasing in Demand by World Economic Forum",
-    programName: "Earn Your M.S. in Data Science Fully Online",
+   
     heroSubtitle: "Master data science skills through our 100% online curriculum led by industry-recognized faculty.",
-    bgImage: "/assets/images/stevens-campus.png", // Placeholder
+    bgImage: "/assets/images/1-explore-msds.jpg", // Placeholder
     programCode: "msds",
     badges: [
       { text: "GMAT/GRE Not Required", icon: Award },
       { text: "100% Online", icon: Globe },
-      { text: "30 Credits", icon: Star }
+     
     ],
     
     // Statistics
@@ -54,7 +54,7 @@ const ExploreMSDS = () => {
     // Program Benefits
     programBenefitsTitle: "Program Benefits",
     programBenefitsDescription: "The Online M.S. in Data Science (MSDS) prepares you to hone your data science skills through our 100% online, leading-edge curriculum led by industry-recognized faculty. You'll have access to one of the top algorithmic theory teams in the world and learn to leverage big data to drive better decisions. Stevens designed the Online M.S. in Data Science curriculum to align with in-demand industry skills and emerging technologies while equipping students with a strong foundation in theory and academic areas of inquiry.",
-    programBenefitsImage: "/assets/images/stevens-campus.png", // Placeholder
+    programBenefitsImage: "/assets/images/2-explore-msds.jpg", // Placeholder
     programBenefitsHighlights: [
       {
         title: "Excellence in Online Education",
@@ -114,29 +114,13 @@ const ExploreMSDS = () => {
     ],
     keyDatesNote: "*Applicants who apply by the early submit deadline and are admitted may be eligible for a $250 deposit waiver. Applicants who receive tuition discounts are not eligible. Other eligibility conditions may apply.",
     
-    // FAQ
-    faqs: [
-      {
-        question: "WHAT IS DATA SCIENCE?",
-        answer: "Data science is an interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data. It combines aspects of statistics, computer science, and domain expertise to analyze and interpret complex data."
-      },
-      {
-        question: "WHAT CAREER OPPORTUNITIES ARE AVAILABLE FOR DATA SCIENCE GRADUATES?",
-        answer: "Data science graduates can pursue careers as data scientists, data analysts, machine learning engineers, business intelligence analysts, and data engineers at companies across various industries including technology, finance, healthcare, and retail."
-      },
-      {
-        question: "IS THE ONLINE M.S. IN DATA SCIENCE ACCREDITED?",
-        answer: "Yes. Stevens Institute of Technology has been continually accredited by the Middle States Commission on Higher Education (MSCHE) since 1927. Stevens is accredited until 2027 and the next self-study evaluation is scheduled to take place during 2026-2027."
-      },
-      {
-        question: "WHAT PROGRAMMING LANGUAGES WILL I LEARN?",
-        answer: "The program focuses on Python and SQL, which are the most widely used languages in data science. You'll also gain experience with tools for data visualization, statistical analysis, and machine learning."
-      },
-      {
-        question: "HOW LONG DOES IT TAKE TO COMPLETE THE PROGRAM?",
-        answer: "The Online M.S. in Data Science requires 30 credits (10 courses). Most students complete the program in approximately two years when taking courses part-time while working full-time."
-      }
-    ],
+    // Additional Why Choose Stevens Section
+    additionalWhyChooseStevensTitle: "DATA SCIENTIST JOBS ARE PROJECTED TO GROW 35% BY 2032.²",
+    additionalWhyChooseStevensSubtitle: "CAREER-ALIGNED CURRICULUM",
+    additionalWhyChooseStevensContent: `
+      <p>From Python and SQL to predictive modeling and data visualization, you'll advance your statistical thinking and technical acumen and graduate with the expertise to meet the critical needs of a growing job sector. Future-proof your career with a top-ranked, interdisciplinary M.S. in Data Science from Stevens.</p>
+    `,
+    additionalWhyChooseStevensImage: "/assets/images/3-explore-msds.jpg",
     
     // Contact
     contactTitle: "Want to Learn More?",

@@ -707,7 +707,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
                 {/* Tab Content */}
                 {Object.keys(curriculum.courseTabs).map(tabKey => (
                   <TabsContent key={tabKey} value={tabKey} className="mt-stevens-xl">
-                    <div className="prose prose-stevens max-w-none [&_h4]:font-stevens-display [&_h4]:text-stevens-2xl [&_h4]:stevens-md:text-stevens-3xl [&_h4]:font-stevens-bold [&_h4]:text-stevens-gray-900 [&_h4]:mb-stevens-lg [&_h4]:uppercase [&_h4]:tracking-tight [&_h5]:font-stevens-bold [&_h5]:text-stevens-xl [&_h5]:stevens-md:text-stevens-2xl [&_h5]:text-stevens-gray-900 [&_h5]:mb-stevens-lg [&_h5]:mt-stevens-2xl [&_p]:text-stevens-gray-700 [&_p]:leading-relaxed [&_p]:mb-stevens-lg" dangerouslySetInnerHTML={{ __html: curriculum.courseTabs[tabKey].content }}/>
+                    <div className="prose prose-stevens max-w-none [&_h4]:font-stevens-display [&_h4]:text-stevens-2xl [&_h4]:stevens-md:text-stevens-3xl [&_h4]:font-stevens-bold [&_h4]:text-stevens-gray-900 [&_h4]:mb-stevens-lg [&_h4]:uppercase [&_h4]:tracking-tight [&_h5]:font-stevens-bold [&_h5]:text-stevens-xl [&_h5]:stevens-md:text-stevens-2xl [&_h5]:text-stevens-gray-900 [&_h5]:mb-stevens-lg [&_h5]:mt-stevens-2xl [&_p]:text-stevens-gray-700 [&_p]:leading-relaxed  [&_p]:pt-[20px]" dangerouslySetInnerHTML={{ __html: curriculum.courseTabs[tabKey].content }}/>
                   </TabsContent>
                 ))}
               </Tabs>
@@ -993,7 +993,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
               <div className="absolute inset-0">
                 <img 
                   src="/assets/images/accreditation.avif" 
-                  alt="" 
+                  alt="AACSB Accreditation Badge for Stevens Institute of Technology" 
                   className="w-full h-full object-cover opacity-30"
                   aria-hidden="true"
                 />

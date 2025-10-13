@@ -78,10 +78,13 @@ const TopicList = ({ posts }) => {
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
     setCurrentPage(page);
+    // Use setTimeout to ensure content updates before scrolling
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   return (

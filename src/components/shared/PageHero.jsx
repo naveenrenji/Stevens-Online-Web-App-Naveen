@@ -67,10 +67,10 @@ export default function PageHero({
         <img
           src={bgImage}
           alt=""
+          aria-hidden="true"
           fetchpriority="high"
           loading="eager"
           decoding="async"
-          aria-hidden
           className="absolute inset-0 w-full h-full object-cover opacity-80"
         />
       )}
