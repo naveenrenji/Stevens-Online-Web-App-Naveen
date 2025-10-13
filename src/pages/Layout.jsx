@@ -911,6 +911,30 @@ export default function Layout({ children, currentPageName }) {
                     
                       </div>
 
+                  {/* Mobile Menu CTA Buttons - Top */}
+                  <div className="p-stevens-md border-b border-stevens-gray-200 bg-stevens-gray-50 space-y-stevens-sm">
+                    <a
+                      href="https://www.stevens.edu/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Button className="w-full btn-stevens-secondary bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
+                        Stevens.edu
+                      </Button>
+                    </a>
+                    <a
+                      href="https://calendly.com/n3-stevens/30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Button className="w-full bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md">
+                        Schedule a Call
+                      </Button>
+                    </a>
+                  </div>
+
                   {/* Mobile Menu Links */}
                   <nav className="flex-1 overflow-y-auto">
                     <div className="py-stevens-md">
@@ -974,20 +998,6 @@ export default function Layout({ children, currentPageName }) {
                       })}
                     </div>
                   </nav>
-
-                  {/* Mobile Menu CTA */}
-                  <div className="p-stevens-md border-t border-stevens-gray-200 bg-stevens-gray-50 space-y-stevens-sm">
-                    <a
-                      href="https://calendly.com/n3-stevens/30min"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      <Button className="w-full bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md">
-                        Schedule a Call
-                      </Button>
-                              </a>
-                          </div>
                     </div>
                   </SheetContent>
                 </Sheet>
