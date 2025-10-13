@@ -84,7 +84,7 @@ const BlogPageContent = ({ posts }) => {
     <div>
       {/* Hero Section */}
       <section className="bg-stevens-white py-stevens-3xl">
-        <div className="max-w-7xl mx-auto px-stevens-md">
+      <div className="max-w-7xl mx-auto px-stevens-md mt-stevens-lg">
           <div className="text-center">
             <h1 className="font-stevens-display text-stevens-hero text-stevens-primary mb-stevens-lg">
               Stevens Online Blog: Insights, Inspiration and Information

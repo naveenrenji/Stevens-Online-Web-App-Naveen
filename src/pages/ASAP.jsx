@@ -103,7 +103,10 @@ export default function ASAPPage() {
     <div className="bg-stevens-gray-50 font-stevens-body">
       <PageHero
         title="ASAP Application"
-        subtitle="Your Fast Track to a Master's Degree at Stevens" />
+        subtitle="Your Fast Track to a Master's Degree at Stevens" 
+        // bgImage={<img src="/assets/images/asap-hero.avif" alt="ASAP Application" />}  
+        bgImage="/assets/images/asap-hero.avif"
+        />
 
       <div className="py-stevens-section bg-stevens-gray-50">
         <div className="max-w-7xl mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl">
@@ -123,7 +126,7 @@ export default function ASAPPage() {
                 <ul className="space-y-stevens-md">
                   {benefits.map((benefit, index) =>
                   <li key={index} className="flex items-start gap-stevens-md">
-                      <Check className="w-5 h-5 text-stevens-success mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" />
                       <span className="text-stevens-gray-900">{benefit}</span>
                     </li>
                   )}
