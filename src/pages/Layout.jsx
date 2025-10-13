@@ -1130,11 +1130,16 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to={createPageUrl("Home")}
                 className="mb-6 transition-opacity duration-300 hover:opacity-80"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
               >
                 <img
-                  src="/assets/logos/stevens-crest.png"
-                  alt="Stevens Institute of Technology Crest"
-                  className="mx-14 px-10 h-25 w-auto"
+                  src="/assets/logos/Stevens-Wordmark-RGB_WHT.png"
+                  alt="Stevens Institute of Technology Logo"
+                  className="h-16 w-auto"
                 />
                </Link>
             </div>

@@ -191,9 +191,9 @@ export default function Admissions() {
               </p>
             </div>
 
-            <Card className="shadow-stevens-lg border-0 overflow-hidden max-w-3xl mx-auto">
-              <CardHeader className="bg-stevens-gray-100">
-                <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-gray-900">Application Requirements</CardTitle>
+            <Card className="shadow-stevens-lg border-0 overflow-hidden max-w-3xl mx-auto bg-stevens-white">
+              <CardHeader className="bg-stevens-primary">
+                <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">Application Requirements</CardTitle>
               </CardHeader>
               <CardContent className="p-stevens-lg">
                 <p className="text-stevens-gray-700 mb-stevens-lg">
@@ -235,9 +235,9 @@ export default function Admissions() {
 
             <div className="grid md:grid-cols-2 gap-stevens-xl">
               {/* Standard Application (static) */}
-              <Card className="shadow-stevens-lg border-0 overflow-hidden">
-                <CardHeader className="bg-stevens-gray-100">
-                  <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-gray-900">Standard Application</CardTitle>
+              <Card className="shadow-stevens-lg border-0 overflow-hidden bg-stevens-white">
+                <CardHeader className="bg-stevens-primary">
+                  <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">Standard Application</CardTitle>
                 </CardHeader>
                 <CardContent className="p-stevens-lg">
                   <p className="text-stevens-gray-700 mb-stevens-lg">
@@ -258,9 +258,9 @@ export default function Admissions() {
               </Card>
 
               {/* ASAP Application (static) */}
-              <Card className="shadow-stevens-lg border-0 overflow-hidden">
-                <CardHeader className="bg-stevens-gray-100">
-                  <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-gray-900">ASAP Application</CardTitle>
+              <Card className="shadow-stevens-lg border-0 overflow-hidden bg-stevens-white">
+                <CardHeader className="bg-stevens-primary">
+                  <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">ASAP Application</CardTitle>
                 </CardHeader>
                 <CardContent className="p-stevens-lg">
                   <p className="text-stevens-gray-700 mb-stevens-lg">

@@ -36,7 +36,7 @@ import ProgramReadinessAssessment from "../components/assessment/ProgramReadines
 import VideoPlayer from "../components/shared/VideoPlayer";
 
 const StatItem = ({ value, label, icon: Icon }) => (
-<div className="text-center">
+<div className="text-center flex flex-col items-center justify-center">
     <Icon className="w-10 h-10 mx-auto mb-3" />
     <div className="text-3xl font-display font-bold">{value}</div>
     <div className="uppercase tracking-wider text-stevens-base">{label}</div>
@@ -58,9 +58,9 @@ const textRankings = [
   },
   
   {
-    value: "#15",
-  description: "Ranks No. 15 among “Best Value Colleges”",
-    source: "*Based on the cost of a four-year bachelor’s degree program",
+    value: "#9",
+  description: "Ranks No. 9 among 'Best ROI Colleges'",
+    source: "*Based on the cost of a four-year bachelor's degree program",
 },
 {
   value: "#19",
@@ -88,7 +88,7 @@ const badgeRankings = [
 ];
 
 const TextRankingItem = ({ value, description, source }) => (
-<div className="flex items-start gap-stevens-md py-stevens-md border-b border-stevens-gray-200 last:border-b-0">
+<div className="flex items-center gap-stevens-md py-stevens-md border-b border-stevens-gray-200 last:border-b-0">
     <p className="font-stevens-display text-stevens-4xl font-stevens-bold text-stevens-maroon w-36 shrink-0 text-center leading-none">
       {value}
     </p>
@@ -97,7 +97,7 @@ const TextRankingItem = ({ value, description, source }) => (
         {description}
       </p>
       {source && (
-        <p className="text-stevens-base text-stevens-gray-900 mt-stevens-xs">
+        <p className="text-stevens-base text-stevens-gray-900 mt-stevens-xs italic">
           {source}
         </p>
       )}
@@ -271,13 +271,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatItem
-              value="#7"
-              label="Online Engineering Programs"
+              value="#9"
+              label="Best ROI Colleges"
               icon={Award}
             />
-            <StatItem value="#23" label="Online IT Programs" icon={Star} />
+            <StatItem value="#19" label="Online IT Programs" icon={Star} />
             <StatItem
-              value="Top 15%"
+              value="Top 10%"
               label="Return on Investment"
               icon={TrendingUp}
             />
@@ -291,7 +291,7 @@ export default function Home() {
         <div className="max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg">
           <AnimatedSection className="text-center mb-stevens-xl">
             <h2 className="font-stevens-display text-stevens-4xl stevens-lg:text-stevens-4xl font-bold text-stevens-gray-900 mb-stevens-lg tracking-tight leading-tight">
-              A Degree That Pays Dividends
+              A Degree That <span className="text-stevens-primary">Pays Dividends</span>
             </h2>
             <p className="text-stevens-xl text-stevens-gray-900 max-w-3xl mx-auto">
               Stevens is consistently recognized for academic excellence and
@@ -299,7 +299,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
           
-          <div className="grid lg:grid-cols-2 gap-x-stevens-gap-lg gap-y-stevens-xl items-start">
+          <div className="grid lg:grid-cols-2 gap-x-stevens-gap-lg gap-y-stevens-xl items-center">
             <AnimatedSection>
               <div className="flex flex-col gap-stevens-xs">
                 {textRankings.map((point, index) => (
@@ -313,7 +313,7 @@ export default function Home() {
                 {badgeRankings.map((ranking, index) => (
                 <BadgeRankingItem key={index} {...ranking} />
                 ))}
-                <p className="text-center font-stevens-semibold text-stevens-gray-900 mt-stevens-sm">
+                <p className="text-center font-stevens-semibold text-stevens-gray-900 mt-stevens-sm italic">
                   Source: U.S. News & World Report 2025
                 </p>
               </div>

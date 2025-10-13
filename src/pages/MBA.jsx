@@ -168,7 +168,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Term 2</h5>
+          <h4 class="course-section-header">Term 2</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt641">MGT 641 Marketing Management (3)<span class="course-arrow">▼</span></button>
@@ -185,7 +185,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Term 3</h5>
+          <h4 class="course-section-header">Term 3</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt657">MGT 657 Operations Management (3)<span class="course-arrow">▼</span></button>
@@ -202,7 +202,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Term 4</h5>
+          <h4 class="course-section-header">Term 4</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt663">MGT 663 Discovering and Exploiting Entrepreneurial Opportunities (3)<span class="course-arrow">▼</span></button>
@@ -219,7 +219,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Terms 5 & 6: Electives</h5>
+          <h4 class="course-section-header">Terms 5 & 6: Electives</h4>
           <p class="text-stevens-gray-600">Terms 5 and 6 are elective-only; see Concentrations for course options.</p>`
       },
       

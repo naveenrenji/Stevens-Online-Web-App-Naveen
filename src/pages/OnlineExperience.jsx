@@ -81,7 +81,7 @@ export default function OnlineExperience() {
               <div className="mb-stevens-lg">
                 <img 
                   src="/assets/avatars/online-experience-avatar/shudong-hao-stevens-faculty.jpeg" 
-                  alt="Shudong Hao, MSCS Program Faculty at Stevens Institute of Technology"
+                  alt="Shudong Hao, Online MSCS Program Director / Assoc. Chair of Graduate Studies at Stevens Institute of Technology"
                   className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-stevens-white shadow-stevens-lg"
                 />
               </div>
@@ -89,7 +89,7 @@ export default function OnlineExperience() {
                 Shudong Hao
               </h3>
               <p className="text-stevens-primary font-stevens-semibold mb-stevens-md">
-                MSCS
+                Online MSCS Program Director / Assoc. Chair of Graduate Studies
               </p>
               <a 
                 href="https://www.stevens.edu/profile/shao14" 
