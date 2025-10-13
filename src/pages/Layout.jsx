@@ -658,7 +658,7 @@ export default function Layout({ children, currentPageName }) {
                   <img
                     src="/assets/logos/Stevens-Wordmark-RGB_WHT.png"
                     alt="Stevens Institute of Technology Professional Education Logo" 
-                    className={`h-12 stevens-md:h-16 w-[137px] transition-opacity duration-300 mobile-logo-height logo-responsive-width ${
+                    className={`h-8 stevens-md:h-12 stevens-lg:h-16 w-auto transition-opacity duration-300 ${
                       isScrolled && !isHoveringRedNav
                         ? "opacity-100"
                         : "opacity-0"
