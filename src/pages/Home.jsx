@@ -240,8 +240,7 @@ export default function Home() {
                   />
                   <div className="text-center mt-4">
                     <Button
-                    variant="link"
-                    className="text-gray-300 hover:text-white text-lg hover:no-underline transition-colors duration-300"
+                    className="bg-stevens-primary hover:bg-stevens-primary-dark text-white text-lg font-semibold px-6 py-3 rounded-md shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
                       onClick={() => setShowAssessment(false)}
                     >
                       Skip Assessment - Request Info Instead
@@ -253,8 +252,7 @@ export default function Home() {
                   <LeadCaptureForm sourcePage="home" />
                   <div className="text-center mt-4">
                     <Button
-                    variant="link"
-                    className="text-gray-300 hover:text-white text-lg hover:no-underline transition-colors duration-300"
+                    className="bg-stevens-primary hover:bg-stevens-primary-dark text-white text-lg font-semibold px-6 py-3 rounded-md shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
                       onClick={() => setShowAssessment(true)}
                     >
                       Take Program Assessment Instead

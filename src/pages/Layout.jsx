@@ -425,6 +425,8 @@ export default function Layout({ children, currentPageName }) {
               <div className="flex items-center space-x-stevens-md ">
                 <a
                   href="https://www.stevens.edu/corporate-relations"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="menu-item-link font-stevens-bitter text-stevens-sm text-stevens-white hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -442,6 +444,8 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <a
                   href="https://www.stevens.edu/development-alumni-engagement"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="menu-item-link font-stevens-bitter text-stevens-sm text-stevens-white hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -478,6 +482,8 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <a
                   href="https://www.stevens.edu/admission-aid/visit-stevens"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="menu-item-link font-stevens-bitter text-stevens-sm text-stevens-white hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -495,6 +501,8 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <a
                   href="https://www.stevens.edu/apply"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="menu-item-link font-stevens-bitter text-stevens-sm text-stevens-white hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -512,6 +520,8 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <a
                   href="https://www.stevens.edu/development-alumni-engagement/give-to-stevens"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="menu-item-link font-stevens-bitter text-stevens-sm text-stevens-white hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -565,6 +575,8 @@ export default function Layout({ children, currentPageName }) {
                     <DropdownMenuItem>
                       <a
                         href="https://www.stevens.edu/hr"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-stevens-gray-900  hover:underline hover:font-bold transition-colors duration-stevens-fast w-full block py-2 px-3"
                       >
                         Faculty and Staff
@@ -573,6 +585,8 @@ export default function Layout({ children, currentPageName }) {
                     <DropdownMenuItem>
                       <a
                         href="https://www.stevens.edu/information-for-parents-and-families"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-stevens-gray-900 hover:underline hover:font-bold transition-colors duration-stevens-fast w-full block py-2 px-3"
                       >
                         Parents and Families
@@ -582,6 +596,8 @@ export default function Layout({ children, currentPageName }) {
                     <DropdownMenuItem>
                       <a
                         href="https://www.stevens.edu/media-relations"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-stevens-gray-900  hover:underline hover:font-bold transition-colors duration-stevens-fast w-full block py-2 px-3"
                       >
                         Media
@@ -980,6 +996,26 @@ export default function Layout({ children, currentPageName }) {
             {/* CTA Section - Desktop Only */}
             <div className="hidden stevens-lg:flex items-center gap-stevens-md ml-stevens-lg">
             <div className="flex items-center gap-stevens-sm">
+                <a
+                  href="https://www.stevens.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={() => {
+                    if (hoverTimeoutRef.current) {
+                      clearTimeout(hoverTimeoutRef.current);
+                    }
+                    setIsHoveringRedNav(true);
+                  }}
+                  onMouseLeave={() => {
+                    hoverTimeoutRef.current = setTimeout(() => {
+                      setIsHoveringRedNav(false);
+                    }, 100);
+                  }}
+                >
+                  <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary hover: font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
+                    Stevens.edu
+                  </Button>
+                </a>
                 <a
                   href="https://calendly.com/n3-stevens/30min"
                   target="_blank"
