@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Calendar, FileText, Users, Award, ArrowRight, PlayCircle } from 'lucide-react';
+import { CheckCircle, Calendar, FileText, Users, Award, ArrowRight, PlayCircle, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import LeadCaptureForm from '../components/forms/LeadCaptureForm';
@@ -71,10 +71,10 @@ export default function Admissions() {
 
   const events = [
     {
-      title: "On Demand Application Overview: Online MBA",
-      duration: "18 minutes",
-      type: "Ongoing",
-      url: "#"
+      title: "Stevens Institute of Technology Information Session",
+      duration: "Live Event",
+      type: "Upcoming",
+      url: "https://event.on24.com/wcc/r/4670707/F1184BBC4542A137E5E8852AA0FF2DBE?pg=2"
     }
   ];
 
@@ -182,21 +182,42 @@ export default function Admissions() {
 
           {/* Online MBA */}
           <div className="mb-stevens-2xl">
-            <Card className="shadow-stevens-lg border-0 overflow-hidden">
-              <CardHeader className="bg-stevens-primary text-stevens-white">
-                <CardTitle className="text-stevens-2xl font-stevens-bold">Online MBA</CardTitle>
+          <div className="text-center mb-stevens-xl">
+              <h3 className="font-stevens-display text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold text-stevens-gray-900 mb-stevens-lg">
+                Online MBA
+              </h3>
+              <p className="text-stevens-lg text-stevens-gray-700 leading-relaxed max-w-4xl mx-auto">
+                The Stevens Online MBA is an AACSB-accredited program that combines business knowledge with the technology and analytics necessary to excel in today's data-centric world.
+              </p>
+            </div>
+
+            <Card className="shadow-stevens-lg border-0 overflow-hidden max-w-3xl mx-auto">
+              <CardHeader className="bg-stevens-gray-100">
+                <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-gray-900">Application Requirements</CardTitle>
               </CardHeader>
               <CardContent className="p-stevens-lg">
                 <p className="text-stevens-gray-700 mb-stevens-lg">
-                  Applicants to the Online MBA program are required to provide academic transcripts, a professional resume and two letters of recommendation.
+                Applicants to the Online MBA program are required to provide:
                 </p>
-                
-                <Link to="/online-mba/">
-                  <Button className="btn-stevens-primary">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
+                <ul className="space-y-stevens-sm mb-stevens-lg">
+                  <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Academic transcripts</span></li>
+                  <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Professional resume</span></li>
+                  <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Two letters of recommendation</span></li>
+                </ul>
+                <div className="flex gap-stevens-md">
+                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button className="btn-stevens-primary w-full">
+                      Apply Now
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </a>
+                  <Link to="/online-mba/" className="flex-1">
+                    <Button variant="outline" className="btn-outline-maroon w-full">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -282,6 +303,51 @@ export default function Admissions() {
         </div>
       </div>
 
+
+      {/* Events */}
+      <div className="py-stevens-section-sm lg:py-stevens-section bg-stevens-gray-50">
+        <div className="max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg">
+          <div className="text-center mb-stevens-2xl">
+            <h2 className="font-stevens-headers text-stevens-3xl md:text-stevens-4xl font-bold text-stevens-gray-900 mb-stevens-lg">
+              Events
+            </h2>
+          </div>
+          
+          <div className="grid stevens-md:grid-cols-2 stevens-lg:grid-cols-3 gap-stevens-lg">
+            {events.map((event, index) => (
+              <Card key={index} className="h-full border-stevens-gray-100">
+                <CardContent className="p-stevens-lg flex flex-col h-full pt-stevens-lg">
+                  <h5 className="font-stevens-semibold text-stevens-gray-900 uppercase font-bold mb-stevens-xs hover:text-stevens-primary transition-colors duration-stevens-normal">
+                    {event.title}
+                  </h5>
+                  <div className="text-stevens-sm text-stevens-gray-700 mb-stevens-md">
+                    {event.type}
+                  </div>
+                  <div className="flex items-center gap-stevens-xs text-stevens-sm text-stevens-gray-700 mb-stevens-lg">
+                    <Clock className="w-4 h-4"/> {event.duration}
+                  </div>
+                  <div className="mt-auto">
+                    <a href={event.url} target="_blank" rel="noopener noreferrer">
+                      <Button className="btn-stevens-outline text-stevens-white">Register Now</Button>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-stevens-xl">
+            <Link to="/events/">
+              <Button variant="outline" className="btn-outline-maroon">
+                View All Events
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+
       {/* Admissions FAQ */}
       <div className="py-stevens-section-sm lg:py-stevens-section bg-stevens-gray-100">
         <div className="max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg">
@@ -308,60 +374,7 @@ export default function Admissions() {
         </div>
       </div>
 
-      {/* Events */}
-      <div className="py-stevens-section-sm lg:py-stevens-section bg-stevens-white">
-        <div className="max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg">
-          <div className="text-center mb-stevens-2xl">
-            <h2 className="font-stevens-display text-stevens-3xl stevens-md:text-stevens-4xl font-stevens-bold text-stevens-gray-900 mb-stevens-lg">
-              Events
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-1 gap-stevens-lg max-w-4xl mx-auto">
-            {events.map((event, index) => (
-              <Card key={index} className="shadow-stevens-lg border-0 overflow-hidden">
-                <CardContent className="p-stevens-lg flex items-center justify-between">
-                  <div className="flex items-center gap-stevens-lg">
-                    <div className="bg-stevens-primary p-stevens-md rounded-stevens-md">
-                      <PlayCircle className="w-8 h-8 text-stevens-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-stevens-bold text-stevens-xl text-stevens-gray-900 mb-stevens-sm">
-                        {event.title}
-                      </h3>
-                      <div className="flex items-center gap-stevens-md text-stevens-gray-600">
-                        <span className="flex items-center gap-stevens-sm">
-                          <Calendar className="w-4 h-4" />
-                          {event.type}
-                        </span>
-                        <span className="flex items-center gap-stevens-sm">
-                          <FileText className="w-4 h-4" />
-                          Length: {event.duration}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <a href={event.url} target="_blank" rel="noopener noreferrer">
-                    <Button className="btn-stevens-outline text-stevens-white">
-                      Watch Now
-                      <PlayCircle className="w-4 h-4 ml-2" />
-                    </Button>
-                  </a>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-stevens-xl">
-            <Link to="/events/">
-              <Button variant="outline" className="btn-outline-maroon">
-                View All Upcoming Live Virtual and On-Demand Events
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Request Information */}
       <div className="py-stevens-section-sm lg:py-stevens-section bg-stevens-primary">
