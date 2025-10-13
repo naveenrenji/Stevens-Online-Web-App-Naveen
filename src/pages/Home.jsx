@@ -206,7 +206,7 @@ export default function Home() {
         <div className="relative max-w-stevens-content-max mx-auto px-stevens-md sm:px-stevens-lg lg:px-stevens-xl py-stevens-section-sm lg:py-stevens-section">
           <div className="grid lg:grid-cols-2 gap-stevens-gap-lg items-center">
             <div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 animate-in slide-in-from-left duration-700">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-4 animate-in slide-in-from-left duration-700">
                 Advance Your Career with a World-Class Online Degree from
                 Stevens
               </h1>

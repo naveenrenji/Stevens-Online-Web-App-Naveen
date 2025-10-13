@@ -718,7 +718,7 @@ export default function Layout({ children, currentPageName }) {
                         <DropdownMenuItem key={item.name} asChild>
                             <Link
                               to={createPageUrl(item.page)}
-                              className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast"
+                              className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast text-stevens-base"
                               /*inline styles to prevent css injection overwriting from asap page */
                               style={{
                                 color: "#1f2937",
@@ -746,7 +746,7 @@ export default function Layout({ children, currentPageName }) {
                         <DropdownMenuItem asChild>
                           <Link
                             to="/compare-our-programs/"
-                            className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast flex items-center"
+                            className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast flex items-center text-stevens-base"
                             /*inline styles to prevent css injection overwriting from asap page */
                             style={{
                               color: "#1f2937",
@@ -816,7 +816,7 @@ export default function Layout({ children, currentPageName }) {
                         <DropdownMenuItem key={item.name} asChild>
                           <Link
                             to={createPageUrl(item.page)}
-                            className=" font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast"
+                            className=" font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast text-stevens-base"
                             style={{ color: "#1f2937", backgroundColor: "transparent" }}
                             onMouseEnter={(e) => {
                               e.target.style.color = "#ffffff";
