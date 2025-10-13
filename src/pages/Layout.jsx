@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl, buildCanonicalUrl } from "@/utils";
+import { BOOKING_URLS } from "@/config/constants";
 import {
   ChevronDown,
   Menu,
@@ -47,7 +48,7 @@ const degreeProgramItems = [
 const mainNavLinks = [
   // The "Degree Programs" and "Tuition & Admissions" are handled separately with custom dropdowns.
   // { name: "Certificates & Short Courses", page: "Certificates" },
-  { name: "Academics", page: "https://www.stevens.edu/", external: true },
+ 
   { name: "Online Experience", page: "online-learning-experience/" },
   { name: "Blog", page: "Blog/" },
 ];
@@ -623,7 +624,10 @@ export default function Layout({ children, currentPageName }) {
                 >
                   myStevens
                 </a>
-                <button 
+                <a
+                  href="https://search.stevens.edu/s/search.html?collection=21772~sp-search"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -638,7 +642,7 @@ export default function Layout({ children, currentPageName }) {
                   }}
                 >
                   <Search className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -946,12 +950,12 @@ export default function Layout({ children, currentPageName }) {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <Button className="w-full btn-stevens-secondary bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
+                      <Button className="w-full btn-stevens-secondary hover:text-stevens-primary bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
                         Stevens.edu
                       </Button>
                     </a>
                     <a
-                      href="https://calendly.com/n3-stevens/30min"
+                      href={BOOKING_URLS.SCHEDULE_CALL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
@@ -959,6 +963,7 @@ export default function Layout({ children, currentPageName }) {
                       <Button className="w-full bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md">
                         Schedule a Call
                       </Button>
+                      
                     </a>
                   </div>
 
@@ -1054,7 +1059,7 @@ export default function Layout({ children, currentPageName }) {
                   </Button>
                 </a>
                 <a
-                  href="https://calendly.com/n3-stevens/30min"
+                  href={BOOKING_URLS.SCHEDULE_CALL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onMouseEnter={() => {
@@ -1069,7 +1074,8 @@ export default function Layout({ children, currentPageName }) {
                     }, 100);
                   }}
                 >
-                  <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary hover: font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-lg flex-1">
+                 
+                  <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary hover: font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
                     Schedule a Call
                   </Button>
                 </a>

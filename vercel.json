@@ -63,12 +63,12 @@
     },
     {
       "source": "/RequestInfo",
-      "destination": "/requestinfo/",
+      "destination": "/request-information/",
       "permanent": true
     },
     {
       "source": "/requestinfo",
-      "destination": "/requestinfo/",
+      "destination": "/request-information/",
       "permanent": true
     },
     {

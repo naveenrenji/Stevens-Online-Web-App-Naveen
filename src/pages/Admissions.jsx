@@ -8,6 +8,7 @@ import { CheckCircle, Calendar, FileText, Users, Award, ArrowRight, PlayCircle, 
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import LeadCaptureForm from '../components/forms/LeadCaptureForm';
+import { BOOKING_URLS } from '@/config/constants';
 
 export default function Admissions() {
   const keyDates = {
@@ -347,7 +348,7 @@ export default function Admissions() {
                 </p>
               </div>
               <div className="stevens-md:text-right">
-                <a href="https://calendly.com/n3-stevens/30min" target="_blank" rel="noopener noreferrer">
+                <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="  text-stevens-primary px-stevens-xl py-stevens-md rounded-stevens-md">
                     Get In Touch
                     <ArrowRight className="w-4 h-4 ml-2" />

@@ -28,6 +28,7 @@ import Certificates from "@/pages/Certificates";
 import OnlineExperience from "@/pages/OnlineExperience";
 import TuitionOutcomes from "@/pages/TuitionOutcomes";
 import Admissions from "@/pages/Admissions";
+import NotFound from "@/pages/NotFound";
 
 // Redirect component for blog detail pages without trailing slash
 function BlogNoSlashRedirect() {
@@ -149,16 +150,16 @@ export const routes = [
 
   // Request Info
   {
-    path: '/RequestInfo/',
+    path: '/request-information/',
     element: <RequestInfo />
   },
   {
     path: '/RequestInfo',
-    element: <Navigate to="/requestinfo/" replace />
+    element: <Navigate to="/request-information/" replace />
   },
   {
     path: '/requestinfo',
-    element: <Navigate to="/requestinfo/" replace />
+    element: <Navigate to="/request-information/" replace />
   },
 
   // MBA program
@@ -297,6 +298,18 @@ export const routes = [
   {
     path: '/explore/ai-masters-computer-science/',
     element: <ExploreMSAI />
+  },
+  
+  // 404 Not Found page
+  {
+    path: '/page-not-found/',
+    element: <NotFound />
+  },
+  
+  // Catch-all route - must be last
+  {
+    path: '*',
+    element: <Navigate to="/page-not-found/" replace />
   }
 ];
 

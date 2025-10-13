@@ -33,6 +33,7 @@ const PAGES = {
   OnlineExperience: "OnlineExperience",
   TuitionOutcomes: "TuitionOutcomes",
   Admissions: "Admissions",
+  NotFound: "NotFound",
 };
 
 function _getCurrentPage(url) {

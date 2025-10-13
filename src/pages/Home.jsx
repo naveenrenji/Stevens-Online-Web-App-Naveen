@@ -216,7 +216,7 @@ export default function Home() {
                 ambition.
               </p>
               <div className="flex flex-col sm:flex-row gap-stevens-md animate-in slide-in-from-left duration-700 delay-400">
-                <Link to={createPageUrl("RequestInfo/")}>
+                <Link to={createPageUrl("request-information/")}>
                   <button className="btn-stevens-primary ">
                     Request Information
                   </button>
