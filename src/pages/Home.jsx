@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Program } from "@/api/entities";
 import { Event } from "@/api/entities";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import {
@@ -25,6 +26,7 @@ import {
   SkipForward,
   User,
   Clock,
+  Calendar,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -139,6 +141,7 @@ const AnimatedSection = ({ children, className, delay = 0 }) => {
 export default function Home() {
   const [programs, setPrograms] = useState([]);
   const [events, setEvents] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [showBrowseModal, setShowBrowseModal] = useState(false); // State for modal visibility
   const [showAssessment, setShowAssessment] = useState(true); // State for showing assessment or lead form
 
@@ -172,6 +175,14 @@ export default function Home() {
       ]);
       setPrograms(programsData);
       setEvents(eventsData);
+      // Load recent blog posts
+      try {
+        const blogsData = await import('@/data/blogs.json');
+        const recentBlogs = blogsData.posts.slice(0, 3);
+        setBlogs(recentBlogs);
+      } catch (error) {
+        console.error('Error loading blogs:', error);
+      }
     }
     loadData();
   }, []);
@@ -402,7 +413,99 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Program Showcase Section */}
+      <section className="py-stevens-section-sm lg:py-stevens-section bg-stevens-primary">
+        <div className="max-w-6xl mx-auto px-stevens-md lg:px-stevens-lg">
+          <div className="grid md:grid-cols-2 gap-stevens-2xl">
+            
+            {/* Online Master of Science in Computer Science */}
+            <AnimatedSection>
+              <div className="bg-transparent text-stevens-white">
+                <h2 className="font-stevens-display text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold text-stevens-white mb-stevens-md uppercase tracking-wide">
+                  ONLINE MASTER OF SCIENCE IN COMPUTER SCIENCE
+                </h2>
+                <p className="text-stevens-white mb-stevens-lg leading-relaxed">
+                  Ranked No. 11 in New Jersey for Best Online Master's in Computer Information Technology Programs by U.S. News & World Report (2024), the{" "}
+                  <Link 
+                    to={createPageUrl("online-masters-computer-science-mscs/")} 
+                    className="underline hover:text-stevens-gray-200 transition-colors duration-stevens-normal"
+                  >
+                    online computer science master's program
+                  </Link>{" "}
+                  at Stevens offers you a curriculum aligned with high-demand areas such as software development, web programming, mobile systems and applications, cloud computing, human-computer interaction, and enterprise software design.
+                </p>
+                <Link to={createPageUrl("online-masters-computer-science-mscs/")}>
+                  <button className="bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 px-stevens-lg py-stevens-md rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal shadow-stevens-md hover:shadow-stevens-lg">
+                    LEARN MORE
+                  </button>
+                </Link>
+              </div>
+            </AnimatedSection>
 
+            {/* Online MBA */}
+            <AnimatedSection>
+              <div className="bg-transparent text-stevens-white">
+                <h2 className="font-stevens-display text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold text-stevens-white mb-stevens-md uppercase tracking-wide">
+                  ONLINE MBA
+                </h2>
+                <p className="text-stevens-white mb-stevens-lg leading-relaxed">
+                  The Stevens Online MBA is an AACSB-accredited program offered part time through online courses. The Online MBA combines business knowledge with the technology and analytics necessary to excel in today's data-centric world. Students will build upon their managerial toolkits with analytical, data literacy, marketing and operations management skills that drive data-based decisions.
+                </p>
+                <Link to={createPageUrl("online-mba/")}>
+                  <button className="bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 px-stevens-lg py-stevens-md rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal shadow-stevens-md hover:shadow-stevens-lg">
+                    LEARN MORE
+                  </button>
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* Online Master of Engineering in Engineering Management */}
+            <AnimatedSection>
+              <div className="bg-transparent text-stevens-white">
+                <h2 className="font-stevens-display text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold text-stevens-white mb-stevens-md uppercase tracking-wide">
+                  ONLINE MASTER OF ENGINEERING IN ENGINEERING MANAGEMENT
+                </h2>
+                <p className="text-stevens-white mb-stevens-lg leading-relaxed">
+                  Master the ability to interface between technology and business stakeholders. This program will advance your understanding of the technology involved in engineering projects and the management process through which the technology is applied. Graduates from the{" "}
+                  <Link 
+                    to={createPageUrl("online-masters-engineering-management/")} 
+                    className="underline hover:text-stevens-gray-200 transition-colors duration-stevens-normal"
+                  >
+                    Online Master of Engineering in Engineering Management
+                  </Link>{" "}
+                  program are prepared to add value at the intersection of engineering and management and assume professional positions of increasing responsibility.
+                </p>
+                <Link to={createPageUrl("online-masters-engineering-management/")}>
+                  <button className="bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 px-stevens-lg py-stevens-md rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal shadow-stevens-md hover:shadow-stevens-lg">
+                    LEARN MORE
+                  </button>
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* Compare Our Programs */}
+            <AnimatedSection>
+              <div className="bg-transparent text-stevens-white">
+                <h2 className="font-stevens-display text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold text-stevens-white mb-stevens-md uppercase tracking-wide">
+                  COMPARE OUR PROGRAMS
+                </h2>
+                <p className="text-stevens-white mb-stevens-lg leading-relaxed">
+                  At Stevens, we are proud to offer an array of online programs that challenge the traditional frontiers of technology and business. Compare our programs to find the innovative graduate degree that is the right fit for your personal and professional goals.
+                </p>
+                <Link to={createPageUrl("compare-our-programs/")}>
+                  <button className="bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 px-stevens-lg py-stevens-md rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal shadow-stevens-md hover:shadow-stevens-lg">
+                    LEARN MORE
+                  </button>
+                </Link>
+              </div>
+            </AnimatedSection>
+
+          </div>
+        </div>
+      </section>
+
+      
       {/* Why Stevens Section */}
       <section className="py-stevens-section-sm lg:py-stevens-section bg-gray-50">
         <div className="max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg">
@@ -560,6 +663,96 @@ export default function Home() {
             </AnimatedSection>
         </div>
       </section>
+      
+
+      {/* Blog Showcase Section */}
+      {blogs.length > 0 && (
+        <section className="py-stevens-section-sm lg:py-stevens-section bg-stevens-white border-t">
+          <div className="max-w-7xl mx-auto px-stevens-md lg:px-stevens-lg">
+            <AnimatedSection className="text-center mb-stevens-2xl">
+              <h2 className="font-stevens-display text-stevens-3xl md:text-stevens-4xl font-bold text-stevens-gray-900 mb-stevens-md">
+                Latest from Our Blog
+              </h2>
+              <p className="text-stevens-xl text-stevens-gray-700 max-w-3xl mx-auto">
+                Stay informed with insights, tips, and news about online education, career advancement, and technology trends.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection className="grid md:grid-cols-3 gap-stevens-xl mb-stevens-2xl">
+              {blogs.map((blog) => (
+                <Link 
+                  key={blog.id} 
+                  to={`/blog/${blog.id}/`} 
+                  className="group block"
+                >
+                  <Card className="h-full flex flex-col hover:shadow-stevens-xl transition-all duration-300 hover:-translate-y-1 border border-stevens-gray-200 hover:border-stevens-primary/30 overflow-hidden">
+                    {/* Compact Image - 16:9 aspect ratio */}
+                    <div className="aspect-[16/9] w-full overflow-hidden">
+                      <img 
+                        src={blog.featured_image_url || '/assets/blog/placeholder-blog.jpg'} 
+                        alt={blog.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    
+                    <CardContent className="flex-grow p-stevens-lg">
+                      
+                      
+                      {/* Title - Compact */}
+                      <h3 className="font-stevens-display text-stevens-xl text-stevens-gray-900 mb-stevens-md mt-stevens-xl line-clamp-2 leading-tight group-hover:text-stevens-primary transition-colors duration-300">
+                        {blog.title}
+                      </h3>
+                      
+                      {/* Excerpt - Compact */}
+                      <p className="text-stevens-gray-600 line-clamp-2 mb-stevens-md text-stevens-sm leading-relaxed">
+                        {blog.excerpt}
+                      </p>
+                      
+                      {/* Meta Info - Compact */}
+                      <div className="flex items-center gap-stevens-md text-stevens-xs text-stevens-gray-500">
+                        {blog.created_date && (
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {new Date(blog.created_date).toLocaleDateString('en-US', { 
+                              month: 'short', 
+                              day: 'numeric', 
+                              year: 'numeric' 
+                            })}
+                          </span>
+                        )}
+                        {blog.read_time && (
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {blog.read_time} min
+                          </span>
+                        )}
+                      </div>
+                    </CardContent>
+                    
+                    {/* Read More Link - Compact */}
+                    <CardFooter className="p-stevens-lg pt-0">
+                      <div className="text-stevens-primary font-stevens-semibold text-stevens-sm flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+                        Read More 
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </Link>
+              ))}
+            </AnimatedSection>
+
+            {/* View All Blogs Button */}
+            <AnimatedSection className="text-center">
+              <Link to={createPageUrl("blog/")}>
+                <Button variant="outline" className="btn-stevens-secondary">
+                  View All Blog Posts
+                </Button>
+              </Link>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
 
       {/* Upcoming Events - replaced with Application Support Events cards/content */}
       {events.length > 0 && (

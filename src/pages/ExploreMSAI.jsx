@@ -6,9 +6,9 @@ const ExploreMSAI = () => {
   const msaiData = {
     // Hero Section
     heroTitle: "Master AI and Launch Your Computer Science Career — All Experience Levels Welcome!",
-    programName: "Online Master of Science in Computer Science",
+    
     heroSubtitle: "Specialize in Artificial Intelligence and Machine Learning. 100% online program designed for aspiring AI professionals.",
-    bgImage: "/assets/images/stevens-campus.png", // Placeholder
+    bgImage: "/assets/images/3-explore-msai.jpg", // Placeholder
     programCode: "msai",
     badges: [
       { text: "No. 1 in New Jersey", icon: Award },
@@ -207,7 +207,7 @@ const ExploreMSAI = () => {
         answer: "Connecting with an enrollment advisor will help you: Understand the program admissions criteria and know whether you are eligible to apply, Gain insight into application best practices and how to submit a strong application, Know what to expect in your online classroom, including the level of faculty interaction, program outcomes and more, Have an immediate line of support in the event you have questions or need clarification about the Online MSCS program."
       },
       {
-        question: "IS THE ONLINE MASTER'S IN COMPUTER SCIENCE (MSCS) ACCREDITED?",
+        question: "Is the Online Master's in Computer Science (MSCS) accredited?",
         answer: "Stevens Institute of Technology has been continually accredited by the Middle States Commission on Higher Education (MSCHE) since 1927. Stevens is accredited until 2027 and the next self-study evaluation is scheduled to take place during 2026-2027."
       }
     ],
