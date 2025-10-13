@@ -54,8 +54,7 @@ const mainNavLinks = [
 
 const tuitionAdmissionsItems = [
   { name: "Admissions", page: "Admissions/" },
-  { name: "Tuition", page: "Tuition" },
-  { name: "Financial Aid", page: "Tuition" },
+  { name: "Tuition & Financial Aid", page: "Tuition" },
   { name: "Events", page: "Events/" },
  
 ];
