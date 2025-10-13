@@ -210,7 +210,7 @@ export default function Home() {
                 Advance Your Career with a World-Class Online Degree from
                 Stevens
               </h1>
-              <p className="text-xl text-gray-200 mb-8 max-w-xl animate-in slide-in-from-left duration-700 delay-200">
+              <p className="text-xl text-gray-200 mb-8 max-w-xl animate-in slide-in-from-left duration-700">
                 Our programs are designed for busy professionals ready to lead
                 in the tech-driven world. Let's find the perfect fit for your
                 ambition.
