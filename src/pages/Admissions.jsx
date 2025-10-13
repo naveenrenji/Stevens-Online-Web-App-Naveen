@@ -72,9 +72,10 @@ export default function Admissions() {
 
   const events = [
     {
-      title: "Stevens Institute of Technology Information Session",
-      duration: "Live Event",
-      type: "Upcoming",
+      title: "On Demand Application Overview: Online MBA",
+      
+      type: "Ongoing",
+      duration: "18 minutes",
       url: "https://event.on24.com/wcc/r/4670707/F1184BBC4542A137E5E8852AA0FF2DBE?pg=2"
     }
   ];
@@ -196,7 +197,7 @@ export default function Admissions() {
               <CardHeader className="bg-stevens-primary">
                 <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">Application Requirements</CardTitle>
               </CardHeader>
-              <CardContent className="p-stevens-lg">
+              <CardContent className="p-stevens-lg pt-stevens-lg">
                 <p className="text-stevens-gray-700 mb-stevens-lg">
                 Applicants to the Online MBA program are required to provide:
                 </p>
@@ -240,7 +241,7 @@ export default function Admissions() {
                 <CardHeader className="bg-stevens-primary">
                   <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">Standard Application</CardTitle>
                 </CardHeader>
-                <CardContent className="p-stevens-lg">
+                <CardContent className="p-stevens-lg pt-stevens-lg">
                   <p className="text-stevens-gray-700 mb-stevens-lg">
                     Students complete the standard application and submit the following materials for review:
                   </p>
@@ -262,7 +263,7 @@ export default function Admissions() {
                 <CardHeader className="bg-stevens-primary">
                   <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">ASAP Application</CardTitle>
                 </CardHeader>
-                <CardContent className="p-stevens-lg">
+                <CardContent className="p-stevens-lg pt-stevens-lg">
                   <p className="text-stevens-gray-700 mb-stevens-lg">
                     Students enroll in two eight-week asynchronous courses and gain full admission to the program by earning a grade of "B" or better in each. The credits earned from these courses are applied toward their degree.
                   </p>
@@ -296,7 +297,7 @@ export default function Admissions() {
                 <CardHeader className="bg-stevens-primary">
                   <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">Standard Application</CardTitle>
                 </CardHeader>
-                <CardContent className="p-stevens-lg">
+                <CardContent className="p-stevens-lg pt-stevens-lg">
                   <p className="text-stevens-gray-700 mb-stevens-lg">
                     Students complete the standard application and submit the following materials for review:
                   </p>
@@ -319,7 +320,7 @@ export default function Admissions() {
                 <CardHeader className="bg-stevens-primary">
                   <CardTitle className="text-stevens-xl font-stevens-bold text-stevens-white">ASAP Application</CardTitle>
                 </CardHeader>
-                <CardContent className="p-stevens-lg">
+                <CardContent className="p-stevens-lg pt-stevens-lg">
                   <p className="text-stevens-gray-700 mb-stevens-lg">
                     Students enroll in two eight-week asynchronous courses and gain full admission to the program by earning a grade of "B" or better in each. The credits earned from these courses are applied toward their degree.
                   </p>
@@ -385,7 +386,7 @@ export default function Admissions() {
                   </div>
                   <div className="mt-auto">
                     <a href={event.url} target="_blank" rel="noopener noreferrer">
-                      <Button className="btn-stevens-outline text-stevens-white">Register Now</Button>
+                      <Button className="btn-stevens-outline text-stevens-white">Watch Now</Button>
                     </a>
                   </div>
                 </CardContent>

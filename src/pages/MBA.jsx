@@ -668,13 +668,13 @@ This course will focus on best practices and emerging trends in sustainable busi
         title: 'Exploring the Online MBA at Stevens Institute of Technology: On-Demand Overview',
         status: 'Ongoing',
         length: '11 minutes',
-        url: 'https://event.on24.com/wcc/r/4455082/77C6B6236A8D0B3F52F27B7AA1B5B6FE'
+        url: 'https://event.on24.com/wcc/r/4670733/9A69E9F6E360B7E9F5C93DDFD5682712?pg=2'
       },
       {
         title: 'Financial Aid Overview: Stevens Institute of Technology',
         status: 'Ongoing',
         length: '10 minutes',
-        url: 'https://event.on24.com/wcc/r/4666980/B9E38A55EDE8C93A4D0D5D8E6AFE7A0B'
+        url: 'https://event.on24.com/wcc/r/5007787/EC42C1EA980050EB628E9A3DAD9BA2BB?pg=2'
       }
     ]
   },
