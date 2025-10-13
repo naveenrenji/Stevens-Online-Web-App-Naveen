@@ -332,7 +332,7 @@ export default function Home() {
         
         <div className="max-w-stevens-content-max mx-auto px-stevens-md lg:px-stevens-lg">
           <div className="grid lg:grid-cols-2 gap-stevens-gap-lg items-center">
-            <AnimatedSection className="relative" delay={0.2}>
+            <AnimatedSection className="relative">
               <div className="bg-stevens-white rounded-stevens-md overflow-hidden shadow-stevens-lg border border-stevens-gray-100">
                 {/* Video Player Component */}
                 <VideoPlayer

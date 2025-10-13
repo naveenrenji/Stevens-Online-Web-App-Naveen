@@ -670,7 +670,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Desktop Navigation - Right Aligned */}
             <div className="hidden stevens-lg:flex ml-auto">
               <nav className="flex items-center gap-stevens-xl">
-                <DropdownMenu>
+                <DropdownMenu open={degreeDropdownOpen} onOpenChange={setDegreeDropdownOpen}>
                   <DropdownMenuTrigger
                     className={`group relative font-stevens-nav font-normal uppercase tracking-wider flex items-center cursor-pointer transition-colors duration-stevens-normal ${
                       isActive("MBA") ||
@@ -682,31 +682,45 @@ export default function Layout({ children, currentPageName }) {
                         : "text-stevens-white hover:text-stevens-white/80"
                     }`}
                     onMouseEnter={() => {
+                      if (degreeHoverTimeoutRef.current) {
+                        clearTimeout(degreeHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setDegreeDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      degreeHoverTimeoutRef.current = setTimeout(() => {
+                        setDegreeDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
                     }}
                   >
                     Degree Programs{" "}
-                    <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-stevens-normal group-hover:rotate-180" />
+                    <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-stevens-normal ${degreeDropdownOpen ? 'rotate-180' : ''}`} />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     className="w-96 p-stevens-md shadow-stevens-lg border border-stevens-gray-100 bg-stevens-white/95 backdrop-blur-sm animate-in slide-in-from-top-2 duration-stevens-normal z-[10001]"
                     sideOffset={4}
                     align="start"
                     onMouseEnter={() => {
+                      if (degreeHoverTimeoutRef.current) {
+                        clearTimeout(degreeHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setDegreeDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      degreeHoverTimeoutRef.current = setTimeout(() => {
+                        setDegreeDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
@@ -773,7 +787,7 @@ export default function Layout({ children, currentPageName }) {
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <DropdownMenu>
+                <DropdownMenu open={tuitionDropdownOpen} onOpenChange={setTuitionDropdownOpen}>
                   <DropdownMenuTrigger
                     className={`group relative font-stevens-nav font-normal uppercase tracking-wider flex items-center cursor-pointer transition-colors duration-stevens-normal ${
                       isActive("Tuition") || isActive("Events") || isActive("Admissions")
@@ -781,31 +795,45 @@ export default function Layout({ children, currentPageName }) {
                         : "text-stevens-white hover:text-stevens-white/80"
                     }`}
                     onMouseEnter={() => {
+                      if (tuitionHoverTimeoutRef.current) {
+                        clearTimeout(tuitionHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setTuitionDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      tuitionHoverTimeoutRef.current = setTimeout(() => {
+                        setTuitionDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
                     }}
                   >
                     Tuition & Admissions{" "}
-                    <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-stevens-normal group-hover:rotate-180" />
+                    <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-stevens-normal ${tuitionDropdownOpen ? 'rotate-180' : ''}`} />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     className="w-40 p-stevens-md shadow-stevens-lg border border-stevens-gray-100 bg-stevens-white/95 backdrop-blur-sm animate-in slide-in-from-top-2 duration-stevens-normal z-[10001]"
                     sideOffset={4}
                     align="start"
                     onMouseEnter={() => {
+                      if (tuitionHoverTimeoutRef.current) {
+                        clearTimeout(tuitionHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setTuitionDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      tuitionHoverTimeoutRef.current = setTimeout(() => {
+                        setTuitionDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
