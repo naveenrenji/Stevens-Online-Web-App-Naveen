@@ -217,9 +217,9 @@ export default function Tuition() {
                 <CardContent>
                   <p className="mb-4">With a strong commitment to our nation’s veterans, Stevens Institute of Technology is proud to participate in the Yellow Ribbon program and offer a suite of resources and support to active duty, veteran and dependent military communities.</p>
                   <ul className="space-y-2">
-                    <li><a href="#" className="flex items-center text-stevens-maroon hover:underline"><LinkIcon className="w-4 h-4 mr-2" /> Yellow Ribbon Program Details</a></li>
-                    <li><a href="#" className="flex items-center text-stevens-maroon hover:underline"><LinkIcon className="w-4 h-4 mr-2" /> Student Veterans Office</a></li>
-                    <li><a href="#" className="flex items-center text-stevens-maroon hover:underline"><LinkIcon className="w-4 h-4 mr-2" /> Using Your GI Bill® at Stevens</a></li>
+                    <li><a href="https://www.stevens.edu/admission-aid/veterans-and-military/yellow-ribbon-program?pg=2" target="_blank" rel="noopener noreferrer" className="flex items-center text-stevens-maroon hover:underline"><LinkIcon className="w-4 h-4 mr-2" /> Yellow Ribbon Program Details</a></li>
+                    <li><a href="https://www.stevens.edu/admission-aid/veterans-and-military?pg=2" target="_blank" rel="noopener noreferrer" className="flex items-center text-stevens-maroon hover:underline"><LinkIcon className="w-4 h-4 mr-2" /> Student Veterans Office</a></li>
+                    <li><a href="https://www.stevens.edu/admission-aid/veterans-and-military/using-gi-bill?pg=2" target="_blank" rel="noopener noreferrer" className="flex items-center text-stevens-maroon hover:underline"><LinkIcon className="w-4 h-4 mr-2" /> Using Your GI Bill® at Stevens</a></li>
                   </ul>
                 </CardContent>
               </Card>

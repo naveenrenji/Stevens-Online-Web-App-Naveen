@@ -582,7 +582,7 @@ const ExploreProgramPageTemplate = ({
               {contactDescription}
             </p>
             <a 
-              href="/requestinfo/"
+              href="/request-information/"
               className="btn-stevens-outline bg-stevens-white text-stevens-primary hover:bg-stevens-gray-50 hover:text-stevens-maroon-dark px-stevens-lg rounded-stevens-md font-stevens-semibold transition-all duration-stevens-normal inline-block"
             >
               {contactButtonText}

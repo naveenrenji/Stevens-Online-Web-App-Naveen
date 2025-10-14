@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ExternalLink, Zap, Check } from 'lucide-react';
 import { createPageUrl } from '@/utils';
+import { BOOKING_URLS } from '@/config/constants';
 
 /**
  * ApplicationModal - Shows two application options for MEM and MSCS pages
@@ -150,7 +151,7 @@ export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
         {/* Footer */}
         <div className="bg-stevens-gray-50 px-stevens-md py-stevens-sm border-t border-stevens-gray-200">
           <p className="text-stevens-xs text-stevens-gray-600 text-center mb-stevens-sm">
-            Have questions? <a href="https://calendly.com/n3-stevens/30min?month=2025-10" target="_blank" rel="noopener noreferrer" className="text-stevens-primary hover:underline font-stevens-semibold">Contact our admissions team</a>
+            Have questions? <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" className="text-stevens-primary hover:underline font-stevens-semibold">Contact our admissions team</a>
           </p>
           <button
             onClick={onClose}

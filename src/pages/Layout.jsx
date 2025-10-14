@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl, buildCanonicalUrl } from "@/utils";
+import { BOOKING_URLS } from "@/config/constants";
 import {
   ChevronDown,
   Menu,
@@ -47,15 +48,14 @@ const degreeProgramItems = [
 const mainNavLinks = [
   // The "Degree Programs" and "Tuition & Admissions" are handled separately with custom dropdowns.
   // { name: "Certificates & Short Courses", page: "Certificates" },
-  { name: "Academics", page: "https://www.stevens.edu/", external: true },
+ 
   { name: "Online Experience", page: "online-learning-experience/" },
   { name: "Blog", page: "Blog/" },
 ];
 
 const tuitionAdmissionsItems = [
   { name: "Admissions", page: "Admissions/" },
-  { name: "Tuition", page: "Tuition" },
-  { name: "Financial Aid", page: "Tuition" },
+  { name: "Tuition & Financial Aid", page: "Tuition" },
   { name: "Events", page: "Events/" },
  
 ];
@@ -624,7 +624,10 @@ export default function Layout({ children, currentPageName }) {
                 >
                   myStevens
                 </a>
-                <button 
+                <a
+                  href="https://search.stevens.edu/s/search.html?collection=21772~sp-search"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-stevens-white hover:underline hover:font-bold transition-colors duration-stevens-fast"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -639,7 +642,7 @@ export default function Layout({ children, currentPageName }) {
                   }}
                 >
                   <Search className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -671,7 +674,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Desktop Navigation - Right Aligned */}
             <div className="hidden stevens-lg:flex ml-auto">
               <nav className="flex items-center gap-stevens-xl">
-                <DropdownMenu>
+                <DropdownMenu open={degreeDropdownOpen} onOpenChange={setDegreeDropdownOpen}>
                   <DropdownMenuTrigger
                     className={`group relative font-stevens-nav font-normal uppercase tracking-wider flex items-center cursor-pointer transition-colors duration-stevens-normal ${
                       isActive("MBA") ||
@@ -683,31 +686,45 @@ export default function Layout({ children, currentPageName }) {
                         : "text-stevens-white hover:text-stevens-white/80"
                     }`}
                     onMouseEnter={() => {
+                      if (degreeHoverTimeoutRef.current) {
+                        clearTimeout(degreeHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setDegreeDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      degreeHoverTimeoutRef.current = setTimeout(() => {
+                        setDegreeDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
                     }}
                   >
                     Degree Programs{" "}
-                    <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-stevens-normal group-hover:rotate-180" />
+                    <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-stevens-normal ${degreeDropdownOpen ? 'rotate-180' : ''}`} />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     className="w-96 p-stevens-md shadow-stevens-lg border border-stevens-gray-100 bg-stevens-white/95 backdrop-blur-sm animate-in slide-in-from-top-2 duration-stevens-normal z-[10001]"
                     sideOffset={4}
                     align="start"
                     onMouseEnter={() => {
+                      if (degreeHoverTimeoutRef.current) {
+                        clearTimeout(degreeHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setDegreeDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      degreeHoverTimeoutRef.current = setTimeout(() => {
+                        setDegreeDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
@@ -719,7 +736,7 @@ export default function Layout({ children, currentPageName }) {
                         <DropdownMenuItem key={item.name} asChild>
                             <Link
                               to={createPageUrl(item.page)}
-                              className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast"
+                              className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast text-stevens-base"
                               /*inline styles to prevent css injection overwriting from asap page */
                               style={{
                                 color: "#1f2937",
@@ -747,7 +764,7 @@ export default function Layout({ children, currentPageName }) {
                         <DropdownMenuItem asChild>
                           <Link
                             to="/compare-our-programs/"
-                            className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast flex items-center"
+                            className="font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast flex items-center text-stevens-base"
                             /*inline styles to prevent css injection overwriting from asap page */
                             style={{
                               color: "#1f2937",
@@ -774,7 +791,7 @@ export default function Layout({ children, currentPageName }) {
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <DropdownMenu>
+                <DropdownMenu open={tuitionDropdownOpen} onOpenChange={setTuitionDropdownOpen}>
                   <DropdownMenuTrigger
                     className={`group relative font-stevens-nav font-normal uppercase tracking-wider flex items-center cursor-pointer transition-colors duration-stevens-normal ${
                       isActive("Tuition") || isActive("Events") || isActive("Admissions")
@@ -782,31 +799,45 @@ export default function Layout({ children, currentPageName }) {
                         : "text-stevens-white hover:text-stevens-white/80"
                     }`}
                     onMouseEnter={() => {
+                      if (tuitionHoverTimeoutRef.current) {
+                        clearTimeout(tuitionHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setTuitionDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      tuitionHoverTimeoutRef.current = setTimeout(() => {
+                        setTuitionDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
                     }}
                   >
                     Tuition & Admissions{" "}
-                    <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-stevens-normal group-hover:rotate-180" />
+                    <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-stevens-normal ${tuitionDropdownOpen ? 'rotate-180' : ''}`} />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     className="w-40 p-stevens-md shadow-stevens-lg border border-stevens-gray-100 bg-stevens-white/95 backdrop-blur-sm animate-in slide-in-from-top-2 duration-stevens-normal z-[10001]"
                     sideOffset={4}
                     align="start"
                     onMouseEnter={() => {
+                      if (tuitionHoverTimeoutRef.current) {
+                        clearTimeout(tuitionHoverTimeoutRef.current);
+                      }
                       if (hoverTimeoutRef.current) {
                         clearTimeout(hoverTimeoutRef.current);
                       }
+                      setTuitionDropdownOpen(true);
                       setIsHoveringRedNav(true);
                     }}
                     onMouseLeave={() => {
+                      tuitionHoverTimeoutRef.current = setTimeout(() => {
+                        setTuitionDropdownOpen(false);
+                      }, 100);
                       hoverTimeoutRef.current = setTimeout(() => {
                         setIsHoveringRedNav(false);
                       }, 100);
@@ -817,7 +848,7 @@ export default function Layout({ children, currentPageName }) {
                         <DropdownMenuItem key={item.name} asChild>
                           <Link
                             to={createPageUrl(item.page)}
-                            className=" font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast"
+                            className=" font-stevens-nav font-semibold text-stevens-gray-900 p-stevens-sm rounded-stevens-md transition-colors duration-stevens-fast text-stevens-base"
                             style={{ color: "#1f2937", backgroundColor: "transparent" }}
                             onMouseEnter={(e) => {
                               e.target.style.color = "#ffffff";
@@ -919,12 +950,12 @@ export default function Layout({ children, currentPageName }) {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <Button className="w-full btn-stevens-secondary bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
+                      <Button className="w-full btn-stevens-secondary hover:text-stevens-primary bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
                         Stevens.edu
                       </Button>
                     </a>
                     <a
-                      href="https://calendly.com/n3-stevens/30min"
+                      href={BOOKING_URLS.SCHEDULE_CALL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
@@ -932,6 +963,7 @@ export default function Layout({ children, currentPageName }) {
                       <Button className="w-full bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md">
                         Schedule a Call
                       </Button>
+                      
                     </a>
                   </div>
 
@@ -1027,7 +1059,7 @@ export default function Layout({ children, currentPageName }) {
                   </Button>
                 </a>
                 <a
-                  href="https://calendly.com/n3-stevens/30min"
+                  href={BOOKING_URLS.SCHEDULE_CALL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onMouseEnter={() => {
@@ -1042,7 +1074,8 @@ export default function Layout({ children, currentPageName }) {
                     }, 100);
                   }}
                 >
-                  <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary hover: font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-lg flex-1">
+                 
+                  <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary hover: font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-sm uppercase tracking-wider">
                     Schedule a Call
                   </Button>
                 </a>
@@ -1130,11 +1163,16 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to={createPageUrl("Home")}
                 className="mb-6 transition-opacity duration-300 hover:opacity-80"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
               >
                 <img
-                  src="/assets/logos/stevens-crest.png"
-                  alt="Stevens Institute of Technology Crest"
-                  className="mx-14 px-10 h-25 w-auto"
+                  src="/assets/logos/Stevens-Wordmark-RGB_WHT.png"
+                  alt="Stevens Institute of Technology Logo"
+                  className="h-16 w-auto"
                 />
                </Link>
             </div>
