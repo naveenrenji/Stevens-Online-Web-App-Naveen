@@ -6,8 +6,8 @@ const programData = {
   code: 'msdse',
   // ==================================================================
   hero: {
-    titleLines: ['Earn Your M.Eng. in Applied Data Science Online.'],
-    subtitle: "Build What's Next. Gain the skills to turn data into intelligent systems that power the future.",
+    titleLines: ['Earn Your M.Eng. in Applied Data Science Online.',"Build What's Next."],
+    subtitle: "Gain the skills to turn data into intelligent systems that power the future.",
     bgImage: "/assets/images/stevens-manhattan-skyline-ds.webp",
     primaryCta: { label: 'Request Information', to: 'RequestInfo' },
     secondaryCta: { label: 'Apply Now', href: 'https://gradadmissions.stevens.edu/apply/?pk=GRNP' },
@@ -43,10 +43,10 @@ const programData = {
   // ==================================================================
   quickFacts: {
     atAGlance: [
-      { value: "30", label: "Credit Hours" },
-      { value: "14", label: "Courses" },
+      // { value: "30", label: "Credit Hours" },
+      // { value: "12", label: "Courses" },
       { value: "100%", label: "Online" },
-      { value: "2 Years", label: "Completion" },
+      // { value: "2 Years", label: "Completion" },
       { value: "Hands-On", label: "Projects" },
       { value: "Industry", label: "Focused" }
     ],
@@ -54,7 +54,7 @@ const programData = {
     details: `
       <ul>
         <li>30 Credit Hours</li>
-        <li>10 Courses</li>
+        <li>12 Courses</li>
         <li>100% Online</li>
         <li>2 Years or Less Completion Time*</li>
         <li>Integrated data science and engineering curriculum</li>
@@ -160,7 +160,7 @@ const programData = {
         title: "Mathematics & Foundations",
         description: "<p>Students develop the core mathematical and statistical tools that underpin modern data science. The focus is on linear algebra, calculus, and optimization for modeling complex systems, as well as forecasting methods for time-dependent data.</p>",
         skills: [
-          "Apply concepts from multivariable calculus and linear algebra - such as vector spaces, eigenvalues, and matrix decompositions - to model and analyze data",
+          "Apply concepts from multivariable calculus and linear algebra — such as vector spaces, eigenvalues, and matrix decompositions — to model and analyze data",
           "Use optimization and numerical methods to solve applied data science problems",
           "Conduct time series analysis using ARMA, ARIMA, and related models to forecast trends and interpret temporal data"
         ]
@@ -335,7 +335,7 @@ const programData = {
                 <div class="course-item">
                   <button class="course-toggle" data-target="dse574">Capstone Project<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse574">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Applied Data Science in Practice</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Apply data science to a real-world challenge. In the culminating capstone project, students collaborate to solve a real business or societal problem using advanced analytics and AI-driven solutions. Projects focus on measurable outcomes—ranging from optimizing supply chains to developing predictive health systems.</p>
                   </div>
                 </div>
               </div>
@@ -355,7 +355,7 @@ const programData = {
                 <p>In the culminating capstone project, students collaborate to solve a real business or societal problem using advanced analytics and AI-driven solutions. Projects focus on measurable outcomes—ranging from optimizing supply chains to developing predictive health systems.</p>
                 
                 <h5><strong>Sample Project Topics:</strong></h5>
-                <ul>
+                <ul class='list-disc pl-5'>
                   <li>Predictive modeling for renewable energy forecasting</li>
                   <li>AI-driven optimization of financial portfolio performance</li>
                   <li>Natural language processing for sentiment and risk analysis</li>

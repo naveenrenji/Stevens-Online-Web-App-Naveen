@@ -745,7 +745,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
         {faculty && (
           <Section id="faculty" title={faculty.title || "Meet the Faculty"} refProp={el => sectionRefs.current.faculty = el} container={false} paddingClassName="py-stevens-section-sm lg:py-stevens-section">
             {faculty.description && <p className="text-center text-stevens-xl text-stevens-gray-600 max-w-3xl mx-auto mb-stevens-xl px-stevens-md lg:px-stevens-lg">{faculty.description}</p>}
-            <div className="relative overflow-visible w-full">
+            <div className="relative overflow-visible w-full max-w-[77rem] mx-auto">
               <div className="flex overflow-x-auto space-x-stevens-sm stevens-md:space-x-stevens-lg pb-stevens-lg pt-stevens-sm snap-x snap-mandatory scrollbar-thin scrollbar-thumb-stevens-primary scrollbar-track-stevens-primary/10 px-stevens-md">
                 {faculty.members.map((member, i) => <FacultyCard key={i} member={member} />)}
               </div>

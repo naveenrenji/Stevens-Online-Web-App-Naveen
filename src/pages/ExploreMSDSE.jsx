@@ -4,7 +4,7 @@ import ExploreProgramPageTemplate from '../components/program-pages/ExploreProgr
 const ExploreMSDSE = () => {
   const msdseData = {
     // Hero Section
-    heroTitle: "Earn Your M.Eng. in Applied Data Science Onlin.",
+    heroTitle: "Earn Your M.Eng. in Applied Data Science Online.",
     programName: "Build What's Next.",
     heroSubtitle: "Gain the skills to turn data into intelligent systems that power the future.",
     bgImage: "/assets/images/stevens-manhattan-skyline-ds.webp", 
@@ -34,14 +34,14 @@ const ExploreMSDSE = () => {
         description: "99% of MSCS graduates in the Class of 2023 accepted job offers within three months of graduating."
       },
       {
-        ranking: "#15",
-        description: "For Best Value",
-        source: "Payscale (2024)."
+        number: "#15",
+        label: "For Best Value",
+        description: "Payscale (2024)."
       },
       {
-        ranking: "7x",
-        description: "Winner",
-        source: "U.S. Distance Learning Association's 21st Century Award for Best Practices in Distance Learning."
+        number: "7x",
+        label: "Winner",
+        description: "U.S. Distance Learning Association's 21st Century Award for Best Practices in Distance Learning."
       },
     ],
     
@@ -86,7 +86,7 @@ const ExploreMSDSE = () => {
         label: "Credits"
       },
       {
-        value: "10",
+        value: "12",
         label: "Courses"
       },
       {
