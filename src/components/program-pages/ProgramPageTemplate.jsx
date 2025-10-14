@@ -604,10 +604,10 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
                       <div className="h-px bg-stevens-primary/30 flex-1"></div>
                     </div>
                     <h3 className="font-stevens-display text-stevens-2xl stevens-md:text-stevens-3xl font-stevens-bold text-stevens-gray-900 mb-stevens-xs">
-                      Stevens Alumni Drive Innovation at Top Companies
+                      {topCompanies.title ? topCompanies.title : 'Stevens Alumni Drive Innovation at Top Companies'}
                     </h3>
                     <p className="text-stevens-gray-600 mb-stevens-lg max-w-2xl mx-auto text-stevens-sm stevens-md:text-stevens-base">
-                      Our graduates join leading organizations across technology, finance, healthcare, and consulting
+                      {topCompanies.description ? topCompanies.description : 'Our graduates join leading organizations across technology, finance, healthcare, and consulting'}
                     </p>
                     <div className="grid grid-cols-2 stevens-sm:grid-cols-3 stevens-md:grid-cols-4 stevens-lg:grid-cols-6 gap-stevens-sm stevens-md:gap-stevens-md items-center">
                       {career.topCompanies.map((company, index) =>
@@ -677,7 +677,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
             <div className="max-w-stevens-content-max mx-auto">
               {/* Section Title */}
               <h2 className="font-stevens-display text-stevens-3xl stevens-md:text-stevens-4xl font-stevens-bold text-stevens-gray-900 mb-stevens-lg text-left uppercase tracking-tight">
-                Online {programData.code.toUpperCase()} Program Course Structure
+                {curriculum.title ? curriculum.title : `Online ${programData.code.toUpperCase()} Program Course Structure`}
               </h2>
               
               {/* Description */}
@@ -707,7 +707,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
                 {/* Tab Content */}
                 {Object.keys(curriculum.courseTabs).map(tabKey => (
                   <TabsContent key={tabKey} value={tabKey} className="mt-stevens-xl">
-                    <div className="prose prose-stevens max-w-none [&_h4]:font-stevens-display [&_h4]:text-stevens-2xl [&_h4]:stevens-md:text-stevens-3xl [&_h4]:font-stevens-bold [&_h4]:text-stevens-gray-900 [&_h4]:mb-stevens-lg [&_h4]:uppercase [&_h4]:tracking-tight [&_h5]:font-stevens-bold [&_h5]:text-stevens-xl [&_h5]:stevens-md:text-stevens-2xl [&_h5]:text-stevens-gray-900 [&_h5]:mb-stevens-lg [&_h5]:mt-stevens-2xl [&_p]:text-stevens-gray-700 [&_p]:leading-relaxed  [&_p]:pt-[20px]" dangerouslySetInnerHTML={{ __html: curriculum.courseTabs[tabKey].content }}/>
+                    <div className="prose prose-stevens max-w-none [&_h4]:font-stevens-display [&_h4]:text-stevens-2xl [&_h4]:stevens-md:text-stevens-3xl [&_h4]:font-stevens-bold [&_h4]:text-stevens-gray-900 [&_h4]:mb-stevens-lg [&_h4]:uppercase [&_h4]:tracking-tight [&_h5]:font-stevens-bold [&_h5]:text-stevens-xl [&_h5]:stevens-md:text-stevens-2xl [&_h5]:text-stevens-gray-900 [&_h5]:mb-stevens-lg [&_h5]:mt-stevens-2xl [&_p]:text-stevens-gray-700 [&_p]:leading-relaxed [&_p]:mb-stevens-lg" dangerouslySetInnerHTML={{ __html: curriculum.courseTabs[tabKey].content }}/>
                   </TabsContent>
                 ))}
               </Tabs>
@@ -993,7 +993,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
               <div className="absolute inset-0">
                 <img 
                   src="/assets/images/accreditation.avif" 
-                  alt="AACSB Accreditation Badge for Stevens Institute of Technology" 
+                  alt="" 
                   className="w-full h-full object-cover opacity-30"
                   aria-hidden="true"
                 />
