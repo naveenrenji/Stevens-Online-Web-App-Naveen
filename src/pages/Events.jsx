@@ -304,7 +304,7 @@ export default function Events() {
         <div className="relative max-w-stevens-content-max mx-auto px-stevens-sm stevens-md:px-stevens-lg stevens-xl:px-stevens-xl text-center">
           <h2 className="font-stevens-display text-stevens-3xl stevens-md:text-stevens-4xl font-stevens-bold mb-stevens-md">Schedule a One-On-One Application Walkthrough</h2>
           <p className="text-stevens-lg text-stevens-white/90 mb-stevens-xl max-w-3xl mx-auto leading-relaxed">Take some of the stress out of applying. Connect with the enrollment team today for answers to your questions about eligibility, requirements, application best practices and more.</p>
-          <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer">
+          <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.MAKE_APPOINTMENT)}>
             <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary hover: font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md transition-colors duration-stevens-normal text-stevens-lg flex-1">
               Make an Appointment
             </Button>

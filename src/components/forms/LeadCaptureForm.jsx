@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { trackConversion, CONVERSION_LABELS } from "@/utils/gtmTracking";
 
 export default function LeadCaptureForm({
   title = "Request Information",
@@ -32,6 +33,34 @@ export default function LeadCaptureForm({
     });
     
     script.src = `${baseUrl}${currentParams}&${additionalParams.toString()}`;
+    
+    // Track form submission when iframe loads successfully and user submits
+    script.onload = () => {
+      // Listen for messages from the iframe (if available)
+      const handleMessage = (event) => {
+        // Check if message is from Stevens form and indicates success
+        if (event.data && (event.data.type === 'form-submit' || event.data.status === 'success')) {
+          trackConversion(CONVERSION_LABELS.GET_PROGRAM_DETAILS);
+        }
+      };
+      window.addEventListener('message', handleMessage);
+      
+      // Alternative: Listen for form submission on the embedded form
+      setTimeout(() => {
+        const formContainer = document.getElementById('form_f55a243b-abd6-45ea-8ff2-cd7f7af4d532');
+        if (formContainer) {
+          const forms = formContainer.querySelectorAll('form');
+          forms.forEach(form => {
+            form.addEventListener('submit', () => {
+              // Track after a short delay to ensure submission went through
+              setTimeout(() => {
+                trackConversion(CONVERSION_LABELS.GET_PROGRAM_DETAILS);
+              }, 500);
+            });
+          });
+        }
+      }, 2000);
+    };
     
     // Insert the script
     const firstScript = document.getElementsByTagName('script')[0];

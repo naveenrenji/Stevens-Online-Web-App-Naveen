@@ -36,6 +36,7 @@ import {
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ChatbotButton from "@/components/chat/ChatbotButton";
+import { trackConversion, CONVERSION_LABELS } from "@/utils/gtmTracking";
 import "@/globals.css";
 
 const degreeProgramItems = [
@@ -959,6 +960,7 @@ export default function Layout({ children, currentPageName }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
+                      onClick={() => trackConversion(CONVERSION_LABELS.SCHEDULE_CALL)}
                     >
                       <Button className="w-full bg-stevens-white text-stevens-primary hover:bg-stevens-gray-100 font-stevens-semibold px-stevens-lg py-stevens-md rounded-stevens-md">
                         Schedule a Call
@@ -1062,6 +1064,7 @@ export default function Layout({ children, currentPageName }) {
                   href={BOOKING_URLS.SCHEDULE_CALL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackConversion(CONVERSION_LABELS.SCHEDULE_CALL)}
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
                       clearTimeout(hoverTimeoutRef.current);

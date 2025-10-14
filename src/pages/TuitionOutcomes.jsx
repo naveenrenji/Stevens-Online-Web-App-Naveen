@@ -91,10 +91,10 @@ export default function TuitionOutcomes() {
             Take the next step. Apply now or connect with an admissions advisor to discuss your future at Stevens.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer">
+                <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}>
                     <Button className="btn-secondary px-8 py-3 text-lg">Apply Now</Button>
                 </a>
-                <Link to={createPageUrl("RequestInfo")}>
+                <Link to={createPageUrl("RequestInfo")} onClick={() => trackConversion(CONVERSION_LABELS.REQUEST_INFO)}>
                     <Button variant="outline" className="btn-outline-maroon px-8 py-3 text-lg">Request Information</Button>
                 </Link>
            </div>

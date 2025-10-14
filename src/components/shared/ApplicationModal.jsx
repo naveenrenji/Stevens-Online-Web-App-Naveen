@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { X, ExternalLink, Zap, Check } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import { BOOKING_URLS } from '@/config/constants';
+import { trackConversion, CONVERSION_LABELS } from '@/utils/gtmTracking';
 
 /**
  * ApplicationModal - Shows two application options for MEM and MSCS pages
@@ -142,6 +143,7 @@ export default function ApplicationModal({ isOpen, onClose, traditionalLink }) {
             <Link 
               to={createPageUrl('ASAP')}
               className="btn-stevens-primary w-full text-center inline-block"
+              onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}
             >
               Start ASAP Application
             </Link>

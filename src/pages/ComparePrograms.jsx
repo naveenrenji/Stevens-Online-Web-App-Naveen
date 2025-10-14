@@ -280,6 +280,7 @@ export default function ComparePrograms() {
             href={BOOKING_URLS.SCHEDULE_CALL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackConversion(CONVERSION_LABELS.SCHEDULE_CALL)}
           >
             <Button className="btn-stevens-primary">Connect With Us</Button>
           </a>

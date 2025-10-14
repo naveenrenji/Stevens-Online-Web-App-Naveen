@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { createPageUrl } from '@/utils';
 import ApplicationModal from './ApplicationModal';
+import { trackConversion, CONVERSION_LABELS } from '@/utils/gtmTracking';
 
 /**
  * Program-style hero with background image, multi-line title, subtitle and CTAs.
@@ -31,11 +32,32 @@ export default function PageHero({
       ? 'btn-stevens-primary w-full sm:w-auto'
       : 'btn-stevens-outline text-stevens-white hover:bg-stevens-white hover:text-stevens-primary w-full sm:w-auto';
 
+    // Determine conversion label based on variant and label
+    const getConversionLabel = () => {
+      if (variant === 'primary' && (cta.label.toLowerCase().includes('request') || cta.label.toLowerCase().includes('information'))) {
+        return CONVERSION_LABELS.REQUEST_INFO;
+      }
+      if (variant === 'secondary' && (cta.label.toLowerCase().includes('apply'))) {
+        return CONVERSION_LABELS.APPLY_NOW;
+      }
+      return null;
+    };
+
+    const handleClick = () => {
+      const conversionLabel = getConversionLabel();
+      if (conversionLabel) {
+        trackConversion(conversionLabel);
+      }
+    };
+
     // If this is the secondary CTA and useApplicationModal is true, trigger modal instead
     if (variant === 'secondary' && useApplicationModal && cta.href) {
       return (
         <button 
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            handleClick();
+            setIsModalOpen(true);
+          }}
           className={className}
         >
           {cta.label}
@@ -46,14 +68,14 @@ export default function PageHero({
     if (cta.to) {
       const to = typeof cta.to === 'string' ? createPageUrl(cta.to) : createPageUrl(String(cta.to));
       return (
-        <Link to={to}>
+        <Link to={to} onClick={handleClick}>
           <button className={className}>{cta.label}</button>
         </Link>
       );
     }
     if (cta.href) {
       return (
-        <a href={cta.href} target="_blank" rel="noopener noreferrer">
+        <a href={cta.href} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
           <button className={className}>{cta.label}</button>
         </a>
       );
