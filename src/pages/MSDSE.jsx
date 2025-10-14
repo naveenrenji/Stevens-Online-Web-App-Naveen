@@ -160,7 +160,7 @@ const programData = {
         title: "Mathematics & Foundations",
         description: "<p>Students develop the core mathematical and statistical tools that underpin modern data science. The focus is on linear algebra, calculus, and optimization for modeling complex systems, as well as forecasting methods for time-dependent data.</p>",
         skills: [
-          "Apply concepts from multivariable calculus and linear algebra — such as vector spaces, eigenvalues, and matrix decompositions — to model and analyze data",
+          "Apply concepts from multivariable calculus and linear algebra—such as vector spaces, eigenvalues, and matrix decompositions—to model and analyze data",
           "Use optimization and numerical methods to solve applied data science problems",
           "Conduct time series analysis using ARMA, ARIMA, and related models to forecast trends and interpret temporal data"
         ]
