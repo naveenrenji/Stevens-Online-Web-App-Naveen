@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import LeadCaptureForm from '../components/forms/LeadCaptureForm';
 import { BOOKING_URLS } from '@/config/constants';
+import { trackConversion, CONVERSION_LABELS } from '@/utils/gtmTracking';
 
 export default function Admissions() {
   const keyDates = {
@@ -207,7 +208,7 @@ export default function Admissions() {
                   <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Two letters of recommendation</span></li>
                 </ul>
                 <div className="flex gap-stevens-md">
-                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" className="flex-1" onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}>
                     <Button className="btn-stevens-primary w-full">
                       Apply Now
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -252,7 +253,7 @@ export default function Admissions() {
                     <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Academic transcripts</span></li>
                     <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Resume</span></li>
                   </ul>
-                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer">
+                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}>
                     <Button className="btn-stevens-primary w-full">Apply Now<ArrowRight className="w-4 h-4 ml-2" /></Button>
                   </a>
                 </CardContent>
@@ -309,7 +310,7 @@ export default function Admissions() {
                     <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">TOEFL/IELTS/Duolingo scores (required for international students)</span></li>
                     <li className="flex items-start gap-stevens-sm"><CheckCircle className="w-5 h-5 text-stevens-primary mt-0.5 flex-shrink-0" /><span className="text-stevens-gray-700">Resume</span></li>
                   </ul>
-                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer">
+                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}>
                     <Button className="btn-stevens-primary w-full">Apply Now<ArrowRight className="w-4 h-4 ml-2" /></Button>
                   </a>
                 </CardContent>
@@ -349,7 +350,7 @@ export default function Admissions() {
                 </p>
               </div>
               <div className="stevens-md:text-right">
-                <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer">
+                <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.SCHEDULE_CALL)}>
                   <Button variant="outline" className="  text-stevens-primary px-stevens-xl py-stevens-md rounded-stevens-md">
                     Get In Touch
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -447,7 +448,7 @@ export default function Admissions() {
                   Ready to take the next step? Get more information about our programs and start your application today.
                 </p>
                 <div className="flex flex-col stevens-sm:flex-row gap-stevens-md">
-                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer">
+                  <a href="https://gradadmissions.stevens.edu/apply/?pk=GRNP" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}>
                     <Button className="btn-stevens-secondary bg-stevens-white text-stevens-primary">
                       Apply Now
                     </Button>

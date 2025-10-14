@@ -34,6 +34,7 @@ import LeadCaptureForm from "../components/forms/LeadCaptureForm";
 import ProgramCard from "../components/shared/ProgramCard";
 import ProgramReadinessAssessment from "../components/assessment/ProgramReadinessAssessment";
 import VideoPlayer from "../components/shared/VideoPlayer";
+import { trackConversion, CONVERSION_LABELS } from "@/utils/gtmTracking";
 
 const StatItem = ({ value, label, icon: Icon }) => (
 <div className="text-center flex flex-col items-center justify-center">
@@ -216,7 +217,7 @@ export default function Home() {
                 ambition.
               </p>
               <div className="flex flex-col sm:flex-row gap-stevens-md animate-in slide-in-from-left duration-700 delay-400">
-                <Link to={createPageUrl("request-information/")}>
+                <Link to={createPageUrl("request-information/")} onClick={() => trackConversion(CONVERSION_LABELS.REQUEST_INFO)}>
                   <button className="btn-stevens-primary ">
                     Request Information
                   </button>
@@ -225,6 +226,7 @@ export default function Home() {
                   href="https://gradadmissions.stevens.edu/apply/?pk=GRNP"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}
                 >
                   <button className="btn-stevens-outline text-stevens-white hover:bg-stevens-white hover:text-stevens-primary ">
                     Apply Now

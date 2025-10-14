@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { BOOKING_URLS } from '@/config/constants';
+import { trackConversion, CONVERSION_LABELS } from '@/utils/gtmTracking';
 
 export default function OnlineExperience() {
   const features = [
@@ -183,10 +184,10 @@ export default function OnlineExperience() {
             Connect with our admissions team to get your questions answered and find out if an online program at Stevens is the right fit for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer">
+                <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.SCHEDULE_CALL)}>
                   <Button className="btn-secondary px-8 py-3 text-lg">Schedule a Call</Button>
                 </a>
-                 <Link to={createPageUrl("RequestInfo")}>
+                 <Link to={createPageUrl("RequestInfo")} onClick={() => trackConversion(CONVERSION_LABELS.REQUEST_INFO)}>
                     <Button variant="outline" className="btn-outline-maroon px-8 py-3 text-lg">
                         Request Information
                     </Button>

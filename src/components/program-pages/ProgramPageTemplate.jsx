@@ -11,6 +11,7 @@ import PageHero from '../shared/PageHero';
 import LeadCaptureForm from '../forms/LeadCaptureForm';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import { trackConversion, CONVERSION_LABELS } from '@/utils/gtmTracking';
 
 // Section Component for consistent styling
 // Added paddingClassName to allow per-section padding control (e.g., remove bottom padding)
@@ -832,7 +833,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="prose" dangerouslySetInnerHTML={{ __html: option.description }}/>
-                    <a href={option.url} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <a href={option.url} target="_blank" rel="noopener noreferrer" className="w-full" onClick={() => trackConversion(CONVERSION_LABELS.APPLY_NOW)}>
                       <Button className="w-full btn-secondary mt-2">{option.buttonText} <ArrowRight className="w-4 h-4 ml-2"/></Button>
                     </a>
                   </CardContent>
@@ -842,7 +843,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
             {admissions.consultation && (
               <div className="text-center mt-12">
                 <h3 className="text-xl font-semibold mb-2">{admissions.consultation.title}</h3>
-                <a href={admissions.consultation.url} target="_blank" rel="noopener noreferrer">
+                <a href={admissions.consultation.url} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion(CONVERSION_LABELS.REQUEST_INFO)}>
                   <Button variant="outline" className="btn-outline-maroon">{admissions.consultation.buttonText}</Button>
                 </a>
               </div>
