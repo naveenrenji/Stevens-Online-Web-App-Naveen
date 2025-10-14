@@ -89,11 +89,11 @@ export default function PageHero({
         )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-stevens-gap-lg lg:gap-[120px] items-start lg:items-center">
-          <div>
+          <div className="animate-in slide-in-from-left duration-700">
             {lines.length > 0 ? (
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
                 {lines.map((line, idx) => (
-                  <h1 key={idx} className={`font-display font-bold leading-tight animate-in slide-in-from-left duration-700 ${idx === 0 ? '' : ''} text-3xl sm:text-4xl md:text-5xl lg:text-6xl`}>
+                  <h1 key={idx} className="font-display font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                     {line}
                   </h1>
                 ))}
@@ -105,13 +105,13 @@ export default function PageHero({
             )}
 
             {subtitle && (
-              <p className="mt-stevens-lg text-base sm:text-lg md:text-xl text-gray-200 mb-6 md:mb-8 max-w-xl animate-in slide-in-from-left duration-700 delay-200">
+              <p className="mt-stevens-lg text-base sm:text-lg md:text-xl text-gray-200 mb-6 md:mb-8 max-w-xl">
                 {subtitle}
               </p>
             )}
 
             {(primaryCta || secondaryCta) && (
-              <div className="flex flex-col sm:flex-row gap-stevens-sm sm:gap-stevens-md animate-in slide-in-from-left duration-700 delay-400 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-stevens-sm sm:gap-stevens-md w-full sm:w-auto">
                 {renderCta(primaryCta, 'primary')}
                 {renderCta(secondaryCta, 'secondary')}
               </div>
@@ -133,7 +133,7 @@ export default function PageHero({
           </div>
 
           {/* Right column for additional content */}
-          <div className="block lg:block mt-8 lg:mt-0">
+          <div className="block lg:block mt-8 lg:mt-0 animate-in slide-in-from-right duration-700">
             {rightContent}
           </div>
         </div>
