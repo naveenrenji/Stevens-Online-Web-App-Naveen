@@ -65,16 +65,16 @@ const SkillCardsGrid = ({ modules }) => {
           <Card key={index} className="bg-stevens-white shadow-stevens-lg rounded-stevens-md hover:shadow-stevens-xl transition-all duration-stevens-normal border border-stevens-gray-200">
             <CardHeader className="pb-stevens-sm">
               <div className="flex items-start gap-stevens-md mb-stevens-md">
-                <div className="bg-stevens-primary/10 p-stevens-md rounded-stevens-md border border-stevens-primary/20">
-                  {Icon && <Icon className="w-8 h-8 text-stevens-primary" />}
+                <div className="bg-stevens-gray-100 p-stevens-md rounded-stevens-md border border-stevens-gray-300">
+                  {Icon && <Icon className="w-8 h-8 text-stevens-gray-700" />}
                 </div>
                 <div className="flex-1">
                   <CardTitle className="font-stevens-display text-stevens-xl font-stevens-bold text-stevens-gray-900 leading-tight">
                     {module.title}
                   </CardTitle>
                   {module.growth && (
-                    <p className="text-stevens-sm text-stevens-primary font-stevens-semibold mt-stevens-xs flex items-center gap-stevens-xs">
-                      <TrendingUp className="w-4 h-4" />
+                    <p className="text-stevens-sm text-green-600 font-stevens-semibold mt-stevens-xs flex items-center gap-stevens-xs">
+                      <TrendingUp className="w-4 h-4 text-green-600" />
                       {module.growth}
                     </p>
                   )}
@@ -743,10 +743,10 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
         )}
         
         {faculty && (
-          <Section id="faculty" title={faculty.title || "Meet the Faculty"} refProp={el => sectionRefs.current.faculty = el}>
-            {faculty.description && <p className="text-center text-stevens-xl text-stevens-gray-600 max-w-3xl mx-auto mb-stevens-xl">{faculty.description}</p>}
-            <div className="relative overflow-visible">
-              <div className="flex overflow-x-auto space-x-stevens-sm stevens-md:space-x-stevens-lg pb-stevens-lg pt-stevens-sm snap-x snap-mandatory scrollbar-thin scrollbar-thumb-stevens-primary scrollbar-track-stevens-primary/10 -mx-stevens-sm stevens-md:mx-0 px-stevens-sm stevens-md:px-0">
+          <Section id="faculty" title={faculty.title || "Meet the Faculty"} refProp={el => sectionRefs.current.faculty = el} container={false} paddingClassName="py-stevens-section-sm lg:py-stevens-section">
+            {faculty.description && <p className="text-center text-stevens-xl text-stevens-gray-600 max-w-3xl mx-auto mb-stevens-xl px-stevens-md lg:px-stevens-lg">{faculty.description}</p>}
+            <div className="relative overflow-visible w-full">
+              <div className="flex overflow-x-auto space-x-stevens-sm stevens-md:space-x-stevens-lg pb-stevens-lg pt-stevens-sm snap-x snap-mandatory scrollbar-thin scrollbar-thumb-stevens-primary scrollbar-track-stevens-primary/10 px-stevens-md">
                 {faculty.members.map((member, i) => <FacultyCard key={i} member={member} />)}
               </div>
             </div>

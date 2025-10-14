@@ -216,7 +216,7 @@ const VideoPlayer = ({
             onClick={togglePlayPause}
             className="w-20 h-20 bg-stevens-primary/90 hover:bg-stevens-primary rounded-full flex items-center justify-center transition-all duration-stevens-normal hover:scale-110 shadow-stevens-lg"
           >
-            <PlayCircle className="w-10 h-10 text-stevens-white ml-1" />
+            <PlayCircle className="w-10 h-10 text-stevens-white" />
           </button>
         )}
       </div>

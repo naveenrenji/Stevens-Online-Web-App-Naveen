@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PageHero from "../components/shared/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { BOOKING_URLS } from "@/config/constants";
 
 export default function ComparePrograms() {
   const PROGRAM_OPTIONS = [
@@ -276,7 +277,7 @@ export default function ComparePrograms() {
             Ready to discuss how our programs can help you achieve your goals?
           </h3>
           <a
-            href="https://calendly.com/n3-stevens/30min"
+            href={BOOKING_URLS.SCHEDULE_CALL}
             target="_blank"
             rel="noopener noreferrer"
           >

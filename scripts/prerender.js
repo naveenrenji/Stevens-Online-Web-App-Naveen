@@ -42,7 +42,7 @@ function generateRoutes() {
     '/events/',
     '/online-learning-experience/',
     '/admissions/',
-    '/RequestInfo/',
+    '/request-information/',
     '/ProfessionalEducation',
     '/Certificates',
     '/TuitionOutcomes',
@@ -51,7 +51,7 @@ function generateRoutes() {
     '/explore/online-masters-data-science/',
     '/explore/online-masters-computer-science/',
     '/explore/ai-masters-computer-science/',
-    // "/explore/online-masters-eng-data-science/",
+    '/page-not-found/',
   ];
 
   // Blog routes
