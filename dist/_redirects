@@ -11,7 +11,7 @@
 # Legacy to canonical paths (server-level 301)
 /Tuition        /tuition-and-financial-aid/             301!
 /tuition        /tuition-and-financial-aid/             301!
-/RequestInfo    /requestinfo/                           301!
+/RequestInfo    /request-information/                          301!
 /OnlineExperience  /online-learning-experience/         301!
 /OnlineLearning    /online-learning-experience/         301!
 /MBA            /online-mba/                            301!

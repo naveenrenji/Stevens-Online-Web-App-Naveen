@@ -151,7 +151,7 @@ const programData = {
             </div>
           </div>
           
-          <h5 class="course-term-header">Term 1</h5>
+          <h4 class="course-term-header">Term 1</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt612">MGT 612 Leader Development (3)<span class="course-arrow">▼</span></button>
@@ -168,7 +168,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Term 2</h5>
+          <h4 class="course-term-header">Term 2</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt641">MGT 641 Marketing Management (3)<span class="course-arrow">▼</span></button>
@@ -185,7 +185,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Term 3</h5>
+          <h4 class="course-term-header">Term 3</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt657">MGT 657 Operations Management (3)<span class="course-arrow">▼</span></button>
@@ -202,7 +202,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Term 4</h5>
+          <h4 class="course-term-header">Term 4</h4>
           <div class="space-y-stevens-md">
             <div class="course-item">
               <button class="course-toggle" data-target="mgt663">MGT 663 Discovering and Exploiting Entrepreneurial Opportunities (3)<span class="course-arrow">▼</span></button>
@@ -219,7 +219,7 @@ const programData = {
             </div>
           </div>
           
-          <h4 class="course-section-header">Terms 5 & 6: Electives</h5>
+          <h4 class="course-term-header">Terms 5 & 6: Electives</h4>
           <p class="text-stevens-gray-600">Terms 5 and 6 are elective-only; see Concentrations for course options.</p>`
       },
       
@@ -668,13 +668,13 @@ This course will focus on best practices and emerging trends in sustainable busi
         title: 'Exploring the Online MBA at Stevens Institute of Technology: On-Demand Overview',
         status: 'Ongoing',
         length: '11 minutes',
-        url: 'https://event.on24.com/wcc/r/4455082/77C6B6236A8D0B3F52F27B7AA1B5B6FE'
+        url: 'https://event.on24.com/wcc/r/4670733/9A69E9F6E360B7E9F5C93DDFD5682712?pg=2'
       },
       {
         title: 'Financial Aid Overview: Stevens Institute of Technology',
         status: 'Ongoing',
         length: '10 minutes',
-        url: 'https://event.on24.com/wcc/r/4666980/B9E38A55EDE8C93A4D0D5D8E6AFE7A0B'
+        url: 'https://event.on24.com/wcc/r/5007787/EC42C1EA980050EB628E9A3DAD9BA2BB?pg=2'
       }
     ]
   },

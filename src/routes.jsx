@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, useLocation, useParams } from "react-router-dom";
-import blogsData from "@/data/blogs.json";
+import "@/data/blogs.json";
 
 // Page imports
 import Home from "@/pages/Home";
@@ -11,9 +11,11 @@ import MBA from "@/pages/MBA";
 import MSCS from "@/pages/MSCS";
 import MEM from "@/pages/MEM";
 import MSDS from "@/pages/MSDS";
+import MSDSE from "@/pages/MSDSE";
 import ExploreMBA from "@/pages/ExploreMBA";
 import ExploreMEM from "@/pages/ExploreMEM";
 import ExploreMSDS from "@/pages/ExploreMSDS";
+import ExploreMSDSE from "@/pages/ExploreMSDSE";
 import ExploreMSCS from "@/pages/ExploreMSCS";
 import ExploreMSAI from "@/pages/ExploreMSAI";
 import ComparePrograms from "@/pages/ComparePrograms";
@@ -28,6 +30,7 @@ import Certificates from "@/pages/Certificates";
 import OnlineExperience from "@/pages/OnlineExperience";
 import TuitionOutcomes from "@/pages/TuitionOutcomes";
 import Admissions from "@/pages/Admissions";
+import NotFound from "@/pages/NotFound";
 
 // Redirect component for blog detail pages without trailing slash
 function BlogNoSlashRedirect() {
@@ -149,16 +152,16 @@ export const routes = [
 
   // Request Info
   {
-    path: '/RequestInfo/',
+    path: '/request-information/',
     element: <RequestInfo />
   },
   {
     path: '/RequestInfo',
-    element: <Navigate to="/requestinfo/" replace />
+    element: <Navigate to="/request-information/" replace />
   },
   {
     path: '/requestinfo',
-    element: <Navigate to="/requestinfo/" replace />
+    element: <Navigate to="/request-information/" replace />
   },
 
   // MBA program
@@ -199,6 +202,16 @@ export const routes = [
   {
     path: '/MSDS',
     element: <Navigate to="/online-masters-data-science-msds/" replace />
+  },
+
+  // MSDSE program
+  {
+    path: '/online-masters-data-science-engineering/',
+    element: <MSDSE />
+  },
+  {
+    path: '/MSDSE',
+    element: <Navigate to="/online-masters-data-science-engineering/" replace />
   },
 
   // Compare Programs
@@ -291,12 +304,28 @@ export const routes = [
     element: <ExploreMSDS />
   },
   {
+    path: '/explore/online-masters-eng-data-science/',
+    element: <ExploreMSDSE />
+  },
+  {
     path: '/explore/online-masters-computer-science/',
     element: <ExploreMSCS />
   },
   {
     path: '/explore/ai-masters-computer-science/',
     element: <ExploreMSAI />
+  },
+  
+  // 404 Not Found page
+  {
+    path: '/page-not-found/',
+    element: <NotFound />
+  },
+  
+  // Catch-all route - must be last
+  {
+    path: '*',
+    element: <Navigate to="/page-not-found/" replace />
   }
 ];
 
