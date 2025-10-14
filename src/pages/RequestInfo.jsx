@@ -22,7 +22,7 @@ export default function RequestInfo() {
                   <p className="font-stevens-semibold">Online Master of Engineering in Engineering Management Enrollment:</p>
                   <p>551.277.2702</p>
                   <p>onlineadmissions@stevens.edu</p>
-                  <a href="{BOOKING_URLS.SCHEDULE_CALL}" target="_blank" rel="noopener noreferrer" className="inline-block mt-stevens-sm">
+                  <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" className="inline-block mt-stevens-sm">
                     <span className="btn-stevens-secondary px-stevens-lg py-stevens-sm rounded-stevens-md">Schedule a Call</span>
                   </a>
                 </div>
@@ -30,7 +30,7 @@ export default function RequestInfo() {
                   <p className="font-stevens-semibold">Online Master of Science in Computer Science Enrollment:</p>
                   <p>551.277.2702</p>
                   <p>onlineadmissions@stevens.edu</p>
-                  <a href="{BOOKING_URLS.SCHEDULE_CALL}" target="_blank" rel="noopener noreferrer" className="inline-block mt-stevens-sm">
+                  <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" className="inline-block mt-stevens-sm">
                     <span className="btn-stevens-secondary px-stevens-lg py-stevens-sm rounded-stevens-md">Schedule a Call</span>
                   </a>
                 </div>
@@ -38,7 +38,7 @@ export default function RequestInfo() {
                   <p className="font-stevens-semibold">Online MBA Enrollment:</p>
                   <p>551.277.2702</p>
                   <p>onlineadmissions@stevens.edu</p>
-                  <a href="{BOOKING_URLS.SCHEDULE_CALL}" target="_blank" rel="noopener noreferrer" className="inline-block mt-stevens-sm">
+                  <a href={BOOKING_URLS.SCHEDULE_CALL} target="_blank" rel="noopener noreferrer" className="inline-block mt-stevens-sm">
                     <span className="btn-stevens-secondary px-stevens-lg py-stevens-sm rounded-stevens-md">Schedule a Call</span>
                   </a>
                 </div>
