@@ -7,7 +7,7 @@ const programData = {
   // ==================================================================
   hero: {
     titleLines: ['Earn Your M.Eng. in Applied Data Science Online.'],
-    subtitle: "Build What’s Next. Gain the skills to turn data into intelligent systems that power the future.",
+    subtitle: "Build What's Next. Gain the skills to turn data into intelligent systems that power the future.",
     bgImage: "/assets/images/stevens-manhattan-skyline-ds.webp",
     primaryCta: { label: 'Request Information', to: 'RequestInfo' },
     secondaryCta: { label: 'Apply Now', href: 'https://gradadmissions.stevens.edu/apply/?pk=GRNP' },
@@ -18,37 +18,14 @@ const programData = {
     // ]
   },
   // ==================================================================
-  quickFacts: {
-    atAGlance: [
-      { value: "30", label: "Credit Hours" },
-      { value: "10", label: "Courses" },
-      { value: "100%", label: "Online" },
-      { value: "2 Years", label: "Completion" },
-      { value: "Hands-On", label: "Projects" },
-      { value: "Industry", label: "Focused" }
-    ],
-    termStartDate: "Spring 2026: January 20, 2026",
-    details: `
-      <ul>
-        <li>30 Credit Hours</li>
-        <li>10 Courses</li>
-        <li>100% Online</li>
-        <li>2 Years or Less Completion Time*</li>
-        <li>Integrated data science and engineering curriculum</li>
-        <li>Real-world capstone projects</li>
-      </ul>
-      <p class="text-xs mt-2">*Total time to complete the program may vary based on the number of credits taken each semester.</p>
-    `
-  },
-  // ==================================================================
   overview: {
     title: "Program Overview",
     description: `
       <p>Data science is transforming every industry, from finance and healthcare to energy, logistics, and media. The M.Eng. in Applied Data Science from Stevens builds the technical, analytical, and ethical skills required to lead in this data-driven world.</p>
       
-      <p>Through a curriculum grounded in engineering rigor and real-world application, students master data integration, big data systems, AI model design, and interactive visualization. Coursework combines hands-on projects, case studies, and research-based learning to deliver technical depth with professional relevance.</p>
+      <p class='my-5'>Through a curriculum grounded in engineering rigor and real-world application, students master data integration, big data systems, AI model design, and interactive visualization. Coursework combines hands-on projects, case studies, and research-based learning to deliver technical depth with professional relevance.</p>
       
-      <p>Program at a Glance:</p>
+      <h3 class='text-lg'><strong>Program at a Glance:</strong></h3>
 
       <ul class='my-5'>
         <li><strong>Format: 100% Online</strong></li>
@@ -64,6 +41,29 @@ const programData = {
     ]
   },
   // ==================================================================
+  quickFacts: {
+    atAGlance: [
+      { value: "30", label: "Credit Hours" },
+      { value: "14", label: "Courses" },
+      { value: "100%", label: "Online" },
+      { value: "2 Years", label: "Completion" },
+      { value: "Hands-On", label: "Projects" },
+      { value: "Industry", label: "Focused" }
+    ],
+    termStartDate: "Spring 2026: January 20, 2026",
+    details: `
+      <ul>
+        <li>30 Credit Hours</li>
+        <li>10 Courses</li>
+        <li>100% Online</li>
+        <li>2 Years or Less Completion Time*</li>
+        <li>Integrated data science and engineering curriculum</li>
+        <li>Real-world capstone project</li>
+      </ul>
+      <p class="text-xs mt-2">*Total time to complete the program may vary based on the number of credits taken each semester.</p>
+    `
+  },
+  // ==================================================================
   rankings: [
     {
       ranking: "99%",
@@ -77,26 +77,16 @@ const programData = {
       source: "U.S. Distance Learning Association's 21st Century Award for Best Practices in Distance Learning."
     },
     {
-      ranking: "7x",
-      description: "ROI",
-      source: "average ROI within five years."
-    },
-    {
       ranking: "#15",
       description: "For Best Value",
       source: "Payscale (2024)."
-    },
-    {
-      ranking: "#15",
-      description: "Best Online Graduate Engineering Program",
-      source: "U.S. News & World Report"
     }
   ],
   // ==================================================================
   career: {
     title: "Data Science and Engineering Career Outlook",
     description: `
-      <p>Turn Complex Data into Competitive Advantage. Data scientists and AI engineers remain among the fastest-growing and highest-paid roles globally. With expertise in machine learning, big data, and visualization, Stevens graduates are prepared to lead analytics initiatives, guide strategy, and drive measurable impact.</p>
+      <p>Turn complex data into competitive advantage. Data scientists and AI engineers remain among the fastest-growing and highest-paid roles globally. With expertise in machine learning, big data, and visualization, Stevens graduates are prepared to lead analytics initiatives, guide strategy, and drive measurable impact.</p>
       
       <h3 class='mt-4'><strong>Potential Roles:</strong></h3>
       <ul class='list-disc pl-6'>
@@ -168,41 +158,48 @@ const programData = {
     modules: [
       {
         title: "Mathematics & Foundations",
-        // description: "Students build a foundation in the architecture, development and deployment of complex software systems, with an emphasis on scalability, performance and systems-level thinking.",
+        description: "<p>Students develop the core mathematical and statistical tools that underpin modern data science. The focus is on linear algebra, calculus, and optimization for modeling complex systems, as well as forecasting methods for time-dependent data.</p>",
         skills: [
-          "Linear algebra, calculus, and optimization for data modeling",
-          "Forecasting and time series analysis",
+          "Apply concepts from multivariable calculus and linear algebra - such as vector spaces, eigenvalues, and matrix decompositions - to model and analyze data",
+          "Use optimization and numerical methods to solve applied data science problems",
+          "Conduct time series analysis using ARMA, ARIMA, and related models to forecast trends and interpret temporal data"
         ]
       },
       {
         title: "Programming & Systems",
+        description: "Students gain practical experience with programming languages, data integration tools, and scalable computing systems that support enterprise analytics and business intelligence. The coursework combines data architecture, warehousing, and big data frameworks.",
         skills: [
-          "Python, R, SQL, TensorFlow, Spark, Tableau, and cloud computing frameworks",
-          "Scalable data architecture and integration pipelines",
+          "Program in Python, R, and SQL while leveraging technologies such as TensorFlow, Spark, and Tableau for analytics and visualization",
+          "Design and manage data warehouses, architecture models, and ETL pipelines for business intelligence systems",
+          "Implement scalable big data solutions using distributed computing and cloud-based platforms like Dataiku and Spark"
         ]
       },
       {
         title: "Machine Learning & AI",
+        description:"Students explore the principles and applications of machine learning and artificial intelligence—from foundational algorithms to deep learning and generative AI. Emphasis is placed on both technical implementation and responsible management of AI technologies.",
         skills: [
-          "Supervised and unsupervised learning",
-          "Deep learning and neural networks",
-          "Generative AI, prompt engineering, and augmented intelligence",
-          "Ethical management of AI technologies",
+          "Apply core machine learning methods such as regression, classification, clustering, and dimensionality reduction using Python libraries",
+          "Design and train neural networks and deep learning architectures including CNNs, RNNs, and attention-based models",
+          "Experiment with generative AI and augmented intelligence through prompt engineering and large language models",
+          "Evaluate and manage AI systems ethically, addressing issues of fairness, transparency, and compliance in enterprise contexts",
         ]
       },
       {
         title: "Data Visualization & Communication",
+        description:"Students learn to translate analytical results into clear, compelling visual narratives that inform decision-making. The curriculum emphasizes design thinking, ethical visualization, and storytelling through data.",
         skills: [
-          "Tableau dashboards, Julius.ai, Power BI, and Python visualization libraries",
-          "Storytelling through visual analytics and ethical data design",
+          "Build visualizations and dashboards using Tableau, Power BI, Julius.ai, Python, and R",
+          "Apply principles of perceptual design and ethical visualization to ensure clarity and integrity in data storytelling",
+          "Communicate analytical findings effectively for both technical and business audiences"
         ] 
       },
       {
         title: "Applied Analytics & Business Intelligence",
+        description: "Students apply analytical techniques to real-world business challenges in marketing, operations, and digital contexts. The coursework emphasizes data-driven strategy, governance, and decision-making.",
         skills: [
-          "Marketing and operational analytics ",
-          "Web and text mining",
-          "Data governance and risk management",
+          "Conduct marketing and operational analytics to model customer behavior, optimize campaigns, and measure business performance",
+          "Apply web and text mining techniques—including scraping, clustering, and recommender systems—to extract insights from large-scale data sources",
+          "Implement data governance, security, and risk management practices to ensure trustworthy analytics across enterprise environments",
         ]
       }
     ],
@@ -211,14 +208,16 @@ const programData = {
   whyStevens:{
     title: "Why Choose Stevens?",
     description: `
+    <div class='text-left max-w-[50rem] mx-auto'>
       <h3 class='mb-4'><strong>Innovation Meets Integrity</strong></h3>
-      <ul>
+      <ul class='list-disc pl-5'>
         <li>Curriculum bridges engineering precision with AI-driven innovation.</li>
         <li>Learn from faculty shaping industry practice in AI ethics, big data, and machine learning.</li>
         <li>Apply your skills through hands-on projects and real-world case studies.</li>
         <li>Benefit from a flexible, asynchronous online experience built for working professionals.</li>
         <li>Join a network of Stevens alumni leading at companies like Google, Deloitte, JPMorgan Chase, IBM, and Meta.</li>
       </ul>
+      </div>
     `,
 
   },
@@ -235,23 +234,23 @@ const programData = {
               <h4 class="course-section-header">TERM 1 — Foundations of Data Science</h4>
               <div class="space-y-stevens-md">
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse501">MA 574<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse501">MA 574: Foundational Mathematics for Data Science<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse501">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Foundational Mathematics for Data Science.</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">MA 574: Foundational Mathematics for Data ScienceThis course provides students with the essential background in calculus and linear algebra needed to pursue the study of Data Science. Topics include derivatives and integrals of (multivariable) functions; vectors and matrices; vector spaces and subspaces; norms and projections; the eigendecomposition (diagonalization) of a matrix; the singular value decomposition (SVD) of a matrix; continuous optimization; mappings between Euclidean spaces; and Taylor approximation. Throughout, various applications to Data Science are considered, with hands-on numerical and coding exercises supplementing the theory.</p>
                   </div>
                 </div>
                 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse510">CS 513<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse510">CS 513: Data Analytics & Machine Learning<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse510">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Data Analytics & Machine Learning</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course introduces the principles and practice of data mining and machine learning. Students explore statistical and computational techniques to analyze, classify, and model data. Topics include data preprocessing, decision trees, k-nearest neighbor algorithms, Naïve Bayes, clustering (k-means, hierarchical), regression, neural networks, and advanced methods such as boosting and recommendation systems. The course emphasizes both theoretical understanding and applied learning using Python and real-world datasets.</p>
                   </div>
                 </div>
 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse5111">MIS 636<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse5111">MIS 636: Data Integration for Business Intelligence<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse5111">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Data Integration for Business Intelligence</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course focuses on the design, management, and use of data warehouse (DW) and business intelligence (BI) systems. The DW is the central element in collecting, integrating, and making sense of an organization’s data. BI concerns the full range of analytical applications and their delivery to users. Students learn the business value of data, planning and requirements gathering, data architecture and modeling, and integration processes. Practical examples and case studies highlight the implementation of BI systems and data integration for improved organizational decision-making.</p>
                   </div>
                 </div>
               </div>
@@ -261,23 +260,23 @@ const programData = {
               <h4 class="course-section-header">Term 2 — Applied Analytics</h4>
               <div class="space-y-stevens-md">
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse520">CS 559<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse520">CS 559: Machine Learning<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse520">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Machine Learning</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course covers foundational principles that drive machine learning applications and provides practice implementing algorithms. Topics include maximum likelihood estimation, dimension reduction, supervised and unsupervised learning, neural networks, and non-parametric methods. Students gain tools to address new ML problems, applying techniques such as regression, SVMs, decision trees, clustering, and backpropagation, with an emphasis on practical problem-solving using software libraries and real data.</p>
                   </div>
                 </div>
                 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse530">BIA 660<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse530">BIA 660: Web Mining<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse530">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Web Mining</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Students learn through hands-on experience how to extract and analyze data from the web using distributed computing. The course covers web scraping, text mining, recommender systems, clustering, and natural language processing. Students apply methods widely used by companies like Amazon and Google to analyze web-scale data, culminating in applications to real scientific or business questions.</p>
                   </div>
                 </div>
 
                  <div class="course-item">
-                  <button class="course-toggle" data-target="dse532">BIA 672<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse532">BIA 672: Marketing Analytics<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse532">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Marketing Analytics</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course develops students’ analytical ability to understand consumer and customer behavior using marketing models, analytics, and data management techniques. Topics include customer analytics, product analytics, promotion and digital analytics, channel analytics, and marketing mix optimization. Students use SAS and Python tools to build realistic models, forecast consumer behavior, and formulate marketing strategies based on data-driven insights BIA 672 Syllabus_Summer 23</p>
                   </div>
                 </div>
               </div>
@@ -287,23 +286,23 @@ const programData = {
               <h4 class="course-section-header">Term 3 — Advanced AI and Big Data</h4>
               <div class="space-y-stevens-md">
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse540">CS 583<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse540">CS 583: Deep Learning<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse540">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Deep Learning</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course introduces deep learning concepts and methodologies, covering both theoretical foundations and practical applications. Topics include model selection, neural networks, backpropagation, convolutional neural networks (CNNs), recurrent neural networks (RNNs), attention models, and reinforcement learning from human feedback (RLHF). Students complete programming assignments and a final project involving design and implementation of deep learning models.</p>
                   </div>
                 </div>
                 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse550">BIA 662<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse550">BIA 662: Augmented Intelligence and Generative AI<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse550">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Augmented Intelligence and Generative AI</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course explores the integration of augmented intelligence, generative AI, natural language processing, and deep learning in data-driven business contexts. Students gain foundational and practical knowledge in LLMs, prompt engineering, and AI ethics. A major team project involves developing a proof-of-concept business solution leveraging generative AI to create measurable value.</p>
                   </div>
                 </div>
 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse552">BIA 678<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse552">BIA 678: Big Data Technologies<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse552">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Big Data Technologies</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">The field of Big Data is explored through both business and technical lenses. Students learn to manage the volume, velocity, and variety of data using modern technologies such as Spark, Python, and Dataiku. The course covers big data strategy, governance, AI ethics, and applications of machine learning and IoT within big data ecosystems, preparing students to design scalable solutions for enterprise environments.</p>
                   </div>
                 </div>
               </div>
@@ -313,23 +312,23 @@ const programData = {
               <h4 class="course-section-header">Term 4 — Visualization and Strategy</h4>
               <div class="space-y-stevens-md">
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse560">FA 550<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse560">FA 550: Data Visualization Applications<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse560">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Data Visualization Applications</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Effective visualization of complex data allows for meaningful insight and informed decision-making. This course investigates visualization methods from multiple perspectives and teaches students to use tools such as Tableau, Julius.ai, Python, R, and Power BI to refine data and communicate results effectively. Ethical visualization practices and design theory are also emphasized.</p>
                   </div>
                 </div>
                 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse570">BIA 568<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse570">BIA 568: Management of AI Technologies<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse570">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Management of AI Technologies</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course explores the management, governance, and strategic deployment of Artificial Intelligence (AI) systems within modern organizations. Students examine applications of AI across industries—such as autonomous transportation, fraud detection, and machine translation—while addressing managerial considerations like fairness, accountability, transparency, ethics, and legal compliance. The course emphasizes assessing and managing AI/ML systems, monitoring performance, and developing enterprise-level AI strategies.</p>
                   </div>
                 </div>
 
                 <div class="course-item">
-                  <button class="course-toggle" data-target="dse572">MA 641<span class="course-arrow">▼</span></button>
+                  <button class="course-toggle" data-target="dse572">MA 641: Time Series Analysis I<span class="course-arrow">▼</span></button>
                   <div class="course-content hidden" id="dse572">
-                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">Time Series Analysis I</p>
+                    <p class="text-stevens-sm text-stevens-gray-700 leading-relaxed">This course provides a foundational introduction to modern time series analysis from both theoretical and applied perspectives. Emphasizing the Box–Jenkins methodology, it covers ARMA and ARIMA models, parameter estimation, model diagnostics, forecasting, seasonal (SARMA) models, and time series models of heteroscedasticity (ARCH and GARCH). Students apply these methods using statistical software (R) and real-world datasets, developing skills to analyze, forecast, and interpret time-dependent data.</p>
                   </div>
                 </div>
 
@@ -353,7 +352,7 @@ const programData = {
             <div>
               <h4 class="course-section-header">Apply Data Science to a Real-World Challenge</h4>
               <div class="space-y-stevens-md">
-                <p>n the culminating capstone project, students collaborate to solve a real business or societal problem using advanced analytics and AI-driven solutions. Projects focus on measurable outcomes—ranging from optimizing supply chains to developing predictive health systems.</p>
+                <p>In the culminating capstone project, students collaborate to solve a real business or societal problem using advanced analytics and AI-driven solutions. Projects focus on measurable outcomes—ranging from optimizing supply chains to developing predictive health systems.</p>
                 
                 <h5><strong>Sample Project Topics:</strong></h5>
                 <ul>
@@ -426,7 +425,6 @@ const programData = {
       { title: "Start With Two Courses. Step Into Computer Science", status: "Ongoing", length: "30 minutes", url: "https://event.on24.com/wcc/r/4970040/A6ED251C21B790E2D79369BFB149380A" },
       // { title: "Online M.S. in Computer Science: Areas of Focus", status: "Ongoing", length: "12 minutes", url: "https://event.on24.com/wcc/r/4894227/042446D9C5E18BF3F4D7CD9A7604B1EA" },
       { title: "Financial Aid Overview: Stevens Institute of Technology", status: "Ongoing", length: "10 minutes", url: "https://event.on24.com/wcc/r/4666980/B9E38A55EDE8C93A4D0D5D8E6AFE7A0B" },
-      { title: "Exploring the Online M.S. in Computer Science at Stevens Institute of Technology", status: "Ongoing", length: "23 minutes", url: "https://event.on24.com/wcc/r/4666987/F64CF45C62A5CFE0E6F6E6E7467BD8A0" },
       { title: "Application Walkthrough: Data Science and Computer Science", status: "Ongoing", length: "24 minutes", url: "https://event.on24.com/wcc/r/4455092/4C10B1C30D8D20926A28C1A21C667A29" },
        { title: "Application Overview: Online Master's in Engineering Management", status: "Ongoing", length: "24 minutes", url: "https://event.on24.com/wcc/r/4666982/E2AD4B0C42B0A05A6CB87A9F0D5C04B9" }
     ]

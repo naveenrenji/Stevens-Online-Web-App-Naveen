@@ -156,9 +156,12 @@ const WhatYoullLearnCarousel = ({ modules }) => {
                 
                 {/* Card Content */}
                 <div className="p-stevens-lg">
-                  <p className="text-stevens-gray-700 mb-stevens-lg leading-relaxed">
-                    {module.description}
-                  </p>
+                  {module.description && (
+                    <div 
+                      className="text-stevens-gray-700 mb-stevens-lg leading-relaxed prose max-w-none"
+                      dangerouslySetInnerHTML={{ __html: module.description }}
+                    />
+                  )}
                   
                   <div className="mb-stevens-md">
                     <p className="font-stevens-bold text-stevens-gray-900 mb-stevens-sm">
@@ -491,7 +494,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
         
         {whatYoullLearn && (
           <Section id="what-youll-learn" title={whatYoullLearn.title} bgClassName="bg-stevens-gray-100" refProp={el => sectionRefs.current['what-youll-learn'] = el}>
-            {whatYoullLearn.description && <div className="prose max-w-none text-stevens-gray-900 leading-relaxed mb-10 text-center">{whatYoullLearn.description}</div>}
+            {whatYoullLearn.description && <div className="prose max-w-none text-stevens-gray-900 leading-relaxed mb-10 text-center" dangerouslySetInnerHTML={{ __html: whatYoullLearn.description }} />}
             {whatYoullLearn.modules && whatYoullLearn.modules.length > 0 && (
               whatYoullLearn.variant === 'skillCards' 
                 ? <SkillCardsGrid modules={whatYoullLearn.modules} />
@@ -863,7 +866,7 @@ export default function ProgramPageTemplate({ programData, useApplicationModal =
                 <table className="w-full text-left border-collapse border border-gray-300">
                   <thead className="bg-gray-100">
                     <tr>
-                      {keyDates.headers.map((header, index) => (
+                      {keyDates.headers.map((header) => (
                         <th key={header} className="p-4 font-semibold uppercase text-stevens-white tracking-wider bg-stevens-primary border border-gray-300">
                           {header}
                         </th>

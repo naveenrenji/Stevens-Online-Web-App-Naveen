@@ -4,8 +4,8 @@ import ExploreProgramPageTemplate from '../components/program-pages/ExploreProgr
 const ExploreMSDSE = () => {
   const msdseData = {
     // Hero Section
-    heroTitle: "Earn Your M.Eng. in Applied Data Science Online",
-    programName: "Build What's Next",
+    heroTitle: "Earn Your M.Eng. in Applied Data Science Onlin.",
+    programName: "Build What's Next.",
     heroSubtitle: "Gain the skills to turn data into intelligent systems that power the future.",
     bgImage: "/assets/images/stevens-manhattan-skyline-ds.webp", 
     programCode: "msdse",
@@ -29,10 +29,20 @@ const ExploreMSDSE = () => {
         description: "Stevens ranks among the top 10 in the nation for ROI, according to U.S. News & World Report (2025).²"
       },
       {
-        number: "No. 6",
-        label: "In the Nation",
-        description: "Named the No. 6 Best Online Master's in Industrial Engineering Program in the country by U.S. News & World Report (2025)."
-      }
+        number: "99%",
+        label: "Employment",
+        description: "99% of MSCS graduates in the Class of 2023 accepted job offers within three months of graduating."
+      },
+      {
+        ranking: "#15",
+        description: "For Best Value",
+        source: "Payscale (2024)."
+      },
+      {
+        ranking: "7x",
+        description: "Winner",
+        source: "U.S. Distance Learning Association's 21st Century Award for Best Practices in Distance Learning."
+      },
     ],
     
     // Why Choose Stevens Section
@@ -43,9 +53,9 @@ const ExploreMSDSE = () => {
       
       <p>Our faculty produce groundbreaking research that enables better planning and policy, improves healthcare and treatment, builds our understanding of critical questions, shares useful insight, and makes life safer, more secure and more comfortable. The researchers, practitioners and entrepreneurs that comprise the Stevens Institute of Technology faculty bring innovation and insight to students across disciplines and around the world.</p>
     `,
-    whyChooseStevensVideo: "/assets/videos/Stevens Online MBA - 1.mp4", // Placeholder
-    whyChooseStevensVideoCover: "/assets/videos/video-cover-1.avif", // Placeholder
-    
+    whyChooseStevensVideo: "/assets/videos/Stevens Online Home - 1.mp4", // Placeholder
+    whyChooseStevensVideoCover: "/assets/videos/video-cover-3.avif", // Placeholder
+  
     // Program Benefits
     programBenefitsTitle: "Program Overview",
     programBenefitsDescription: "Data science is transforming every industry, from finance and healthcare to energy, logistics, and media. The M.Eng. in Applied Data Science from Stevens builds the technical, analytical, and ethical skills required to lead in this data-driven world.<br/><br/>Through a curriculum grounded in engineering rigor and real-world application, students master data integration, big data systems, AI model design, and interactive visualization. Coursework combines hands-on projects, case studies, and research-based learning to deliver technical depth with professional relevance. <ul class='list-disc pl-5 my-5'><li>Curriculum bridges engineering precision with AI-driven innovation.</li><li>Learn from faculty shaping industry practice in AI ethics, big data, and machine learning.</li><li>Apply your skills through hands-on projects and real-world case studies.</li><li>Benefit from a flexible, asynchronous online experience built for working professionals.</li><li>Join a network of Stevens alumni leading at companies like Google, Deloitte, JPMorgan Chase, IBM, and Meta.</li></ul>",
@@ -155,7 +165,7 @@ const ExploreMSDSE = () => {
     
     // Contact
     contactTitle: "Want to Learn More?",
-    contactDescription: "Request more information to learn about the upcoming cohort of the Online Master of Science in Data Science and Engineering program.",
+    contactDescription: "Request more information to learn about the upcoming cohort of the Online Master of Engineering in Applied Data Science program.",
     contactButtonText: "Contact Us"
   };
 
