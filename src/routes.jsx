@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, useLocation, useParams } from "react-router-dom";
-import blogsData from "@/data/blogs.json";
+import "@/data/blogs.json";
 
 // Page imports
 import Home from "@/pages/Home";
@@ -11,9 +11,11 @@ import MBA from "@/pages/MBA";
 import MSCS from "@/pages/MSCS";
 import MEM from "@/pages/MEM";
 import MSDS from "@/pages/MSDS";
+import MSDSE from "@/pages/MSDSE";
 import ExploreMBA from "@/pages/ExploreMBA";
 import ExploreMEM from "@/pages/ExploreMEM";
 import ExploreMSDS from "@/pages/ExploreMSDS";
+import ExploreMSDSE from "@/pages/ExploreMSDSE";
 import ExploreMSCS from "@/pages/ExploreMSCS";
 import ExploreMSAI from "@/pages/ExploreMSAI";
 import ComparePrograms from "@/pages/ComparePrograms";
@@ -202,6 +204,16 @@ export const routes = [
     element: <Navigate to="/online-masters-data-science-msds/" replace />
   },
 
+  // MSDSE program
+  {
+    path: '/online-masters-data-science-engineering/',
+    element: <MSDSE />
+  },
+  {
+    path: '/MSDSE',
+    element: <Navigate to="/online-masters-data-science-engineering/" replace />
+  },
+
   // Compare Programs
   {
     path: '/compare-our-programs/',
@@ -290,6 +302,10 @@ export const routes = [
   {
     path: '/explore/online-masters-data-science/',
     element: <ExploreMSDS />
+  },
+  {
+    path: '/explore/online-masters-eng-data-science/',
+    element: <ExploreMSDSE />
   },
   {
     path: '/explore/online-masters-computer-science/',
