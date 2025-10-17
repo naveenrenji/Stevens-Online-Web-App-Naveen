@@ -383,10 +383,13 @@ const programData = {
 // ==================================================================
   admissions: {
       options: [
-        { title: "Standard Application", featured: false, description: `<p>Complete the Standard application and submit the following for review:</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree</li><li>Two letters of recommendation</li><li>Statement of purpose</li><li>Academic transcripts</li><li>Résumé</li></ul>`, buttonText: "Apply Now", url: "https://gradadmissions.stevens.edu/apply/?pk=GRNP" },
-        { title: "ASAP Application", featured: true, description: `<p>Enroll in two eight-week asynchronous courses and gain full admission to the program by earning a grade of “B” or better in each.</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree required</li><li>No letters of recommendation required</li></ul>`, buttonText: "Apply Now", url: createPageUrl('ASAP') }
+        { title: "Standard Application", featured: false, description: `<p>Complete the Standard application and submit the following for review:</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree</li><li>Two letters of recommendation</li><li>Statement of purpose</li><li>Academic transcripts</li><li>Résumé</li></ul>`, buttonText: "Apply Now", url: "https://gradadmissions.stevens.edu/apply/?pk=GRNP", buttonGrayOut: true },
+        { title: "ASAP Application", featured: true, description: `<p>Enroll in two eight-week asynchronous courses and gain full admission to the program by earning a grade of “B” or better in each.</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Bachelor’s degree required</li><li>No letters of recommendation required</li></ul>`, buttonText: "Apply Now", url: createPageUrl('ASAP'), buttonGrayOut: true }
       ],
-      consultation: { title: "Wondering Which Application Is Right for You?", buttonText: "Get In Touch", url: createPageUrl('RequestInfo') }
+      alertMessage: {
+          title:"Applications open October 20!",
+          description: `<h3 class='text-xl my-4'>Ready to take the next step in your academic and professional journey?</h3><p class='mb-4'>Applications open soon—don&apos;t miss your chance to <strong>join a program designed to help you grow, lead, and make an impact.</strong></p>`      
+      }
     },
     // ==================================================================
     keyDates: {
