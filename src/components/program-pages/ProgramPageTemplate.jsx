@@ -11,6 +11,7 @@ import PageHero from '../shared/PageHero';
 import LeadCaptureForm from '../forms/LeadCaptureForm';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import { trackConversion, CONVERSION_LABELS } from '@/utils/gtmTracking';
 
 // Section Component for consistent styling
 // Added paddingClassName to allow per-section padding control (e.g., remove bottom padding)
